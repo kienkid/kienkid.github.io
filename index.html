@@ -1,110 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--Javascript-->
-<script src="Javascript.js"></script>
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buitrungkien Portfolio - Home</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Optionally add a link to Google Fonts for a modern look -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome CDN for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio/Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-  <div class="container header-flex">
-    <img src="/Image/logo.png" class="logo"></img>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="food-reviews.html">Hungry</a></li>
-        <li><a href="video-gallery.html">Watch</a></li>
-        <li><a href="games.html">Play</a></li>
-        <li><a href="blog.html">Study</a></li>
-        <li></li> 
-      </ul>
+
+  <header>
+    <div class="logo">Your Name</div>
+    
+
+    <nav>
+        <ul id="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-  </div>
-</header>
-
-  <main class="container">
-    <!-- Hero Section with Avatar -->
-<section class="hero">
-    <div class="hero-content">
-      <img src="\Image\avatar.jpg" alt="Bui Trung Kien" class="hero-avatar" />
-      <div class="hero-text">
-        <h2>Welcome to My Portfolio</h2>
-        <p>
-          I’m Bùi Trung Kiên – a programming enthusiast with a passion for cybersecurity, data processing, and modern web development.
-        </p>
-        <a href="#cv" class="btn">Learn More About Me</a>
-      </div>
-      
+    <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
-  </section>
-  
+  </header>
 
-    <!-- CV Section -->
-    <section id="cv" class="cv-section">
-      <h2>About Me</h2>
-      <p>
-        I have a strong foundation in Python, SQL, JavaScript, HTML, and CSS, with hands-on experience in financial services and data processing.
-        Currently, I’m pursuing a career in cybersecurity while expanding my technical skills through continuous learning.
-      </p>
+    <main>
+        
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Hello, I'm **[Your Name]**</h1>
+                <p>I am a passionate **[Your Job Title/Focus Area]** specializing in **[Key Technologies/Skills]**.</p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+            <div class="profile-image">
+                <img src="profile.jpg" alt="Your Profile Picture">
+            </div>
+        </section>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Professional Experience</h3>
-          <ul>
-            <li>
-              <strong>Senior Accounting Associate</strong> – First Trust ACPA Vietnam Co., Ltd (May 2023-Present)<br>
-              Providing financial outsourcing services and mentoring junior staff.
-            </li>
-            <li>
-              <strong>Credit Appraisal Collaborator</strong> – Techcombank (Nov 2021-Mar 2022)<br>
-              Appraised credit card applications and assessed creditworthiness.
-            </li>
-          </ul>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>A brief paragraph about your professional journey, interests, and what you're looking for.</p>
+        </section>
+
+        <section id="skills">
+    <h2>Skills</h2>
+    
+    <div class="skills-grid">
+        
+        <div class="skill-card">
+            <h3>HTML5</h3>
+            <p>Semantic Markup</p>
         </div>
 
-        <div class="card">
-          <h3>Certifications & Courses</h3>
-          <ul>
-            <li><a href="https://buitrungkien.github.io" target="_blank">CS50 Python – CS50 (2025)</a></li>
-            <li><a href="https://buitrungkien.github.io" target="_blank">SQL (Basic) – HackerRank (2024)</a></li>
-            <li><a href="https://buitrungkien.github.io" target="_blank">TOEIC (940/990) – ETS (2023)</a></li>
-            <li><a href="https://buitrungkien.github.io" target="_blank">Become a Financial Analyst – LinkedIn (2021)</a></li>
-          </ul>
+        <div class="skill-card">
+            <h3>CSS3</h3>
+            <p>Flexbox & Grid</p>
         </div>
 
-        <div class="card">
-          <h3>Project</h3>
-          <p>
-            <a href="https://buitrungkien.github.io" target="_blank">This website</a>
-          </p>
+        <div class="skill-card">
+            <h3>JavaScript</h3>
+            <p>ES6+ & DOM</p>
         </div>
-      </div>
 
-      <div class="download-cv">
-        <a href="\Image\CV.pdf" target="_blank" class="btn">Download My CV (PDF)</a>
-      </div>
-    </section>
-  </main>
+        <div class="skill-card">
+            <h3>Responsive Design</h3>
+            <p>Mobile First</p>
+        </div>
+        
+        </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="social-media">
-        <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-      <p>© 2025 Buitrungkien. All rights reserved.</p>
+        <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Have a project in mind? Let's chat.</p>
+    
+    <div class="contact-container">
+        <form id="contact-form">
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        
+        <div id="form-feedback" style="display: none; color: green; margin-top: 15px;">
+            Thank you! Your message has been "sent" (simulated).
+        </div>
     </div>
-  </footer>
+</section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name. Built with HTML, CSS, & JS.</p>
+        <div class="social-links">
+            <a href="[Your LinkedIn URL]" target="_blank">LinkedIn</a> |
+            <a href="[Your GitHub URL]" target="_blank">GitHub</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
