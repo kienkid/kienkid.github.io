@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio/Landing Page</title>
+    <title>Losing My Mind?</title>
+    <link rel="icon" type="image/x-icon" href="Image/favicon.webp" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header>
-    <div class="logo">Your Name</div>
+    <div class="logo"><img src="Image/favicon.webp" alt="Your Profile Picture"> What is the purpose of life?</div>
     
 
     <nav>
         <ul id="nav-links">
             <li><a href="#about">About Me</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#skills">Hobby</a></li>
+            <li><a href="#contact">Music</a></li>
+            <li><a href="#contact">Games</a></li>
+            <li><a href="#contact">Gallery</a></li>
+            <li><a href="#contact">Foodie</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -31,79 +34,82 @@
     <main>
         
         <section id="hero">
-            <div class="hero-content">
-                <h1>Hello, I'm **[Your Name]**</h1>
-                <p>I am a passionate **[Your Job Title/Focus Area]** specializing in **[Key Technologies/Skills]**.</p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
-            </div>
             <div class="profile-image">
-                <img src="profile.jpg" alt="Your Profile Picture">
+                <img src="Image/avatar.jpg" alt="Some random picture" onmouseover="hoverHeroImg(this);" onmouseout="unhoverHeroImg(this);" >
             </div>
+            <div class="hero-content">
+                <h1>Hello world!</h1>
+                <p></p>
+                <a href="#about" class="cta-button">Who are you?</a>
+                <a href="#skills" class="cta-button">What is this?</a>
+                <a href="#contact" class="cta-button">We need to talk!</a>
+            </div>
+            
         </section>
 
         <section id="about">
-            <h2>About Me</h2>
+            <h2>Me?</h2>
             <p>A brief paragraph about your professional journey, interests, and what you're looking for.</p>
         </section>
 
         <section id="skills">
-    <h2>Skills</h2>
-    
-    <div class="skills-grid">
-        
-        <div class="skill-card">
-            <h3>HTML5</h3>
-            <p>Semantic Markup</p>
-        </div>
+            <h2>Hobby</h2>
+            
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3>HTML5</h3>
+                    <p>Semantic Markup</p>
+                </div>
 
-        <div class="skill-card">
-            <h3>CSS3</h3>
-            <p>Flexbox & Grid</p>
-        </div>
+                <div class="skill-card">
+                    <h3>CSS3</h3>
+                    <p>Flexbox & Grid</p>
+                </div>
 
-        <div class="skill-card">
-            <h3>JavaScript</h3>
-            <p>ES6+ & DOM</p>
-        </div>
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>ES6+ & DOM</p>
+                </div>
 
-        <div class="skill-card">
-            <h3>Responsive Design</h3>
-            <p>Mobile First</p>
-        </div>
-        
-        </div>
-</section>
+                <div class="skill-card">
+                    <h3>Responsive Design</h3>
+                    <p>Mobile First</p>
+                </div>
+                
+                </div>
+        </section>
 
         <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Have a project in mind? Let's chat.</p>
-    
-    <div class="contact-container">
-        <form id="contact-form">
+            <h2>Contact Me</h2>
+            <p>Have a project in mind? Let's chat.</p>
             
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-            </div>
+            <div class="contact-container">
+                <form id="contact-form">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-            </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
-            </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                    </div>
 
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-        
-        <div id="form-feedback" style="display: none; color: green; margin-top: 15px;">
-            Thank you! Your message has been "sent" (simulated).
-        </div>
-    </div>
-</section>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                
+                <div id="form-feedback" style="display: none; color: green; margin-top: 15px;">
+                    Thank you! Your message has been "sent" (simulated).
+                </div>
+            </div>
+        </section>
 
     </main>
 

@@ -122,6 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function hoverHeroImg(element) {
+  element.setAttribute('src', 'Image/avatar.jpg');
+}
+
+function unhoverHeroImg(element) {
+  element.setAttribute('src', 'Image/avatar2.jpg');
+}
+
 function changeVideo(videoId) {
     const mainVideo = document.getElementById("main-video");
     mainVideo.src = "https://www.youtube.com/embed/" + videoId;

@@ -99,6 +99,11 @@ header {
     color: var(--color-text-dark);
 }
 
+.logo img {
+    width: 20px;
+    height: auto;
+}
+
 nav ul {
     list-style: none;
     display: flex; /* Arrange links horizontally */
@@ -193,8 +198,8 @@ footer {
 /* Styling the actual image tag itself */
 .profile-image img {
     /* Ensure the image is responsive */
-    max-width: 100%; 
-    height: auto; 
+    max-width: 80%; 
+    height: 80%; 
     
     /* Rectangle styling */
     border-radius: 8px; /* Slightly rounded corners for a modern rectangular look. Set to 0px for sharp corners. */
