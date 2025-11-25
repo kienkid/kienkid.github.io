@@ -1,290 +1,445 @@
-/* Basic Reset */
+/* ---------------------------------------------------- */
+/* 0. Color Variables & Global Reset */
+/* ---------------------------------------------------- */
+:root {
+    /* Define colors as variables for easy use */
+    --color-bg-primary: #FDF7E4;
+    --color-bg-secondary: #FAEED1;
+    --color-text-light: #DED0B6;
+    --color-text-dark: #BBAB8C;
+    --color-white: #ffffff; 
+}
+
+/* Basic CSS Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Makes padding and border included in the element's total width and height */
 }
 
-/* Typography and Global Styles */
+/* Set the default font and primary background color */
 body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background-color: #ffffff;
-  color: #333;
-  line-height: 1.6;
+    font-family: 'Arial', sans-serif; /* Use a common sans-serif font for now */
+    background-color: var(--color-bg-primary); 
+    color: var(--color-text-dark); /* Default text color for the body */
+    line-height: 1.6;
 }
 
+/* ---------------------------------------------------- */
+/* 1. Typography (Headings and Links) */
+/* ---------------------------------------------------- */
+h1, h2 {
+    color: var(--color-text-dark);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--color-text-light); /* Subtle underline accent */
+    display: inline-block;
+    padding-bottom: 0.1em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Style for all links */
 a {
-  text-decoration: none;
-  color: inherit;
+    color: var(--color-text-dark);
+    text-decoration: none; /* Remove the default underline */
+    transition: color 0.3s;
 }
 
-/* Container */
-.container {
-  width: 100%;
-  margin: 0 auto;
+a:hover {
+    color: var(--color-text-light); /* Subtle change on hover */
 }
 
-/* Header */
-.site-header {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 20px 0;
-  border-bottom: 1px solid #eaeaea;
+/* ---------------------------------------------------- */
+/* 2. Layout (Containers and Sections) */
+/* ---------------------------------------------------- */
+main {
+    width: 90%;
+    max-width: 1200px; /* Limits the content width on large screens */
+    margin: 0 auto; /* Center the content */
+    padding-top: 80px; /* Space below the fixed header */
 }
 
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+section {
+    padding: 40px 0;
+    margin-bottom: 20px;
 }
 
-.site-header .logo {
-  width: 35.97px;
-  height: 35.97px;
-  margin-left: 3%;
+
+/* ---------------------------------------------------- */
+/* 3. Header & Navigation */
+/* ---------------------------------------------------- */
+header {
+    background-color: var(--color-bg-secondary); 
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fix the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-text-dark);
 }
 
-.main-nav ul li a {
-  font-weight: 600;
-  padding: 8px 12px;
-  text-align:center;
-  float:center;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+.logo img {
+    width: 20px;
+    height: auto;
 }
 
-.main-nav ul li a.active,
-.main-nav ul li a:hover {
-  background-color: #02e4f0;
-  color: #fff;
+nav ul {
+    list-style: none;
+    display: flex; /* Arrange links horizontally */
 }
 
-/* Hero Section */
-.hero {
-  background: #f7f7f7;
-  padding: 80px 20px;
-  text-align: center;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+nav ul li {
+    margin-left: 20px;
 }
 
+nav ul li a {
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+nav ul li a.active {
+    color: var(--color-text-light);
+    border-bottom: 2px solid var(--color-text-light);
+}
+
+/* ---------------------------------------------------- */
+/* 4. CTA Button Style (Used in the Hero section) */
+/* ---------------------------------------------------- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-text-dark); /* Dark color as button background */
+    color: var(--color-bg-primary); /* Light color for button text */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--color-text-light); /* Lighter color on hover */
+    color: var(--color-text-dark);
+}
+
+/* ---------------------------------------------------- */
+/* 5. Footer */
+/* ---------------------------------------------------- */
+footer {
+    background-color: var(--color-bg-secondary);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+    border-top: 1px solid var(--color-text-light);
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: var(--color-text-dark);
+}
+
+/* ---------------------------------------------------- */
+/* 6. Hero Section Specifics */
+/* ---------------------------------------------------- */
+
+#hero {
+    /* Use Flexbox to align items side-by-side */
+    display: flex;
+    align-items: center; /* Vertically center the text with the image */
+    justify-content: space-between; /* Push items to edges with space between */
+    gap: 40px; /* Add adequate space between image and text */
+    padding-top: 60px;
+    padding-bottom: 60px;
+    /* Add a subtle border bottom to separate from the next section */
+    border-bottom: 2px solid var(--color-bg-secondary);
+}
+
+/* The container for the text content */
 .hero-content {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 900px;
+    flex: 3; /* Takes up 3 parts of available space (e.g., 60% width) */
 }
 
-.hero-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #02e4f0;
+/* The container for the profile image */
+.profile-image {
+    flex: 2; /* Takes up 2 parts of available space (e.g., 40% width) */
+    
+    /* --- THE MAGIC TRICK FOR LEFT ALIGNMENT --- */
+    /* By default, items appear in the order they are in HTML.
+       Since the image div is second in HTML, it appears on the right.
+       Setting order: -1 moves it visually to the start (the left side). */
+    order: -1; 
+    /* ----------------------------------------- */
+
+    display: flex;
+    justify-content: center; /* Centers the image within its own container */
 }
 
-.hero-text {
-  flex: 1;
-  text-align: left;
+/* Styling the actual image tag itself */
+.profile-image img {
+    /* Ensure the image is responsive */
+    max-width: 80%; 
+    height: 80%; 
+    
+    /* Rectangle styling */
+    border-radius: 8px; /* Slightly rounded corners for a modern rectangular look. Set to 0px for sharp corners. */
+    
+    /* Using palette colors for a border and shadow to make it pop */
+    border: 4px solid var(--color-bg-secondary);
+    box-shadow: 10px 10px 0px var(--color-text-light); /* A solid "offset" shadow effect */
 }
 
-.hero-text h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-/* Responsive Design */
+/* === RESPONSIVE TWEAK === */
+/* On smaller screens (like tablets/phones), stack them vertically */
 @media (max-width: 768px) {
-  .hero {
-    padding: 60px 20px;
-  }
+    #hero {
+        flex-direction: column; /* Stack top to bottom */
+        text-align: center;
+    }
 
-  .hero-content {
-    flex-direction: column;
+    .profile-image {
+        order: 0; /* Reset order so image appears below text on mobile */
+        margin-top: 30px;
+        flex: auto;
+        width: 80%; /* Make image smaller on mobile */
+    }
+    
+    .profile-image img {
+        box-shadow: 5px 5px 0px var(--color-text-light); /* Smaller shadow on mobile */
+    }
+}
+
+
+/* ---------------------------------------------------- */
+/* 7. Skills Section - Card Grid Layout */
+/* ---------------------------------------------------- */
+
+.skills-grid {
+    display: grid;
+    /* This magic line creates as many columns as fit, with a minimum width of 200px */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Space between cards */
+    margin-top: 30px;
+}
+
+.skill-card {
+    background-color: var(--color-bg-secondary); /* Use your creamy yellow accent */
+    border: 1px solid var(--color-text-light);   /* Subtle tan border */
+    border-radius: 8px;
+    padding: 20px;
     text-align: center;
-  }
-
-  .hero-avatar {
-    width: 120px;
-    height: 120px;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero-text h2 {
-    font-size: 1.8rem;
-  }
-
-  .hero-text p {
-    font-size: 1.1rem;
-  }
+    
+    /* Add a transition so hover effects look smooth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Small shadow for depth */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* CV Section */
-.cv-section {
-  padding: 40px 20px;
+.skill-card h3 {
+    margin-bottom: 10px;
+    color: var(--color-text-dark);
+    font-size: 1.2em;
 }
 
-.cv-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
+.skill-card p {
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+    opacity: 0.8; /* Slightly lighter text for the description */
+    margin-bottom: 0;
 }
 
-.cv-section p {
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-  text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+/* ---------------------------------------------------- */
+/* 8. Hover Effects for Cards */
+/* ---------------------------------------------------- */
+
+.skill-card:hover {
+    /* Lift the card up slightly */
+    transform: translateY(-5px);
+    
+    /* Make the shadow more pronounced */
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    
+    /* Optional: Change border color on hover to highlight */
+    border-color: var(--color-text-dark); 
 }
 
-/* Cards Layout */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 40px;
+/* ---------------------------------------------------- */
+/* 9. Contact Form Styles */
+/* ---------------------------------------------------- */
+
+.contact-container {
+    max-width: 600px; /* Limit the width so it doesn't stretch too far */
+    margin: 0 auto; /* Center the form container */
+    background-color: var(--color-bg-secondary); /* Card-like background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-.card {
-  background-color: #fafafa;
-  padding: 20px;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  flex: 1 1 300px;
-  max-width: 350px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Align labels to the left */
 }
 
-.card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #02e4f0;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-text-dark);
 }
 
-.card ul {
-  list-style-type: disc;
-  margin-left: 20px;
+/* Styling text inputs and text area */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Make inputs fill the container */
+    padding: 12px;
+    border: 2px solid var(--color-text-light);
+    border-radius: 5px;
+    background-color: var(--color-bg-primary); /* Light background for writing area */
+    font-family: inherit; /* Keep the same font as the rest of the site */
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    transition: border-color 0.3s;
 }
 
-.card p {
-  font-size: 1rem;
-  line-height: 1.5;
+/* When the user clicks inside an input */
+input:focus,
+textarea:focus {
+    outline: none; /* Remove default blue outline */
+    border-color: var(--color-text-dark); /* Darken the border on focus */
 }
 
-/* Download CV Button */
-.download-cv {
-  text-align: center;
-  margin-top: 20px;
+/* Styling the Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-text-dark);
+    color: var(--color-bg-primary);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.download-cv .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #02e4f0; /* Accent color for button background */
-  color: #fff; /* Text color */
-  border-radius: 5px;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-  /* The inline-block display makes the button only as wide as its content */
+.submit-btn:hover {
+    background-color: var(--color-text-light);
+    color: var(--color-text-dark);
 }
 
-.download-cv .btn:hover {
-  background-color: #01c0d4;
+/* ---------------------------------------------------- */
+/* 10. RESPONSIVE STYLES (Mobile Optimization) */
+/* ---------------------------------------------------- */
+
+/* Default: Hide the hamburger on desktop */
+.hamburger {
+    display: none;
+    cursor: pointer;
 }
 
-/* Footer Styles */
-.site-footer {
-  padding: 20px 0;
-  border-top: 1px solid #eaeaea;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  margin-top: 40px;
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-text-dark);
 }
 
-.site-footer .social-media {
-  margin-bottom: 10px;
+/* --- MOBILE MEDIA QUERY (Max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    header {
+        width: 100%;
+        /* Ensure the header container itself uses Flexbox to position children */
+        display: flex; 
+        /* This is the key: pushes the .logo (left) and .hamburger (right) to the edges */
+        justify-content: space-between; 
+        /* Center them vertically */
+        align-items: center; 
+        /* Adjust padding to remove width: 100% and use padding instead */
+        padding: 15px 5%; /* Use the same padding as the desktop header */
+    }
+
+    /* 1. Navigation Bar Transformation */
+    .hamburger {
+        display: block; /* Show the button on mobile */
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; /* Hide middle bar when active */
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* Turn into X */
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* Turn into X */
+    }
+
+    nav ul {
+        position: fixed;
+        left: 100%; /* Hide off-screen to the right by default */
+        top: 70px; /* Push down below the header bar */
+        gap: 0;
+        flex-direction: column; /* Stack links vertically */
+        background-color: var(--color-bg-secondary);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s; /* Smooth slide in */
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+        padding-bottom: 20px;
+    }
+
+    nav ul.active {
+        left: 0; /* Slide onto the screen */
+    }
+
+    nav ul li {
+        margin: 16px 0; /* More space between vertical links */
+    }
+
+    /* 2. Typography adjustments */
+    h1 {
+        font-size: 2em; /* Smaller Hero text */
+    }
+    
+    h2 {
+        font-size: 1.5em; /* Smaller Section headings */
+    }
+
+    /* 3. Layout adjustments */
+    main {
+        width: 90%; /* Ensure padding on sides */
+        padding-top: 60px;
+    }
+
+    /* 4. Contact Form adjustments */
+    .contact-container {
+        padding: 20px; /* Less padding inside the form */
+    }
 }
-
-.site-footer .social-media a {
-  margin: 0 10px;
-  color: #333;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.site-footer .social-media a:hover {
-  color: #02e4f0;
-}
-
-/* Video Gallery Section */
-
-
-.video-gallery-section {
-  background-color: #eaf8f8;
-  width: 100%;
-  margin: 0 auto 40px;
-}
-
-.main-video-container {
-  width: 80%;
-  margin: 0 auto 40px;
-  position: relative;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
-}
-
-.main-video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-}
-
-.video-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.video-card img {
-  width: 100%;
-  height: 200px;
-  border-radius: 10px;
-}
-
-.video-card h3 {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #02e4f0;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  text-align: center;
-}
-
