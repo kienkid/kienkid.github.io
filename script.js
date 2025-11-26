@@ -87,12 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Restore button text
                 btn.innerText = originalText;
 
-                // Hide the success message after 5 seconds
+                // Hide the success message after 10 seconds
                 setTimeout(() => {
                     feedbackMsg.style.display = 'none';
-                }, 5000);
+                }, 10000);
 
-            }, 1500); // Wait 1.5 seconds to simulate network request
+            }, 1000); // Wait 1.5 seconds to simulate network request
         });
     }
     // 7. Mobile Navigation Toggle

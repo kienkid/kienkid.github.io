@@ -100,8 +100,8 @@ header {
 }
 
 .logo img {
-    width: 20px;
-    height: auto;
+    width: auto;
+    height: 30px;
 }
 
 nav ul {
