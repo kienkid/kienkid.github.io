@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     feedbackMsg.style.display = 'none';
                 }, 10000);
 
-            }, 1000); // Wait 1.5 seconds to simulate network request
+            }, 1000); // Wait 1 seconds to simulate network request
         });
     }
     // 7. Mobile Navigation Toggle

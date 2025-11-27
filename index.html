@@ -6,21 +6,20 @@
     <title>wubba lubba dub dub</title>
     <link rel="icon" type="image/x-icon" href="Image/favicon.webp" />
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
   <header>
-    <div class="logo"><img src="Image/favicon2.webp" alt="Your Profile Picture"> Hello world!</div>
+    <div class="logo"><img src="Image/favicon5.webp" alt="My Profile Picture"> Hello world!</div>
     
 
     <nav>
         <ul id="nav-links">
             <li><a href="#about">About Me</a></li>
             <li><a href="#skills">Hobby</a></li>
-            <li><a href="#contact">Music</a></li>
-            <li><a href="#contact">Games</a></li>
-            <li><a href="#contact">Gallery</a></li>
-            <li><a href="#contact">Foodie</a></li>
+            <li><a href="#stuffs">Stuffs</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -43,13 +42,14 @@
                 <p></p>
                 <a href="#about" class="cta-button">Who are you?</a>
                 <a href="#skills" class="cta-button">What is this?</a>
+                <a href="#stuffs" class="cta-button">Show me what you got?</a>
+                <a href="Image/CCNA note.pdf" class="cta-button" target="_blank">My CCNA Note$</a>
                 <a href="#contact" class="cta-button">We need to talk!</a>
             </div>
-            
         </section>
 
         <section id="about">
-            <h2>Me?</h2>
+            <h2><img id="about-img" src="Image/favicon2.webp" alt="My Profile Picture"> Me?</h2>
             <p>I’m just someone coexisting with you on this planet we call Earth. Although we don’t know each other, I believe we share something in common. Like you, I’m on a journey to find happiness.</p>
             <p>Perhaps, when we stop chasing butterflies and start nurturing our own garden, the butterflies will come to us naturally. After all, we are all human. Death is inevitable. We know where the finish line lies, but the path ahead is ours to explore.</p>
             <p>I’ve stood on the edge of life before, and it’s only when you lose something that you truly learn to appreciate it.</p>
@@ -60,8 +60,8 @@
         </section>
 
         <section id="skills">
-            <h2>A chapter of my life!</h2>
-            <p>I made this simple page just to have something to look back in the future.</p>
+            <h2><img id="skill-img" src="Image/favicon6.webp" alt="My Profile Picture"> A chapter of my life!</h2>
+            <p>I created this simple page as a way to capture good memories—something I can look back in the future.</p>
             <div class="skills-grid">
                 
                 <div class="skill-card">
@@ -92,13 +92,22 @@
                 </div>
         </section>
 
-        <section id="music"></section> <!--Update later-->
-        <section id="games"></section>
-        <section id="gallery"></section>
-        <section id="foodie"></section>
+        <section id="stuffs">
+            <h2><img id="stuff-img" src="Image/favicon3.webp" alt="My Profile Picture"> Some fun stuff that i made!</h2>
+            <p>Everyone has to start somewhere. That the hard part.</p>
+            <p>"The key to life is to lie to yourself about reality. Smile through everything." - Peter Griffin</p>
+            <div class="stuff-grid">
+                <div id="games" class="skill-card"><h3>Arcade Games</h3></div>
+                <div id="music" class="skill-card"><h3>Virtual Instruments</h3></div>
+                <div id="pomodoro" class="skill-card"><h3>Times Management</h3></div>
+                <div id="foodie" class="skill-card"><h3>I'm Hungry</h3></div>
+                <div id="gallery" class="skill-card"><h3>Showcase</h3></div>
+            </div>
+        </section> <!--Update later-->
+        
 
         <section id="contact">
-            <h2>Wanna talk?</h2>
+            <h2><img id="contact-img" src="Image/favicon4.webp" alt="My Profile Picture"> Wanna talk?</h2>
             <p>Just drop your infomation. Maybe I will reach out.</p>
             
             <div class="contact-container">
@@ -122,8 +131,8 @@
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
                 
-                <div id="form-feedback" style="display: none; color: rgb(255, 0, 0); margin-top: 15px;">
-                    Thank you! Just a kidding form as I host this statis page on Github Page, if you really want to contact, my information is down below.
+                <div id="form-feedback" style="display: none; color: rgb(204, 41, 0); margin-top: 15px;">
+                    ~~Sorry~~ This just a fake form as I host this static page on Github Page without server<br>If you really want to contact, my information is down below on the footer.
                 </div>
             </div>
         </section>
@@ -132,12 +141,12 @@
 
     <footer>
         <div class="social-links">
-            <a href="[Your LinkedIn URL]" target="_blank">LinkedIn logo</a> | <!--need update-->
-            <a href="[Your GitHub URL]" target="_blank">GitHub</a> |
-            <a href="[Your GitHub URL]" target="_blank">Steam</a>
+            <a href="[Your LinkedIn URL]" target="_blank" class="fa-brands fa-linkedin"></a>  <!--need update-->
+            <a href="[Your GitHub URL]" target="_blank" class="fa-brands fa-github"></a> 
+            <a href="[Your GitHub URL]" target="_blank" class="fa-brands fa-steam"></a>
         </div>
         <br>
-        <p>&copy; 2025 KienKid</p>
+        <p>&copy; 2025 Kien made this as a reminder "DO NOT GIVE UP ON YOURSELF".</p>
     </footer>
 
     <script src="script.js"></script>
