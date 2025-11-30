@@ -120,7 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    
 });
+
 
 
 function changeVideo(videoId) {

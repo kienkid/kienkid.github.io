@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="icon" type="image/x-icon" href="Image/favicon.webp" />
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="Image/favicon5.webp" alt="My Profile Picture"> Hello world!</div>
+        
+
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html">Home Page</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h2>Snake Game</h2>
+        </div>
+        <div class="game">
+            <canvas class="snake-game" id="snake-game" width="500" height="500"></canvas>
+            <div id="option-snake-game">
+                
+                <label for="select-speed">Choose game mode:</label>
+                <select id="select-speed">
+                    <option value="200">Easy</option>
+                    <option value="100">Medium</option>
+                    <option value="70">Hard</option>
+                    <option value="50">Very Hard</option>
+                    <option value="30">You must be Flash!</option>
+                    <option value="500">Retarded!</option>
+                </select>
+                <label for="select-level">Choose game map:</label>
+                <select id="select-level">
+                    <option value="1">Map 1</option>
+                    <option value="2">Map 2</option>
+                    <option value="3">Map 3</option>
+                </select>
+                <label for="select-skin">Choose skin set:</label>
+                <select id="select-skin">
+                    <option value="1">Skin1</option>
+                    <option value="2">Skin2</option>
+                    <option value="3">Skin3</option>
+                </select>
+                <label for="begin-btn">Are you ready?:</label>
+                <button id="begin-btn">BEGIN!</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="[Your LinkedIn URL]" target="_blank" class="fa-brands fa-linkedin"></a>  <!--need update-->
+            <a href="[Your GitHub URL]" target="_blank" class="fa-brands fa-github"></a> 
+            <a href="[Your GitHub URL]" target="_blank" class="fa-brands fa-steam"></a>
+        </div>
+        <br>
+        <p>&copy; 2025 Kien made this as a reminder "DO NOT GIVE UP ON YOURSELF".</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="snakes.js"></script>
+</body>
+</html>

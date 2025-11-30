@@ -67,7 +67,7 @@ main {
     width: 90%;
     max-width: 1200px; /* Limits the content width on large screens */
     margin: 0 auto; /* Center the content */
-    padding-top: 80px; /* Space below the fixed header */
+    padding-top: 70px; /* Space below the fixed header */
 }
 
 section {
@@ -484,15 +484,44 @@ textarea:focus {
     /* 3. Layout adjustments */
     main {
         width: 90%; /* Ensure padding on sides */
-        padding-top: 60px;
+        padding-top: 70px;
     }
 
     /* 4. Contact Form adjustments */
     .contact-container {
         padding: 20px; /* Less padding inside the form */
     }
+
+    /*Snake game*/
+
+    .game{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .snake-game {
+    background-color: var(--color-bg-secondary);
+    border: 20px solid var(--color-bg-primary);
+    width: 100%;
+    }
+
 }
 
 /* ---------------------------------------------------- */
-/* 11.  */
+/* 11.  Snake Games*/
 /* ---------------------------------------------------- */
+
+.snake-game {
+    background-color: var(--color-bg-secondary);
+    border: 10px solid var(--color-bg-primary);
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#option-snake-game {
+    margin-left: 10%;
+}
