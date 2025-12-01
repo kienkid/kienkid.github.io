@@ -6,10 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const foodImg = new Image();
     const wallImg = new Image();
 
-    headImg.src = 'Image/headUp.png';
-    bodyImg.src = 'Image/body.png';
-    foodImg.src = 'Image/food.png';  
-    wallImg.src = 'Image/wall.png';  
+    const startButton = document.getElementById("begin-btn");
+    const levelValue = document.getElementById("select-level");
+    const speedValue = document.getElementById("select-speed");
+
+    let gameStatus = 1;
+
+    //Skin choosing
+    const skinPath = document.getElementById("select-skin");
+    let headUpPath = skinPath.value + 'headUp.png';
+    let headDownPath = skinPath.value + 'headDown.png';
+    let headLeftPath = skinPath.value + 'headLeft.png';
+    let headRightPath = skinPath.value + 'headRight.png';
+    let bodyPath = skinPath.value + 'body.png';
+    let foodPath = skinPath.value + 'food.png';
+    let wallPath = skinPath.value + 'wall.png';
+
+    headImg.src = headUpPath;
+    bodyImg.src = bodyPath;
+    foodImg.src = foodPath;  
+    wallImg.src = wallPath;  
 
     const gridSize = 20; //the size of each block in the canvas
     const tileCount = canvas.width / gridSize; //the game cordinate (x,y) will be from (0,0) to (width/gridSize)
@@ -86,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             direction = { x: 0, y: 0 };
             score = 0;
             food = { x: 14, y: 13 };
+            gameStatus = 0;
         }
 
         // Draw food
@@ -110,20 +127,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener("keydown", e => {
     switch (e.key) {
-        case "ArrowUp": if (direction.y === 0) {direction = { x: 0, y: -1 }; headImg.src = 'Image/headUp.png'}; e.preventDefault(); break;
-        case "ArrowDown": if (direction.y === 0) {direction = { x: 0, y: 1 }; headImg.src = 'Image/headDown.png'}; e.preventDefault(); break;
-        case "ArrowLeft": if (direction.x === 0) {direction = { x: -1, y: 0 }; headImg.src = 'Image/headLeft.png'}; e.preventDefault(); break;
-        case "ArrowRight": if (direction.x === 0) {direction = { x: 1, y: 0 }; headImg.src = 'Image/headRight.png'}; e.preventDefault(); break;
-        case "w": if (direction.y === 0) {direction = { x: 0, y: -1 }; headImg.src = 'Image/headUp.png'}; e.preventDefault(); break;
-        case "s": if (direction.y === 0) {direction = { x: 0, y: 1 }; headImg.src = 'Image/headDown.png'}; e.preventDefault(); break;
-        case "a": if (direction.x === 0) {direction = { x: -1, y: 0 }; headImg.src = 'Image/headLeft.png'}; e.preventDefault(); break;
-        case "d": if (direction.x === 0) {direction = { x: 1, y: 0 }; headImg.src = 'Image/headRight.png'}; e.preventDefault(); break;
-        case "W": if (direction.y === 0) {direction = { x: 0, y: -1 }; headImg.src = 'Image/headUp.png'}; e.preventDefault(); break;
-        case "S": if (direction.y === 0) {direction = { x: 0, y: 1 }; headImg.src = 'Image/headDown.png'}; e.preventDefault(); break;
-        case "A": if (direction.x === 0) {direction = { x: -1, y: 0 }; headImg.src = 'Image/headLeft.png'}; e.preventDefault(); break;
-        case "D": if (direction.x === 0) {direction = { x: 1, y: 0 }; headImg.src = 'Image/headRight.png'}; e.preventDefault(); break;
+        case "ArrowUp": if (direction.y === 0) {direction = { x: 0, y: -1 }; headImg.src = headUpPath}; e.preventDefault(); break;
+        case "ArrowDown": if (direction.y === 0) {direction = { x: 0, y: 1 }; headImg.src = headDownPath}; e.preventDefault(); break;
+        case "ArrowLeft": if (direction.x === 0) {direction = { x: -1, y: 0 }; headImg.src = headLeftPath}; e.preventDefault(); break;
+        case "ArrowRight": if (direction.x === 0) {direction = { x: 1, y: 0 }; headImg.src = headRightPath}; e.preventDefault(); break;
+        case "w": if (direction.y === 0) {direction = { x: 0, y: -1 }; headImg.src = headUpPath}; e.preventDefault(); break;
+        case "s": if (direction.y === 0) {direction = { x: 0, y: 1 }; headImg.src = headDownPath}; e.preventDefault(); break;
+        case "a": if (direction.x === 0) {direction = { x: -1, y: 0 }; headImg.src = headLeftPath}; e.preventDefault(); break;
+        case "d": if (direction.x === 0) {direction = { x: 1, y: 0 }; headImg.src = headRightPath}; e.preventDefault(); break;
+        case "W": if (direction.y === 0) {direction = { x: 0, y: -1 }; headImg.src = headUpPath}; e.preventDefault(); break;
+        case "S": if (direction.y === 0) {direction = { x: 0, y: 1 }; headImg.src = headDownPath}; e.preventDefault(); break;
+        case "A": if (direction.x === 0) {direction = { x: -1, y: 0 }; headImg.src = headLeftPath}; e.preventDefault(); break;
+        case "D": if (direction.x === 0) {direction = { x: 1, y: 0 }; headImg.src = headRightPath}; e.preventDefault(); break;
     }
     });
 
-    setInterval(drawGame, 70, 5);
+    function beginGame () {
+        gameStatus = 1
+        let intervalId = setInterval(()=> {
+        if (gameStatus == 0) {
+            clearInterval(intervalId);
+        } else {
+            drawGame(levelValue.value);
+        }
+    }, speedValue.value);}
+
+    startButton.addEventListener('click', beginGame);
 });
