@@ -150,6 +150,7 @@ footer {
     background-color: var(--color-bg-secondary);
     text-align: center;
     padding: 20px 0;
+    margin-top: 10px;
     font-size: 0.9em;
     border-top: 1px solid var(--color-text-light);
 }
@@ -513,15 +514,45 @@ textarea:focus {
 
 .snake-game {
     background-color: var(--color-bg-secondary);
-    border: 10px solid var(--color-bg-primary);
+    border: 5px solid var(--color-text-dark);
 }
 
 .game {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 #option-snake-game {
     margin-left: 10%;
+}
+
+#begin-btn {    
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-dark);
+    border-color: var(--color-text-dark);
+    border-style: solid;
+    padding: 10px 20px;
+    font-size: 80px;
+    border-radius: 8px; /* Smooth corners */
+    cursor: pointer;
+}
+
+
+#begin-btn:hover {
+    background-color: var(--color-text-light);
+}
+
+
+.snake-select {
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-text-light);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.snake-select:focus {
+    border-color: var(--color-bg-secondary);
 }

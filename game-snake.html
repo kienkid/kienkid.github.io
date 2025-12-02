@@ -29,14 +29,15 @@
 
     <main>
         <div>
-            <h2>Snake Game</h2>
+            <h2><img id="stuff-img" src="Image/favicon7.webp" alt="My Profile Picture"> Snake Game</h2>
         </div>
         <div class="game">
             <canvas class="snake-game" id="snake-game" width="500" height="500"></canvas>
             <div id="option-snake-game">
-                
+                <button id="begin-btn">PLAY!</button>
+                <h2 id="score-Text"></h2>
                 <label for="select-speed">Choose game mode:</label>
-                <select id="select-speed">
+                <select class ="snake-select" id="select-speed">
                     <option value="200">Easy</option>
                     <option value="100">Medium</option>
                     <option value="70">Hard</option>
@@ -45,7 +46,7 @@
                     <option value="500">Retarded!</option>
                 </select>
                 <label for="select-level">Choose game map:</label>
-                <select id="select-level">
+                <select class ="snake-select" id="select-level">
                     <option value="1">Map 1</option>
                     <option value="2">Map 2</option>
                     <option value="3">Map 3</option>
@@ -53,30 +54,28 @@
                     <option value="5">Map 5</option>
                 </select>
                 <label for="select-skin">Choose skin set:</label>
-                <select id="select-skin">
+                <select class ="snake-select" id="select-skin">
                     <option value="Image/snake/1/">Normal Snake</option>
                     <option value="Image/snake/2/">Ender Dragon</option>
                     <option value="Image/snake/3/">Dragon Ball</option>
                     <option value="Image/snake/4/">Train</option>
                     <option value="Image/snake/5/">PacMan</option>
                 </select>
-                <label for="begin-btn">Are you ready?:</label>
-                <button id="begin-btn">BEGIN!</button>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="social-links">
-            <a href="[Your LinkedIn URL]" target="_blank" class="fa-brands fa-linkedin"></a>  <!--need update-->
-            <a href="[Your GitHub URL]" target="_blank" class="fa-brands fa-github"></a> 
-            <a href="[Your GitHub URL]" target="_blank" class="fa-brands fa-steam"></a>
+            <a href="https://www.linkedin.com/in/buitrungkien/" target="_blank" class="fa-brands fa-linkedin"></a>
+            <a href="https://github.com/kienkid" target="_blank" class="fa-brands fa-github"></a> 
+            <a href="https://steamcommunity.com/id/kid2802" target="_blank" class="fa-brands fa-steam"></a>
         </div>
         <br>
         <p>&copy; 2025 Kien made this as a reminder "DO NOT GIVE UP ON YOURSELF".</p>
     </footer>
 
     <script src="script.js"></script>
-    <script src="snakes.js"></script>
+    <script src="Scripts/snakes.js"></script>
 </body>
 </html>

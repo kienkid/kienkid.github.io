@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById("begin-btn");
     const levelValue = document.getElementById("select-level");
     const speedValue = document.getElementById("select-speed");
+    const scoreText = document.getElementById("score-Text");
 
     let gameStatus = 1;
 
@@ -112,12 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (
             (snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) || (wall.some(segment => segment.x === head.x && segment.y === head.y))
         ) {
-            alert("Game Over! Score: " + score);
+            scoreText.innerText = "Game Over! Score: " + score;
             snake = [{ x: 10, y: 11 }];
             direction = { x: 0, y: 0 };
             score = 0;
             food = { x: 14, y: 13 };
             gameStatus = 0;
+            startButton.style.display = 'inline-block';
+            return;
         }
 
         // Draw food
@@ -134,10 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Draw score
-        ctx.fillStyle = "black";
-        ctx.font = "16px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText("Score: " + score, canvas.width / 2, 16);
+        scoreText.innerText = "Score: " + score;
     }
 
     document.addEventListener("keydown", e => {
@@ -159,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function beginGame () {
         gameStatus = 1
+        startButton.style.display = 'none';
         let intervalId = setInterval(()=> {
         if (gameStatus == 0) {
             clearInterval(intervalId);
