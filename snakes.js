@@ -13,16 +13,31 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameStatus = 1;
 
     //Skin choosing
-    const skinPath = document.getElementById("select-skin");
-    let headUpPath = skinPath.value + 'headUp.png';
-    let headDownPath = skinPath.value + 'headDown.png';
-    let headLeftPath = skinPath.value + 'headLeft.png';
-    let headRightPath = skinPath.value + 'headRight.png';
-    let bodyPath = skinPath.value + 'body.png';
-    let foodPath = skinPath.value + 'food.png';
-    let wallPath = skinPath.value + 'wall.png';
+    const skinPathElement = document.getElementById("select-skin");
+    let skinPath = skinPathElement.value;
+    skinPathElement.addEventListener('change', (event) => {
+        skinPath = event.target.value;
+        headUpPath = skinPath + 'headUp.png';
+        headDownPath = skinPath + 'headDown.png';
+        headLeftPath = skinPath + 'headLeft.png';
+        headRightPath = skinPath + 'headRight.png';
+        bodyPath = skinPath + 'body.png';
+        foodPath = skinPath + 'food.png';
+        wallPath = skinPath + 'wall.png';
+        headImg.src = headDownPath;
+        bodyImg.src = bodyPath;
+        foodImg.src = foodPath;  
+        wallImg.src = wallPath; 
+        });
+    let headUpPath = skinPath + 'headUp.png';
+    let headDownPath = skinPath + 'headDown.png';
+    let headLeftPath = skinPath + 'headLeft.png';
+    let headRightPath = skinPath + 'headRight.png';
+    let bodyPath = skinPath + 'body.png';
+    let foodPath = skinPath + 'food.png';
+    let wallPath = skinPath + 'wall.png';
 
-    headImg.src = headUpPath;
+    headImg.src = headDownPath;
     bodyImg.src = bodyPath;
     foodImg.src = foodPath;  
     wallImg.src = wallPath;  
