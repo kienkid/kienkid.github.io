@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Virtual Piano</title>
+        <link rel="icon" type="image/x-icon" href="Image/favicon.webp" />
+        <link rel="stylesheet" href="styles.css">
+        <!-- Font Awesome CDN for social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+        <header>
+            <div class="logo"><img src="Image/favicon5.webp" alt="My Profile Picture"> Music time!</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="index.html">Home Page</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <main>
+            <div class="piano-controls">
+            <div class="control">
+                <label for="volume">Volume</label>
+                <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" />
+            </div>
+
+            <div class="control">
+                <label for="tempo">Tempo <span id="tempoVal">120</span> BPM</label>
+                <input id="tempo" type="range" min="40" max="240" step="1" value="120" />
+            </div>
+
+            <div class="control-buttons">
+                <button id="metronomeToggle" aria-pressed="false" title="Toggle metronome">Metronome: Off</button>
+                <button id="sustainToggle" aria-pressed="false" title="Toggle sustain">Sustain: Off</button>
+            </div>
+            </div>
+
+            <div class="piano-wrap">
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c"      ></div>
+                        <div class="key black c_sharp"></div>
+                        <div class="key white d"      ></div>
+                        <div class="key black d_sharp"></div>
+                        <div class="key white e"      ></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f"      ></div>
+                        <div class="key black f_sharp"></div>
+                        <div class="key white g"      ></div>
+                        <div class="key black g_sharp"></div>
+                        <div class="key white a"      ></div>
+                        <div class="key black a_sharp"></div>
+                        <div class="key white b"      ></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c"      ></div>
+                        <div class="key black c_sharp"></div>
+                        <div class="key white d"      ></div>
+                        <div class="key black d_sharp"></div>
+                        <div class="key white e"      ></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f"      ></div>
+                        <div class="key black f_sharp"></div>
+                        <div class="key white g"      ></div>
+                        <div class="key black g_sharp"></div>
+                        <div class="key white a"      ></div>
+                        <div class="key black a_sharp"></div>
+                        <div class="key white b"      ></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Use your keyboard: labels on keys show mappings. Works with mouse/touch. Host on GitHub Pages.</p>
+        </footer>  
+        <script src="script.js"></script>
+        <script src="Scripts/piano.js"></script>
+    </body>
+</html>

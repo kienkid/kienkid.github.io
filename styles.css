@@ -556,3 +556,101 @@ textarea:focus {
 .snake-select:focus {
     border-color: var(--color-bg-secondary);
 }
+
+
+/* ---------------------------------------------------- */
+/* 12.  Virtual Piano*/
+/* ---------------------------------------------------- */
+
+
+/* Whole piano layout (contain [A1, A#1, B1] and octaves and last C8*/
+.piano-wrap {
+  width: 80vw;
+  height: 40vh;
+  display: flex;
+  justify-content: center;   /* Center horizontally */
+  align-items: center;       /* Center vertically */
+  background: #f9f9f9;       /* Simple light background */
+  box-sizing: border-box;
+}
+
+/* Octave container (need adjust width and height base on number of octave */
+.octave {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+
+/* Split Octave into 2 part */
+.octave-first {
+  display: flex;
+  width: calc((100%/7) * 3);
+  position: relative;
+}
+.octave-second {
+  display: flex;
+  width: calc((100%/7) * 4);
+  position: relative;
+}
+
+/* White key style */
+.key.white {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ccc;
+  height: 100%;
+  position: relative;
+}
+
+/* Black key style */
+.key.black {
+  position: absolute;
+  top: 0;
+  height: 60%;
+  background: #222;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+
+/* Black Key layout position in octave */
+.octave-first .key.black {
+    width: calc((100% / 30) * 6);
+}
+.octave-second .key.black {
+    width: calc((100% / 84) * 12);
+}
+
+.octave-first .key.black.c_sharp {
+    left: calc((100% / 30) * 6);
+}
+.octave-first .key.black.d_sharp {
+    left: calc((100% / 30) * 18);
+}
+
+.octave-second .key.black.f_sharp {
+    left: calc((100% / 84) * 12);
+}
+.octave-second .key.black.g_sharp {
+    left: calc((100% / 84) * 36);
+}
+.octave-second .key.black.a_sharp {
+    left: calc((100% / 84) * 60);
+}
+
+/*Pressed animation*/
+.key.white:active {
+  background: #ffd166;
+}
+.key.black:active {
+  background: #ffbe0b;
+}
+
+/* Responsive text inside keys (if any) */
+.key {
+  font-size: calc(0.8vh);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 2px;
+}
+
