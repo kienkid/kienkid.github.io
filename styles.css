@@ -566,12 +566,15 @@ textarea:focus {
 /* Whole piano layout (contain [A1, A#1, B1] and octaves and last C8*/
 .piano-wrap {
   width: 80vw;
-  height: 40vh;
+  height: 30vh;
   display: flex;
   justify-content: center;   /* Center horizontally */
   align-items: center;       /* Center vertically */
   background: #f9f9f9;       /* Simple light background */
   box-sizing: border-box;
+  border: 2px solid black; /* Sets a 2px solid blue border */
+  border-radius: 15px;      /* Rounds the corners with a 15px radius */
+  padding: 20px;
 }
 
 /* Octave container (need adjust width and height base on number of octave */
@@ -647,7 +650,8 @@ textarea:focus {
 
 /* Responsive text inside keys (if any) */
 .key {
-  font-size: calc(0.8vh);
+  font-size: 30%;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: flex-end;
