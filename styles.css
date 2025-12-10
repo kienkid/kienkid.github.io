@@ -542,6 +542,9 @@ textarea:focus {
     background-color: var(--color-text-light);
 }
 
+#begin-btn:active {
+    background-color: #ffd166;
+}
 
 .snake-select {
     background-color: var(--color-white);
@@ -563,6 +566,42 @@ textarea:focus {
 /* ---------------------------------------------------- */
 
 
+.piano-controls {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Vertically center items */
+    gap: 1rem; /* Optional: adds consistent spacing between items */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    padding: 10px;
+}
+
+.control,
+.control-buttons {
+    display: flex;
+    flex-direction: column; /* Keep label above input/button */
+    align-items: center;
+    
+}
+
+.control-buttons {
+    flex-direction: row; /* Buttons side by side */
+    gap: 0.5rem; /* Space between buttons */
+}
+
+#metronomeToggle, #sustainToggle {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-dark);
+    border-color: var(--color-text-dark);
+    border-style: solid;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#metronomeToggle:hover, #sustainToggle:hover {
+    background-color: var(--color-text-light)
+}
+
 /* Whole piano layout (contain [A1, A#1, B1] and octaves and last C8*/
 .piano-wrap {
   width: 80vw;
@@ -574,13 +613,25 @@ textarea:focus {
   box-sizing: border-box;
   border: 2px solid black; /* Sets a 2px solid blue border */
   border-radius: 15px;      /* Rounds the corners with a 15px radius */
-  padding: 20px;
+  padding: 5% 2% 2% 2%;
+}
+
+.first-3-key {
+  display: flex;
+  width: calc((100%/53) * 2);
+  height: 100%;
+}
+
+.last-key {
+  display: flex;
+  width: calc((100%/53));
+  height: 100%;
 }
 
 /* Octave container (need adjust width and height base on number of octave */
 .octave {
   display: flex;
-  width: 50%;
+  width: calc((100%/53) * 7);
   height: 100%;
 }
 
@@ -593,6 +644,12 @@ textarea:focus {
 .octave-second {
   display: flex;
   width: calc((100%/7) * 4);
+  position: relative;
+}
+
+.first-3-key-detail {
+  display: flex;
+  width: 100%;
   position: relative;
 }
 
@@ -617,12 +674,14 @@ textarea:focus {
 
 /* Black Key layout position in octave */
 .octave-first .key.black {
-    width: calc((100% / 30) * 6);
+    width: calc((100% / 30) * 5.95);
 }
 .octave-second .key.black {
-    width: calc((100% / 84) * 12);
+    width: calc((100% / 84) * 12.5);
 }
-
+.first-3-key .key.black {
+    width: calc((100%/3.35));
+}
 .octave-first .key.black.c_sharp {
     left: calc((100% / 30) * 6);
 }
@@ -639,6 +698,9 @@ textarea:focus {
 .octave-second .key.black.a_sharp {
     left: calc((100% / 84) * 60);
 }
+.first-3-key-detail .key.black.a_sharp {
+    left: calc((100% / 3));
+}
 
 /*Pressed animation*/
 .key.white:active {
@@ -647,10 +709,13 @@ textarea:focus {
 .key.black:active {
   background: #ffbe0b;
 }
+#metronomeToggle:active, #sustainToggle:active {
+  background: #ffd166;
+}
 
 /* Responsive text inside keys (if any) */
 .key {
-  font-size: 30%;
+  font-size: 50%;
   color: black;
   display: flex;
   justify-content: center;
