@@ -706,7 +706,13 @@ textarea:focus {
 .key.white:active {
   background: #ffd166;
 }
+.key.white.active {
+  background: #ffd166;
+}
 .key.black:active {
+  background: #ffbe0b;
+}
+.key.black.active {
   background: #ffbe0b;
 }
 #metronomeToggle:active, #sustainToggle:active {
