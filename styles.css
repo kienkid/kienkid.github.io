@@ -307,12 +307,14 @@ footer {
     font-size: 1.2em;
 }
 
-.skill-card p {
-    font-size: 0.9em;
-    color: var(--color-text-dark);
-    opacity: 0.8; /* Slightly lighter text for the description */
-    margin-bottom: 0;
+.skill-card a {
+    text-decoration: none;
 }
+
+.skill-card a:hover {
+    text-decoration: underline;
+}
+
 
 /* ---------------------------------------------------- */
 /* 8. Hover Effects for Cards */
@@ -729,3 +731,17 @@ textarea:focus {
   padding-bottom: 2px;
 }
 
+.key.black {
+  color: white;
+}
+
+.fa-solid.fa-arrow-right-to-bracket, .fa-solid.fa-arrow-left, .fa-solid.fa-arrow-right {
+  padding-bottom: 12%;
+}
+
+/* Hide text on mobile*/
+@media (max-width: 990px) and (orientation: landscape)  {
+    .piano-text {
+        visibility: hidden;
+    }
+}
