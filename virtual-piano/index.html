@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Virtual Piano</title>
+        <link rel="icon" type="image/x-icon" href="../Image/favicon.webp" />
+        <link rel="stylesheet" href="../styles.css">
+        <!-- Font Awesome CDN for social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+        <header>
+            <div class="logo"><img src="../Image/favicon5.webp" alt="My Profile Picture"> Music time!</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="../index.html">Home Page</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <main>
+            <div>
+                <h2><img id="stuff-img" src="../Image/favicon3.webp" alt="My Profile Picture"> Virtual Piano</h2>
+            </div>
+            <div class="piano-controls">
+            <div class="control">
+                <label for="volume">Volume <i class="fa-solid fa-volume-high"></i></label>
+                <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5" />
+            </div>
+
+            <div class="control">
+                <label for="tempo">Tempo <span id="tempoVal">120</span> BPM</label>
+                <input id="tempo" type="range" min="40" max="240" step="1" value="120" />
+            </div>
+
+            <div class="control-buttons">
+                <button id="metronomeToggle" aria-pressed="false" title="Toggle metronome">Metronome: Off</button>
+                <button id="sustainToggle" aria-pressed="false" title="Toggle sustain">Sustain: Off</button>
+            </div>
+            </div>
+
+            <div class="piano-wrap">
+                <div class="first-3-key" aria-label="Virtual piano" role="application">
+                    <div class="first-3-key-detail">     
+                            <div class="key white a" id="A0" keyboard-key="Escape" ><p class="piano-text">Esc</p><audio controls style="display:none"><source src="../Assets/A0.ogg" type="audio/ogg"></audio></div>
+                            <div class="key black a_sharp" id="A#0" keyboard-key="~" ><p class="piano-text">~</p><audio controls style="display:none"><source src="../Assets/Asharp0.ogg" type="audio/ogg"></audio></div>
+                            <div class="key white b" id="B0" keyboard-key="`" ><p class="piano-text">`</p><audio controls style="display:none"><source src="../Assets/B0.ogg" type="audio/ogg"></audio></div>
+                    </div>  
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C1" keyboard-key="!" ><p class="piano-text">!</p><audio controls style="display:none"><source src="../Assets/C1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#1" keyboard-key="@" ><p class="piano-text">@</p><audio controls style="display:none"><source src="../Assets/Csharp1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D1" keyboard-key="#" ><p class="piano-text">#</p><audio controls style="display:none"><source src="../Assets/D1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#1" keyboard-key="$" ><p class="piano-text">$</p><audio controls style="display:none"><source src="../Assets/Dsharp1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E1" keyboard-key="%" ><p class="piano-text">%</p><audio controls style="display:none"><source src="../Assets/E1.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F1" keyboard-key="^" ><p class="piano-text">^</p><audio controls style="display:none"><source src="../Assets/F1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#1" keyboard-key="&" ><p class="piano-text">&</p><audio controls style="display:none"><source src="../Assets/Fsharp1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G1" keyboard-key="*" ><p class="piano-text">*</p><audio controls style="display:none"><source src="../Assets/G1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#1" keyboard-key="(" ><p class="piano-text">(</p><audio controls style="display:none"><source src="../Assets/Gsharp1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A1" keyboard-key=")" ><p class="piano-text">)</p><audio controls style="display:none"><source src="../Assets/A1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#1" keyboard-key="_" ><p class="piano-text">_</p><audio controls style="display:none"><source src="../Assets/Asharp1.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B1" keyboard-key="+" ><p class="piano-text">+</p><audio controls style="display:none"><source src="../Assets/B1.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C2" keyboard-key="1" ><p class="piano-text">1</p><audio controls style="display:none"><source src="../Assets/C2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#2" keyboard-key="2" ><p class="piano-text">2</p><audio controls style="display:none"><source src="../Assets/Csharp2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D2" keyboard-key="3" ><p class="piano-text">3</p><audio controls style="display:none"><source src="../Assets/D2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#2" keyboard-key="4" ><p class="piano-text">4</p><audio controls style="display:none"><source src="../Assets/Dsharp2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E2" keyboard-key="5" ><p class="piano-text">5</p><audio controls style="display:none"><source src="../Assets/E2.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F2" keyboard-key="6" ><p class="piano-text">6</p><audio controls style="display:none"><source src="../Assets/F2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#2" keyboard-key="7" ><p class="piano-text">7</p><audio controls style="display:none"><source src="../Assets/Fsharp2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G2" keyboard-key="8" ><p class="piano-text">8</p><audio controls style="display:none"><source src="../Assets/G2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#2" keyboard-key="9" ><p class="piano-text">9</p><audio controls style="display:none"><source src="../Assets/Gsharp2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A2" keyboard-key="0" ><p class="piano-text">0</p><audio controls style="display:none"><source src="../Assets/A2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#2" keyboard-key="-" ><p class="piano-text">-</p><audio controls style="display:none"><source src="../Assets/Asharp2.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B2" keyboard-key="=" ><p class="piano-text">=</p><audio controls style="display:none"><source src="../Assets/B2.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C3" keyboard-key="q" ><p class="piano-text">q</p><audio controls style="display:none"><source src="../Assets/C3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#3" keyboard-key="w" ><p class="piano-text">w</p><audio controls style="display:none"><source src="../Assets/Csharp3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D3" keyboard-key="e" ><p class="piano-text">e</p><audio controls style="display:none"><source src="../Assets/D3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#3" keyboard-key="r" ><p class="piano-text">r</p><audio controls style="display:none"><source src="../Assets/Dsharp3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E3" keyboard-key="t" ><p class="piano-text">t</p><audio controls style="display:none"><source src="../Assets/E3.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F3" keyboard-key="y" ><p class="piano-text">y</p><audio controls style="display:none"><source src="../Assets/F3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#3" keyboard-key="u" ><p class="piano-text">u</p><audio controls style="display:none"><source src="../Assets/Fsharp3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G3" keyboard-key="i" ><p class="piano-text">i</p><audio controls style="display:none"><source src="../Assets/G3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#3" keyboard-key="o" ><p class="piano-text">o</p><audio controls style="display:none"><source src="../Assets/Gsharp3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A3" keyboard-key="p" ><p class="piano-text">p</p><audio controls style="display:none"><source src="../Assets/A3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#3" keyboard-key="[" ><p class="piano-text">[</p><audio controls style="display:none"><source src="../Assets/Asharp3.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B3" keyboard-key="]" ><p class="piano-text">]</p><audio controls style="display:none"><source src="../Assets/B3.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C4" keyboard-key="a" ><p class="piano-text">a</p><audio controls style="display:none"><source src="../Assets/C4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#4" keyboard-key="s" ><p class="piano-text">s</p><audio controls style="display:none"><source src="../Assets/Csharp4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D4" keyboard-key="d" ><p class="piano-text">d</p><audio controls style="display:none"><source src="../Assets/D4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#4" keyboard-key="f" ><p class="piano-text">f</p><audio controls style="display:none"><source src="../Assets/Dsharp4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E4" keyboard-key="g" ><p class="piano-text">g</p><audio controls style="display:none"><source src="../Assets/E4.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F4" keyboard-key="h" ><p class="piano-text">h</p><audio controls style="display:none"><source src="../Assets/F4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#4" keyboard-key="j" ><p class="piano-text">j</p><audio controls style="display:none"><source src="../Assets/Fsharp4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G4" keyboard-key="k" ><p class="piano-text">k</p><audio controls style="display:none"><source src="../Assets/G4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#4" keyboard-key="l" ><p class="piano-text">l</p><audio controls style="display:none"><source src="../Assets/Gsharp4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A4" keyboard-key=";" ><p class="piano-text">;</p><audio controls style="display:none"><source src="../Assets/A4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#4" keyboard-key="'" ><p class="piano-text">'</p><audio controls style="display:none"><source src="../Assets/Asharp4.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B4" keyboard-key="Enter" ><p class="fa-solid fa-arrow-right-to-bracket piano-text"></p><audio controls style="display:none"><source src="../Assets/B4.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C5" keyboard-key="z" ><p class="piano-text">z</p><audio controls style="display:none"><source src="../Assets/C5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#5" keyboard-key="x" ><p class="piano-text">x</p><audio controls style="display:none"><source src="../Assets/Csharp5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D5" keyboard-key="c" ><p class="piano-text">c</p><audio controls style="display:none"><source src="../Assets/D5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#5" keyboard-key="v" ><p class="piano-text">v</p><audio controls style="display:none"><source src="../Assets/Dsharp5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E5" keyboard-key="b" ><p class="piano-text">b</p><audio controls style="display:none"><source src="../Assets/E5.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F5" keyboard-key="n" ><p class="piano-text">n</p><audio controls style="display:none"><source src="../Assets/F5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#5" keyboard-key="m" ><p class="piano-text">m</p><audio controls style="display:none"><source src="../Assets/Fsharp5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G5" keyboard-key="," ><p class="piano-text">,</p><audio controls style="display:none"><source src="../Assets/G5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#5" keyboard-key="." ><p class="piano-text">.</p><audio controls style="display:none"><source src="../Assets/Gsharp5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A5" keyboard-key="/" ><p class="piano-text">/</p><audio controls style="display:none"><source src="../Assets/A5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#5" keyboard-key="ArrowLeft" ><p class="fa-solid fa-arrow-left piano-text"></p><audio controls style="display:none"><source src="../Assets/Asharp5.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B5" keyboard-key="ArrowRight" ><p class="fa-solid fa-arrow-right piano-text"></p><audio controls style="display:none"><source src="../Assets/B5.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C6" keyboard-key="Q" ><p class="piano-text">Q</p><audio controls style="display:none"><source src="../Assets/C6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#6" keyboard-key="W" ><p class="piano-text">W</p><audio controls style="display:none"><source src="../Assets/Csharp6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D6" keyboard-key="E" ><p class="piano-text">E</p><audio controls style="display:none"><source src="../Assets/D6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#6" keyboard-key="R" ><p class="piano-text">R</p><audio controls style="display:none"><source src="../Assets/Dsharp6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E6" keyboard-key="T" ><p class="piano-text">T</p><audio controls style="display:none"><source src="../Assets/E6.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F6" keyboard-key="Y" ><p class="piano-text">Y</p><audio controls style="display:none"><source src="../Assets/F6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#6" keyboard-key="U" ><p class="piano-text">U</p><audio controls style="display:none"><source src="../Assets/Fsharp6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G6" keyboard-key="I" ><p class="piano-text">I</p><audio controls style="display:none"><source src="../Assets/G6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#6" keyboard-key="O" ><p class="piano-text">O</p><audio controls style="display:none"><source src="../Assets/Gsharp6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A6" keyboard-key="P" ><p class="piano-text">P</p><audio controls style="display:none"><source src="../Assets/A6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#6" keyboard-key="{" ><p class="piano-text">{</p><audio controls style="display:none"><source src="../Assets/Asharp6.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B6" keyboard-key="}" ><p class="piano-text">}</p><audio controls style="display:none"><source src="../Assets/B6.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="octave" aria-label="Virtual piano" role="application">
+                    <div class="octave-first">
+                        <div class="key white c" id="C7" keyboard-key="A" ><p class="piano-text">A</p><audio controls style="display:none"><source src="../Assets/C7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black c_sharp" id="C#7" keyboard-key="S" ><p class="piano-text">S</p><audio controls style="display:none"><source src="../Assets/Csharp7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white d" id="D7" keyboard-key="D" ><p class="piano-text">D</p><audio controls style="display:none"><source src="../Assets/D7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black d_sharp" id="D#7" keyboard-key="F" ><p class="piano-text">F</p><audio controls style="display:none"><source src="../Assets/Dsharp7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white e" id="E7" keyboard-key="G" ><p class="piano-text">G</p><audio controls style="display:none"><source src="../Assets/E7.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                    <div class="octave-second">
+                        <div class="key white f" id="F7" keyboard-key="H" ><p class="piano-text">H</p><audio controls style="display:none"><source src="../Assets/F7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black f_sharp" id="F#7" keyboard-key="J" ><p class="piano-text">J</p><audio controls style="display:none"><source src="../Assets/Fsharp7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white g" id="G7" keyboard-key="K" ><p class="piano-text">K</p><audio controls style="display:none"><source src="../Assets/G7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black g_sharp" id="G#7" keyboard-key="L" ><p class="piano-text">L</p><audio controls style="display:none"><source src="../Assets/Gsharp7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white a" id="A7" keyboard-key=":" ><p class="piano-text">:</p><audio controls style="display:none"><source src="../Assets/A7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key black a_sharp" id="A#7" keyboard-key="<" ><p class="piano-text"><</p><audio controls style="display:none"><source src="../Assets/Asharp7.ogg" type="audio/ogg"></audio></div>
+                        <div class="key white b" id="B7" keyboard-key=">" ><p class="piano-text">></p><audio controls style="display:none"><source src="../Assets/B7.ogg" type="audio/ogg"></audio></div>
+                    </div>
+                </div>
+                <div class="last-key" aria-label="Virtual piano" role="application">
+                        <div class="key white c" id="C8" keyboard-key="?" ><p class="piano-text">?</p><audio controls style="display:none"><source src="../Assets/C8.ogg" type="audio/ogg"></audio></div>
+                </div>                
+            </div>
+        </main>
+
+        <footer>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/buitrungkien/" target="_blank" class="fa-brands fa-linkedin"></a>
+            <a href="https://github.com/kienkid" target="_blank" class="fa-brands fa-github"></a> 
+            <a href="https://steamcommunity.com/id/kid2802" target="_blank" class="fa-brands fa-steam"></a>
+        </div>
+        <br>
+        <p>&copy; 2025 Kien made this as a reminder "DO NOT GIVE UP ON YOURSELF".</p>
+        </footer>
+        <script src="../script.js"></script>
+        <script src="piano.js"></script>
+    </body>
+</html>
