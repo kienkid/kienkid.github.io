@@ -314,6 +314,7 @@ footer {
 
 .skill-card a:hover {
     text-decoration: underline;
+    color: var(--color-hover);
 }
 
 
