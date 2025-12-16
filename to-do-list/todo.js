@@ -1,6 +1,7 @@
 // --- Data & storage ---
-const STORAGE_KEY = 'todoList.v1';
-/** @type {{id:string,title:string,priority:number,done:boolean,createdAt:number}[]} */
+const STORAGE_KEY = 'KienTodoList';
+/* JSON format [{id:string,title:string,priority:number,done:boolean,createdAt:number},...] */
+const taskListUl = document.getElementById('taskList');
 let tasks = [];
 let sortDesc = true; // Sort High→Low by default
 let editingId = null;
@@ -11,7 +12,7 @@ function loadTasks() {
     tasks = raw ? JSON.parse(raw) : [];
     // normalize any older shapes
     tasks = tasks.map(t => ({
-        id: t.id ?? crypto.randomUUID?.() ?? String(Math.random()),
+        id: t.id ?? crypto.randomUUID?.() ?? String(Math.random()), //random id for div generate
         title: String(t.title ?? ''),
         priority: normalizePriority(t.priority),
         done: Boolean(t.done),
@@ -22,9 +23,13 @@ function loadTasks() {
     tasks = [];
     }
 }
+
+// Save task into local storage
 function saveTasks() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
+
+// convert priority from text to number value
 function normalizePriority(p) {
     // Accept "high|medium|low" or 1/2/3
     if (typeof p === 'string') {
@@ -39,17 +44,17 @@ function normalizePriority(p) {
 }
 
 // --- Rendering ---
-const taskListEl = document.getElementById('taskList');
 function renderTasks() {
-    taskListEl.innerHTML = '';
+    taskListUl.innerHTML = '';
     tasks.forEach((t, index) => {
+    // Create li tag inside the ul tag
     const li = document.createElement('li');
     li.className = 'task';
     li.draggable = true;
     li.dataset.index = String(index);
     li.setAttribute('aria-grabbed', 'false');
 
-    // Done checkbox
+    // Create checkbox, if checkbox ticked => call save task and render task again
     const cb = document.createElement('input');
     cb.type = 'checkbox';
     cb.checked = t.done;
@@ -60,24 +65,24 @@ function renderTasks() {
         renderTasks();
     });
 
-    // Title
+    // Create div description, if tickbox checked => add class done to styling
     const title = document.createElement('div');
     title.className = 'title' + (t.done ? ' done' : '');
     title.textContent = t.title;
 
-    // Priority badge
+    // Create Priority badge
     const prio = document.createElement('span');
     prio.className = 'prio';
     prio.dataset.priority = String(t.priority);
     prio.textContent = t.priority === 3 ? 'High' : t.priority === 2 ? 'Medium' : 'Low';
 
-    // Edit button
+    // Create Edit button => if clicked => call open edit dialog
     const editBtn = document.createElement('button');
     editBtn.textContent = 'Edit';
     editBtn.className = 'secondary';
     editBtn.addEventListener('click', () => openEditDialog(t.id));
 
-    // Optional delete (not required, but handy)
+    // Create Delete button => remove from the task array and save task, render again
     const delBtn = document.createElement('button');
     delBtn.textContent = 'Delete';
     delBtn.className = 'danger';
@@ -90,24 +95,27 @@ function renderTasks() {
         }
     });
 
+    // Merge 2 button into 1 parent div
     const actions = document.createElement('div');
     actions.className = 'row-actions';
     actions.append(editBtn, delBtn);
 
-    // Drag handle (use the prio badge or the whole row)
+    // Create Drag button
     const dragHandle = document.createElement('span');
     dragHandle.textContent = '↕︎';
     dragHandle.title = 'Drag to reorder';
     dragHandle.style.cursor = 'grab';
 
+    // Merge all created element inside the li tag, calling applyDragEvents for draging interaction => append inside the ul tag
     li.append(cb, title, prio, dragHandle, actions);
     applyDragEvents(li);
-    taskListEl.appendChild(li);
+    taskListUl.appendChild(li);
     });
 }
 
-// --- Drag & Drop reorder ---
+// Drag & Drop section
 let dragFromIndex = null;
+// Add event listener for drag and drop animation, styling and calling move task function
 function applyDragEvents(li) {
     li.addEventListener('dragstart', (e) => {
     dragFromIndex = Number(li.dataset.index);
@@ -135,6 +143,8 @@ function applyDragEvents(li) {
     moveTask(dragFromIndex, toIndex);
     });
 }
+
+// re-arrange function in the tasklist object, save and render the ul tag
 function moveTask(from, to) {
     const item = tasks.splice(from, 1)[0];
     tasks.splice(to, 0, item);
@@ -142,13 +152,18 @@ function moveTask(from, to) {
     renderTasks();
 }
 
-// --- Add / Insert row ---
+// Add task section
 const newTitleEl = document.getElementById('newTitle');
 const newPriorityEl = document.getElementById('newPriority');
+
 document.getElementById('addBtn').addEventListener('click', addTask);
+
+// if press Enter => equal to click on the addTask button
 newTitleEl.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') addTask();
 });
+
+// Add task function
 function addTask() {
     const title = newTitleEl.value.trim();
     const priority = Number(newPriorityEl.value);
@@ -164,18 +179,21 @@ function addTask() {
     createdAt: Date.now()
     });
     saveTasks();
+    // clear the current task input value after add task
     newTitleEl.value = '';
     renderTasks();
 }
 
-// --- Edit dialog ---
-const dlg = document.getElementById('editDialog');
+// Edit section
+const dialogEl = document.getElementById('editDialog');
 const editTitleEl = document.getElementById('editTitle');
 const editPriorityEl = document.getElementById('editPriority');
 const editDoneEl = document.getElementById('editDone');
+
+// event listener on click save edit button => update the task value in the local storage
 document.getElementById('saveEditBtn').addEventListener('click', (e) => {
     e.preventDefault();
-    if (!editingId) return dlg.close();
+    if (!editingId) return dialogEl.close();
     const i = tasks.findIndex(t => t.id === editingId);
     if (i >= 0) {
     tasks[i].title = editTitleEl.value.trim();
@@ -185,8 +203,10 @@ document.getElementById('saveEditBtn').addEventListener('click', (e) => {
     renderTasks();
     }
     editingId = null;
-    dlg.close();
+    dialogEl.close();
 });
+
+// open dialog with showModal function, fill the current value inside the modal
 function openEditDialog(id) {
     const t = tasks.find(x => x.id === id);
     if (!t) return;
@@ -194,10 +214,10 @@ function openEditDialog(id) {
     editTitleEl.value = t.title;
     editPriorityEl.value = String(t.priority);
     editDoneEl.checked = t.done;
-    dlg.showModal();
+    dialogEl.showModal();
 }
 
-// --- Sort by priority ---
+// Sorting button
 const sortBtn = document.getElementById('sortBtn');
 sortBtn.addEventListener('click', () => {
     sortDesc = !sortDesc;
@@ -210,7 +230,7 @@ sortBtn.addEventListener('click', () => {
     renderTasks();
 });
 
-// --- Export JSON ---
+// Export button
 document.getElementById('exportBtn').addEventListener('click', () => {
     const data = JSON.stringify(tasks, null, 2);
     const blob = new Blob([data], { type: 'application/json' });
@@ -227,7 +247,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
     }, 0);
 });
 
-// --- Import from file ---
+// Import file selection
 document.getElementById('importFile').addEventListener('change', (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -244,7 +264,7 @@ document.getElementById('importFile').addEventListener('change', (e) => {
     e.target.value = ''; // reset input
 });
 
-// --- Import from pasted text (simple prompt) ---
+// Import with JSON input
 document.getElementById('importTextBtn').addEventListener('click', () => {
     const raw = prompt('Paste JSON array of tasks or an object containing "tasks":');
     if (!raw) return;

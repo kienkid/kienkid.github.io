@@ -8,6 +8,7 @@
     --color-text-light: #DED0B6;
     --color-text-dark: #BBAB8C;
     --color-white: #ffffff; 
+    --color-hover: #ffd166;
 }
 
 /* Basic CSS Reset */
@@ -745,3 +746,166 @@ textarea:focus {
         visibility: hidden;
     }
 }
+
+
+/* ---------------------------------------------------- */
+/* 13.  To do list*/
+/* ---------------------------------------------------- */
+
+.controlsTodo, .add-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.add-row input[type="text"] {
+    width: 65vw;
+    min-width: 50vw;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--color-text-dark);
+    background: var(--color-text-light);
+    color: rgb(119, 111, 104);
+    font-weight: bolder;
+    ;
+}
+
+#newPriority, #exportBtn, #sortBtn, #importTextBtn, #addBtn, #editPriority, .dialog-actions button{
+    margin: 15px 0px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--color-text-light);
+    color: rgb(119, 111, 104);
+    font-weight: bold;
+    cursor: pointer;
+}
+#importFileLabel {
+    margin-bottom: 0px;
+}
+
+#importFile{
+    margin: 15px 0px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--color-text-light);
+    color: var(--color-text-dark);
+    cursor: pointer;
+}
+
+#newPriority:hover, #exportBtn:hover, #sortBtn:hover, #importTextBtn:hover, #addBtn:hover, #importFile:hover, .dialog-actions button:hover {
+    background-color: #ffd166;
+}
+
+button.secondary { background: #3b82f6; border-color: #2563eb; color: #061127; }
+button.danger { background: #ef4444; border-color: #dc2626; color: #260606; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+ul#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+}
+li.task {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--color-text-dark);
+    border-radius: 12px;
+    background: var(--color-text-light);
+    color: rgb(119, 111, 104);
+    font-weight: bold;
+}
+li.task.drag-over { outline: 2px dashed var(--color-text-light); background: #ffd97f }
+li.task.dragging { opacity: 0.6; background: var(--color-bg-secondary); }
+
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.title.done { text-decoration: line-through; color: var(--color-text-dark); }
+
+.prio {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: var(--color-text-light);
+}
+.prio[data-priority="3"] { color: #ee1616; background: #ffd166; } /* High */
+.prio[data-priority="2"] { color: #6b4400; background: #ffd166; } /* Medium */
+.prio[data-priority="1"] { color: #22c55e; background: #ffd166; } /* Low */
+
+.row-actions {
+    display: flex;
+    gap: 6px;
+}
+
+dialog {
+    border: 1px solid var(--color-text-dark);
+    border-radius: 14px;
+    padding: 16px 16px 12px;
+    background: var(--color-bg-secondary);
+    color: var(--color-text-light);
+    width: min(520px, 92vw);
+}
+dialog::backdrop {
+    background: rgba(2, 6, 23, 0.6);
+}
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 14px;
+}
+#taskList button {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: black;
+    font-weight: bold;
+}
+
+#editDialog {
+    position: fixed;
+    top: 50%;         
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(119, 111, 104);
+    font-weight: bold;
+    text-align: center;
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+.field label { 
+    font-size: 12px; 
+    color: rgb(119, 111, 104);
+    font-weight: bold;
+}
+.field input[type="text"] {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--color-text-dark);
+    background: var(--color-text-light);
+    color: rgb(119, 111, 104);
+    font-weight: bold;
+}
+
+#editDialog.field {
+    display:flex; 
+    align-items:center; 
+    gap:8px;
+}
+
+
