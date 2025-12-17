@@ -69,16 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault(); // STOP the page from refreshing
 
-            // Here you would typically send data to a server.
-            // For now, we simulate a delay to make it feel real.
-            
-            // Change button text to show processing
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
             btn.innerText = 'Sending...';
 
             setTimeout(() => {
-                // Reset the form (clear inputs)
+                // Reset the form
                 contactForm.reset();
                 
                 // Show success message
@@ -87,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Restore button text
                 btn.innerText = originalText;
 
-                // Hide the success message after 10 seconds
+                // Hide the message after 10 seconds
                 setTimeout(() => {
                     feedbackMsg.style.display = 'none';
                 }, 10000);
 
-            }, 1000); // Wait 1 seconds to simulate network request
+            }, 1000); // Wait 1 seconds to fake network request
         });
     }
     // 7. Mobile Navigation Toggle
@@ -123,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
 });
-
 
 
 function changeVideo(videoId) {

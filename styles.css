@@ -910,3 +910,82 @@ dialog::backdrop {
 }
 
 
+/* ---------------------------------------------------- */
+/* 14.  Sleep time*/
+/* ---------------------------------------------------- */
+
+#sleep-app {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+    justify-content: center;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8vw;
+}
+
+#sleep-app input {
+    color: black;
+    background-color: var(--color-hover);
+    padding: 4px 10px;
+    font-size: 1vw;
+}
+
+#sleep-app button {
+    color: black;
+    background-color: var(--color-hover);
+    padding: 6px 20px;
+    font-size: 1vw;
+}
+
+#currentTimeP {
+    padding: 10px 20px;
+    font-size: 4.5vw;
+    border-radius: 8px;
+    color: #0ac12e;
+    text-shadow: 0 0 20px rgb(10, 230, 83); /* glow effect */
+    margin-bottom: 0;
+}
+
+#sleepNowBtn {
+    font-family: 'Orbitron', sans-serif;
+    color: black;
+    background-color: var(--color-hover);
+    padding: 5px 20px;
+}
+
+.time-result {
+    font-size: 1.5vw;
+}
+
+.sleepCycles6 {
+    color: #0ac12e;
+    text-shadow: 0 0 5px rgb(10, 230, 83);
+}
+.sleepCycles5 {
+    color: #999714;
+    text-shadow: 0 0 5px rgb(255, 251, 30);
+}
+.sleepCycles4 {
+    color: #f32a2a;
+    text-shadow: 0 0 5px rgb(244, 46, 46);
+}
+
+@media (max-width: 768px) {
+    #sleep-app {
+        font-size: 4vw;
+    }
+    #currentTimeP {
+        font-size: 6vw;
+    }
+    #sleep-app input {
+        font-size: 3vw;
+        padding: 1.5vw;
+    }
+    #sleep-app button {
+        font-size: 4vw;
+    }
+    .time-result {
+        font-size: 3.5vw;
+    }
+}
