@@ -911,10 +911,10 @@ dialog::backdrop {
 
 
 /* ---------------------------------------------------- */
-/* 14.  Sleep time*/
+/* 14.  Sleep time and Pomodoro timer*/
 /* ---------------------------------------------------- */
 
-#sleep-app {
+#sleep-app, #pomodoro-app {
     display: flex;
     flex-direction: column; 
     align-items: center;  
@@ -924,21 +924,38 @@ dialog::backdrop {
     font-size: 1.8vw;
 }
 
-#sleep-app input {
+#sleep-app input, #pomodoro-app input {
     color: black;
     background-color: var(--color-hover);
     padding: 4px 10px;
     font-size: 1vw;
+    border-radius: 1vw;
 }
 
-#sleep-app button {
+#sleep-app button, #pomodoro-app button  {
     color: black;
     background-color: var(--color-hover);
     padding: 6px 20px;
     font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
 }
 
-#currentTimeP {
+#pomodoro-app .controls button {
+    margin: 0 2vw;
+}
+
+#pomodoro-app #modeLabel, #pomodoro-app #resetBtn {
+    color: #fe2727;
+    text-shadow: 0 0 20px rgb(148, 3, 3); /* glow effect */
+}
+
+#pomodoro-app #startBtn {
+    color: #0ac12e;
+    text-shadow: 0 0 20px rgb(10, 230, 83); /* glow effect */
+}
+
+#currentTimeP,  #countdown{
     padding: 10px 20px;
     font-size: 4.5vw;
     border-radius: 8px;
@@ -952,6 +969,7 @@ dialog::backdrop {
     color: black;
     background-color: var(--color-hover);
     padding: 5px 20px;
+    border-radius: 1vw;
 }
 
 .time-result {
@@ -972,18 +990,23 @@ dialog::backdrop {
 }
 
 @media (max-width: 768px) {
-    #sleep-app {
+    #sleep-app, #pomodoro-app {
         font-size: 4vw;
     }
     #currentTimeP {
         font-size: 6vw;
     }
-    #sleep-app input {
+    #countdown {
+        font-size: 15vw;
+    }
+    #sleep-app input, #pomodoro-app input {
         font-size: 3vw;
         padding: 1.5vw;
+        border-radius: 2vh;
     }
-    #sleep-app button {
+    #sleep-app button, #pomodoro-app button {
         font-size: 4vw;
+        border-radius: 2vh;
     }
     .time-result {
         font-size: 3.5vw;

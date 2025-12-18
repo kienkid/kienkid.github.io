@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pomodoro Timer</title>
+        <link rel="icon" type="image/x-icon" href="../Image/favicon.webp" />
+        <link rel="stylesheet" href="../styles.css">
+        <style>@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');</style>
+        <!-- Font Awesome CDN for social icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+        <header>
+            <div class="logo"><img src="../Image/favicon5.webp" alt="My Profile Picture"> Focus time!</div>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="../index.html">Home Page</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <main id="pomodoro-app">
+            <div class="wrap">
+              <h1>Pomodoro Clock</h1>
+
+              <div class="timer">
+                <div class="countdown" id="countdown">25:00</div>
+                <div class="mode" id="modeLabel">Work</div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label for="workMin">Focus (work) minutes</label>
+                  <input id="workMin" type="number" min="1" step="1" value="25" />
+                </div>
+                <div>
+                  <label for="breakMin">Relax (break) minutes</label>
+                  <input id="breakMin" type="number" min="1" step="1" value="5" />
+                </div>
+              </div>
+              <br>
+              <div class="controls">
+                <button id="startBtn">Start</button>
+                <button id="pauseBtn" disabled>Pause</button>
+                <button id="resetBtn">Reset</button>
+              </div>
+              
+              <div class="progress"><div class="bar" id="bar"></div></div>
+
+        </main>
+        <footer>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/buitrungkien/" target="_blank" class="fa-brands fa-linkedin"></a>
+                <a href="https://github.com/kienkid" target="_blank" class="fa-brands fa-github"></a> 
+                <a href="https://steamcommunity.com/id/kid2802" target="_blank" class="fa-brands fa-steam"></a>
+            </div>
+            <br>
+            <p>&copy; 2025 Kien made this as a reminder "DO NOT GIVE UP ON YOURSELF".</p>
+        </footer>
+        <script src="../script.js"></script>
+        <script src="pomodoro.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
