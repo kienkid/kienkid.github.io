@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your challenge 💝</title>
+    <link rel="icon" type="image/x-icon" href="../Image/favicon.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+    <!-- Background floating hearts -->
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <!-- Rotate Prompt (mobile portrait only) -->
+    <div id="rotate-prompt">
+      <div class="phone-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+      <h2>💝 Xoay điện thoại đi iem 💝</h2>
+      <div class="dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <header>
+      <h1>Match our memories</h1>
+      <p>to reveal the secret 💝</p>
+    </header>
+
+    <div class="stats">
+      <span>Today is: <strong id="matched">0</strong><strong>/7</strong></span>
+    </div>
+
+    <div id="game-board"></div>
+
+    <!-- Proposal Overlay -->
+    <div id="proposal">
+      <div class="hamster-img">🐶</div>
+      <h2>Happy anniversary 💕</h2>
+      <p>You've matched all our memories... now make one more with me?</p>
+      <div class="proposal-btns" id="proposalBtns">
+        <button class="btn-yes" onclick="accept()">Yes! 💖</button>
+        <button class="btn-no" id="noBtn" onmouseover="moveNo()" onclick="moveNo()">No</button>
+      </div>
+    </div>
+
+    <!-- Accepted Screen -->
+    <div id="accepted-screen">
+      <canvas id="fireworks-canvas"></canvas>
+      <div class="big-heart">❤️</div>
+      <h2>I know you gonna say yes!! 🎉</h2>
+      <p>Huyền just made me the happiest person alive! 💕</p>
+    </div>
+
+    <footer>
+      <a>© 2026 — For Kien cutie babi</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
