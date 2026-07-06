@@ -1,0 +1,11 @@
+Drop a real "heart.glb" file in this folder to use a sculpted model
+instead of the built-in procedural heart.
+
+Then in src/components/Heart.jsx, swap the geometry source for:
+
+  import { useGLTF } from '@react-three/drei';
+  const { nodes } = useGLTF('/models/heart.glb');
+  const geometry = nodes.Heart.geometry; // match your mesh's node name
+
+See HeartFromGLTF.jsx in src/components for a ready-made version of
+this pattern.
