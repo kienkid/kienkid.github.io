@@ -259,6 +259,12 @@ header {
     color: var(--pink);
     font-style: italic;
   }
+    #accepted-screen a {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--pink);
+    font-weight: bold;
+  }
   #accepted-screen .big-heart {
     font-size: 6rem;
     animation: heartbeat 1s ease infinite;
