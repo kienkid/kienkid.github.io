@@ -19,6 +19,7 @@ body {
     overflow-x: hidden;
     background-image: radial-gradient(ellipse at 20% 20%, #fde8ee 0%, transparent 60%),
                       radial-gradient(ellipse at 80% 80%, #fce4ec 0%, transparent 60%);
+    zoom: 67%;
 }
 
   /* Floating hearts background */
