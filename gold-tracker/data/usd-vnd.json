@@ -1,0 +1,724 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "sample": true,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "dataset": "usd-vnd",
+    "field": "sell",
+    "unit": "VND per USD",
+    "source": "SAMPLE – synthetic demo data"
+  },
+  "data": [
+    {
+      "date": "2026-07-04",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-04",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-06",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-06",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-07",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-07",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-08",
+      "sell": 26240,
+      "transfer": 25960,
+      "buyCash": 25930,
+      "rateDate": "2026-07-08",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-09",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-09",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-10",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-10",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-11",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-11",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-13",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-13",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-14",
+      "sell": 26260,
+      "transfer": 25980,
+      "buyCash": 25950,
+      "rateDate": "2026-07-14",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-15",
+      "sell": 26260,
+      "transfer": 25980,
+      "buyCash": 25950,
+      "rateDate": "2026-07-15",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-16",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-16",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-17",
+      "sell": 26250,
+      "transfer": 25970,
+      "buyCash": 25940,
+      "rateDate": "2026-07-17",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-18",
+      "sell": 26260,
+      "transfer": 25980,
+      "buyCash": 25950,
+      "rateDate": "2026-07-18",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-20",
+      "sell": 26260,
+      "transfer": 25980,
+      "buyCash": 25950,
+      "rateDate": "2026-07-20",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-21",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-21",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-22",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-22",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-23",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-23",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-24",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-24",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-25",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-25",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-27",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-27",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-28",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-28",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-29",
+      "sell": 26260,
+      "transfer": 25980,
+      "buyCash": 25950,
+      "rateDate": "2026-07-29",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-30",
+      "sell": 26270,
+      "transfer": 25990,
+      "buyCash": 25960,
+      "rateDate": "2026-07-30",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-07-31",
+      "sell": 26280,
+      "transfer": 26000,
+      "buyCash": 25970,
+      "rateDate": "2026-07-31",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-01",
+      "sell": 26280,
+      "transfer": 26000,
+      "buyCash": 25970,
+      "rateDate": "2026-08-01",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-03",
+      "sell": 26280,
+      "transfer": 26000,
+      "buyCash": 25970,
+      "rateDate": "2026-08-03",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-04",
+      "sell": 26280,
+      "transfer": 26000,
+      "buyCash": 25970,
+      "rateDate": "2026-08-04",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-05",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-05",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-06",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-06",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-07",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-07",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-08",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-08",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-10",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-10",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-11",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-11",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-12",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-12",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-13",
+      "sell": 26290,
+      "transfer": 26010,
+      "buyCash": 25980,
+      "rateDate": "2026-08-13",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-14",
+      "sell": 26300,
+      "transfer": 26020,
+      "buyCash": 25990,
+      "rateDate": "2026-08-14",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-15",
+      "sell": 26300,
+      "transfer": 26020,
+      "buyCash": 25990,
+      "rateDate": "2026-08-15",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-17",
+      "sell": 26300,
+      "transfer": 26020,
+      "buyCash": 25990,
+      "rateDate": "2026-08-17",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-18",
+      "sell": 26310,
+      "transfer": 26030,
+      "buyCash": 26000,
+      "rateDate": "2026-08-18",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-19",
+      "sell": 26310,
+      "transfer": 26030,
+      "buyCash": 26000,
+      "rateDate": "2026-08-19",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-20",
+      "sell": 26310,
+      "transfer": 26030,
+      "buyCash": 26000,
+      "rateDate": "2026-08-20",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-21",
+      "sell": 26310,
+      "transfer": 26030,
+      "buyCash": 26000,
+      "rateDate": "2026-08-21",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-22",
+      "sell": 26310,
+      "transfer": 26030,
+      "buyCash": 26000,
+      "rateDate": "2026-08-22",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-24",
+      "sell": 26320,
+      "transfer": 26040,
+      "buyCash": 26010,
+      "rateDate": "2026-08-24",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-25",
+      "sell": 26320,
+      "transfer": 26040,
+      "buyCash": 26010,
+      "rateDate": "2026-08-25",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-26",
+      "sell": 26320,
+      "transfer": 26040,
+      "buyCash": 26010,
+      "rateDate": "2026-08-26",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-27",
+      "sell": 26320,
+      "transfer": 26040,
+      "buyCash": 26010,
+      "rateDate": "2026-08-27",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-28",
+      "sell": 26320,
+      "transfer": 26040,
+      "buyCash": 26010,
+      "rateDate": "2026-08-28",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-29",
+      "sell": 26330,
+      "transfer": 26050,
+      "buyCash": 26020,
+      "rateDate": "2026-08-29",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-08-31",
+      "sell": 26330,
+      "transfer": 26050,
+      "buyCash": 26020,
+      "rateDate": "2026-08-31",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-01",
+      "sell": 26330,
+      "transfer": 26050,
+      "buyCash": 26020,
+      "rateDate": "2026-09-01",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-02",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-02",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-03",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-03",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-04",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-04",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-05",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-05",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-07",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-07",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-08",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-08",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-09",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-09",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-10",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-10",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-11",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-11",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-12",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-12",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-14",
+      "sell": 26340,
+      "transfer": 26060,
+      "buyCash": 26030,
+      "rateDate": "2026-09-14",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-15",
+      "sell": 26350,
+      "transfer": 26070,
+      "buyCash": 26040,
+      "rateDate": "2026-09-15",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-16",
+      "sell": 26350,
+      "transfer": 26070,
+      "buyCash": 26040,
+      "rateDate": "2026-09-16",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-17",
+      "sell": 26350,
+      "transfer": 26070,
+      "buyCash": 26040,
+      "rateDate": "2026-09-17",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-18",
+      "sell": 26350,
+      "transfer": 26070,
+      "buyCash": 26040,
+      "rateDate": "2026-09-18",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-19",
+      "sell": 26350,
+      "transfer": 26070,
+      "buyCash": 26040,
+      "rateDate": "2026-09-19",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-21",
+      "sell": 26360,
+      "transfer": 26080,
+      "buyCash": 26050,
+      "rateDate": "2026-09-21",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-22",
+      "sell": 26360,
+      "transfer": 26080,
+      "buyCash": 26050,
+      "rateDate": "2026-09-22",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-23",
+      "sell": 26360,
+      "transfer": 26080,
+      "buyCash": 26050,
+      "rateDate": "2026-09-23",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-24",
+      "sell": 26370,
+      "transfer": 26090,
+      "buyCash": 26060,
+      "rateDate": "2026-09-24",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-25",
+      "sell": 26370,
+      "transfer": 26090,
+      "buyCash": 26060,
+      "rateDate": "2026-09-25",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-26",
+      "sell": 26370,
+      "transfer": 26090,
+      "buyCash": 26060,
+      "rateDate": "2026-09-26",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-28",
+      "sell": 26380,
+      "transfer": 26100,
+      "buyCash": 26070,
+      "rateDate": "2026-09-28",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-29",
+      "sell": 26380,
+      "transfer": 26100,
+      "buyCash": 26070,
+      "rateDate": "2026-09-29",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-09-30",
+      "sell": 26380,
+      "transfer": 26100,
+      "buyCash": 26070,
+      "rateDate": "2026-09-30",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-10-01",
+      "sell": 26380,
+      "transfer": 26100,
+      "buyCash": 26070,
+      "rateDate": "2026-10-01",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-10-02",
+      "sell": 26390,
+      "transfer": 26110,
+      "buyCash": 26080,
+      "rateDate": "2026-10-02",
+      "filled": false,
+      "src": "vcb-api"
+    },
+    {
+      "date": "2026-10-03",
+      "sell": 26380,
+      "transfer": 26100,
+      "buyCash": 26070,
+      "rateDate": "2026-10-03",
+      "filled": false,
+      "src": "vcb-api"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "International gold converted to VND per tael + DOJI premium",
+  "type": "object",
+  "required": [
+    "meta",
+    "convertedGoldVndTael",
+    "premium"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "sample",
+        "dataset",
+        "unit",
+        "formula"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "const": 1
+        },
+        "sample": {
+          "type": "boolean",
+          "description": "true = bundled demo data; ignored and replaced by the first workflow run"
+        },
+        "timezone": {
+          "type": "string",
+          "const": "Asia/Ho_Chi_Minh"
+        },
+        "dataset": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "formula": {
+          "type": "string",
+          "const": "XAU_USD_Oz × USD_VND × 37.5 / 31.1034768"
+        },
+        "ozPerTael": {
+          "type": "number"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "convertedGoldVndTael": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "value",
+          "xauUsdOz",
+          "usdVnd",
+          "xauFilled",
+          "fxFilled"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Calendar day, Hanoi time (YYYY-MM-DD)"
+          },
+          "value": {
+            "type": "integer",
+            "description": "round(xauUsdOz × usdVnd × 37.5 / 31.1034768), VND per tael"
+          },
+          "xauUsdOz": {
+            "type": "number"
+          },
+          "usdVnd": {
+            "type": "number"
+          },
+          "xauFilled": {
+            "type": "boolean",
+            "description": "XAU carried forward from an earlier day"
+          },
+          "fxFilled": {
+            "type": "boolean",
+            "description": "USD/VND carried forward from an earlier day"
+          }
+        }
+      }
+    },
+    "premium": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "dojiSell",
+          "converted",
+          "diffVnd",
+          "diffPct"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Calendar day, Hanoi time (YYYY-MM-DD)"
+          },
+          "dojiSell": {
+            "type": "number"
+          },
+          "converted": {
+            "type": "integer"
+          },
+          "diffVnd": {
+            "type": "number",
+            "description": "dojiSell − converted"
+          },
+          "diffPct": {
+            "type": "number",
+            "description": "diffVnd / converted × 100, 2 decimals"
+          }
+        }
+      }
+    }
+  },
+  "$id": "./converted-gold.schema.json"
+}

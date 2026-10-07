@@ -1,0 +1,6 @@
+# One-time DOJI Ring 9999 backfill (optional).
+# Rename to doji-ring.csv, keep values in VND PER TAEL (lượng), not per chỉ.
+# Columns: date,sell,buy   (buy optional). Scraped rows always take priority.
+date,sell,buy
+2026-07-05,151400000,148400000
+2026-07-06,151200000,148200000

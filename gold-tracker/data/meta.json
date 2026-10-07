@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "sample": true,
+  "lastUpdated": "2026-10-04T17:30:00+07:00",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "sources": {
+    "doji": {
+      "status": "ok",
+      "lastSuccess": null,
+      "message": "sample data"
+    },
+    "xau": {
+      "status": "ok",
+      "lastSuccess": null,
+      "message": "sample data"
+    },
+    "fx": {
+      "status": "ok",
+      "lastSuccess": null,
+      "message": "sample data"
+    }
+  },
+  "counts": {
+    "doji": 90,
+    "xau": 65,
+    "fx": 79,
+    "converted": 90
+  }
+}

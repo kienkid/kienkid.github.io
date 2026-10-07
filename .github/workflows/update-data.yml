@@ -1,0 +1,77 @@
+# =============================================================================
+# Update gold data – runs daily, refreshes gold-tracker/data/*.json and commits
+# Location in repo: <username>.github.io/.github/workflows/update-data.yml
+# =============================================================================
+name: Update gold data
+
+on:
+  schedule:
+    # 10:30 UTC = 17:30 Hanoi (GMT+7) – end-of-day DOJI snapshot.
+    # GitHub may delay scheduled runs by several minutes under load.
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+    inputs:
+      backfill_days:
+        description: "Force re-fetch of Vietcombank USD/VND for the last N days (0 = normal run)"
+        required: false
+        default: "0"
+      history_days:
+        description: "Initial look-back window in days (used when files are empty)"
+        required: false
+        default: "92"
+
+permissions:
+  contents: write          # needed to push the updated JSON files
+
+concurrency:
+  group: update-gold-data  # never run two updates at the same time
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: gold-tracker
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"   # built-in fetch, no npm install needed
+
+      - name: Fetch latest data and rebuild JSON
+        env:
+          TZ: Asia/Ho_Chi_Minh
+          HISTORY_DAYS: ${{ github.event.inputs.history_days || '92' }}
+          BACKFILL_DAYS: ${{ github.event.inputs.backfill_days || '0' }}
+          FX_REFRESH_DAYS: "7"
+          XAU_FALLBACK: "yahoo"
+        run: node scripts/fetch-data.mjs
+
+      - name: Validate JSON files
+        run: |
+          for f in data/*.json; do
+            node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))" || { echo "Invalid JSON: $f"; exit 1; }
+          done
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/*.json
+          if git diff --staged --quiet; then
+            echo "No data changes – nothing to commit."
+            exit 0
+          fi
+          git commit -m "data: gold prices update $(date +'%Y-%m-%d %H:%M') (GMT+7)"
+          # Retry push in case another commit landed meanwhile
+          for i in 1 2 3; do
+            git pull --rebase --autostash && git push && exit 0
+            sleep 5
+          done
+          echo "Push failed after 3 attempts"; exit 1

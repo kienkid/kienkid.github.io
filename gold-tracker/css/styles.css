@@ -1,0 +1,80 @@
+/* =============================================================================
+   Gold Tracker – custom styles (on top of Bootstrap 5.3)
+   Theme colours are CSS variables so app.js can read them for Chart.js and
+   re-render charts when the user switches light/dark mode.
+   ============================================================================= */
+
+:root,
+[data-bs-theme="light"] {
+  --gt-doji: #c8961e;          /* DOJI line – gold        */
+  --gt-world: #2563eb;         /* converted world price   */
+  --gt-xau: #d97706;           /* XAU/USD                 */
+  --gt-fx: #059669;            /* USD/VND                 */
+  --gt-premium-pos: rgba(220, 38, 38, 0.55);
+  --gt-premium-neg: rgba(5, 150, 105, 0.55);
+  --gt-premium-line: #7c3aed;
+  --gt-grid: rgba(0, 0, 0, 0.08);
+  --gt-text: #495057;
+  --gt-card-bg: #ffffff;
+  --gt-body-bg: #f6f7fb;
+}
+
+[data-bs-theme="dark"] {
+  --gt-doji: #f5c542;
+  --gt-world: #60a5fa;
+  --gt-xau: #fbbf24;
+  --gt-fx: #34d399;
+  --gt-premium-pos: rgba(248, 113, 113, 0.55);
+  --gt-premium-neg: rgba(52, 211, 153, 0.55);
+  --gt-premium-line: #c4b5fd;
+  --gt-grid: rgba(255, 255, 255, 0.08);
+  --gt-text: #ced4da;
+  --gt-card-bg: #1c1f24;
+  --gt-body-bg: #121417;
+}
+
+body {
+  background-color: var(--gt-body-bg);
+  transition: background-color 0.2s ease;
+}
+
+.gt-navbar {
+  background-color: var(--gt-card-bg);
+  backdrop-filter: saturate(180%) blur(6px);
+}
+
+.gt-card {
+  background-color: var(--gt-card-bg);
+  border-radius: 0.75rem;
+  border-color: var(--bs-border-color-translucent);
+}
+
+.gt-card .card-header {
+  background: transparent;
+  border-bottom-color: var(--bs-border-color-translucent);
+  padding-top: 0.85rem;
+}
+
+/* Chart containers: fixed heights so Chart.js (maintainAspectRatio:false)
+   sizes correctly on all screen widths. */
+.gt-chart { position: relative; height: 300px; }
+.gt-chart-lg { height: 380px; }
+
+@media (max-width: 575.98px) {
+  .gt-chart { height: 240px; }
+  .gt-chart-lg { height: 300px; }
+}
+
+/* KPI cards */
+.gt-kpi .gt-kpi-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.gt-kpi .gt-kpi-value { font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.gt-kpi .gt-kpi-sub   { font-size: 0.8rem; }
+.gt-kpi .gt-dot {
+  display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; margin-right: 0.35rem;
+}
+
+.gt-loading { min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+/* Vietnamese market convention: green = up, red = down */
+.text-up   { color: var(--bs-success-text-emphasis); }
+.text-down { color: var(--bs-danger-text-emphasis); }

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Run metadata",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "sample",
+    "lastUpdated",
+    "sources"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "sample": {
+      "type": "boolean"
+    },
+    "lastUpdated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "ISO-8601 timestamp with +07:00 offset"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "partial",
+              "error"
+            ]
+          },
+          "lastSuccess": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "ISO-8601 timestamp with +07:00 offset"
+          },
+          "message": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "backfillRows": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    }
+  },
+  "$id": "./meta.schema.json"
+}

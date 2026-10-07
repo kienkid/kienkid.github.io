@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "USD/VND – Vietcombank rates per calendar day",
+  "type": "object",
+  "required": [
+    "meta",
+    "data"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "sample",
+        "dataset",
+        "unit"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "type": "integer",
+          "const": 1
+        },
+        "sample": {
+          "type": "boolean",
+          "description": "true = bundled demo data; ignored and replaced by the first workflow run"
+        },
+        "timezone": {
+          "type": "string",
+          "const": "Asia/Ho_Chi_Minh"
+        },
+        "dataset": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "field": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "sell"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Calendar day, Hanoi time (YYYY-MM-DD)"
+          },
+          "sell": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "VCB selling rate, VND per USD (series used)"
+          },
+          "transfer": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "buyCash": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "rateDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Calendar day, Hanoi time (YYYY-MM-DD)"
+          },
+          "filled": {
+            "type": "boolean",
+            "description": "true when VCB returned an earlier day's rate"
+          },
+          "src": {
+            "type": "string",
+            "enum": [
+              "vcb-api",
+              "vcb-xml"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$id": "./usd-vnd.schema.json"
+}
