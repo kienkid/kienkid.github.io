@@ -1,338 +1,338 @@
 {
   "meta": {
     "schemaVersion": 1,
-    "sample": true,
+    "sample": false,
     "timezone": "Asia/Ho_Chi_Minh",
     "dataset": "xau-usd",
     "field": "close",
     "unit": "USD/troy oz",
-    "source": "SAMPLE – synthetic demo data"
+    "source": "stooq.com (xauusd), fallback Yahoo GC=F"
   },
   "data": [
     {
-      "date": "2026-07-06",
-      "close": 4336.22,
-      "src": "stooq"
-    },
-    {
-      "date": "2026-07-07",
-      "close": 4358.68,
-      "src": "stooq"
-    },
-    {
       "date": "2026-07-08",
-      "close": 4357.38,
-      "src": "stooq"
+      "close": 4082.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-09",
-      "close": 4336.89,
-      "src": "stooq"
+      "close": 4140.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-10",
-      "close": 4354.84,
-      "src": "stooq"
+      "close": 4113.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-13",
-      "close": 4307.82,
-      "src": "stooq"
+      "close": 4005.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-14",
-      "close": 4312.29,
-      "src": "stooq"
+      "close": 4069.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-15",
-      "close": 4324.86,
-      "src": "stooq"
+      "close": 4051.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-16",
-      "close": 4326.3,
-      "src": "stooq"
+      "close": 3992.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-17",
-      "close": 4341.74,
-      "src": "stooq"
+      "close": 4018.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-20",
-      "close": 4299.11,
-      "src": "stooq"
+      "close": 4015.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-21",
-      "close": 4319.65,
-      "src": "stooq"
+      "close": 4076.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-22",
-      "close": 4321.25,
-      "src": "stooq"
+      "close": 4151.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-23",
-      "close": 4324.65,
-      "src": "stooq"
+      "close": 4050.2,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-24",
-      "close": 4316.04,
-      "src": "stooq"
+      "close": 4070.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-27",
-      "close": 4301.02,
-      "src": "stooq"
+      "close": 4077,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-28",
-      "close": 4298.11,
-      "src": "stooq"
+      "close": 4038.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-29",
-      "close": 4283.55,
-      "src": "stooq"
+      "close": 4036.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-30",
-      "close": 4306.55,
-      "src": "stooq"
+      "close": 4100.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-31",
-      "close": 4285.38,
-      "src": "stooq"
+      "close": 4107,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-03",
-      "close": 4292.96,
-      "src": "stooq"
+      "close": 4090.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-04",
-      "close": 4299.24,
-      "src": "stooq"
+      "close": 4152.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-05",
-      "close": 4293.2,
-      "src": "stooq"
+      "close": 4305.2,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-06",
-      "close": 4275.99,
-      "src": "stooq"
+      "close": 4299.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-07",
-      "close": 4289.28,
-      "src": "stooq"
+      "close": 4399.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-10",
-      "close": 4259.75,
-      "src": "stooq"
+      "close": 4419.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-11",
-      "close": 4261.29,
-      "src": "stooq"
+      "close": 4441.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-12",
-      "close": 4283.07,
-      "src": "stooq"
+      "close": 4467.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-13",
-      "close": 4291.55,
-      "src": "stooq"
+      "close": 4420.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-14",
-      "close": 4293.84,
-      "src": "stooq"
+      "close": 4437.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-17",
-      "close": 4314.22,
-      "src": "stooq"
+      "close": 4473.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-18",
-      "close": 4317.49,
-      "src": "stooq"
+      "close": 4420.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-19",
-      "close": 4317.61,
-      "src": "stooq"
+      "close": 4545.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-20",
-      "close": 4321.16,
-      "src": "stooq"
+      "close": 4571.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-21",
-      "close": 4300.46,
-      "src": "stooq"
+      "close": 4680.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-24",
-      "close": 4252.4,
-      "src": "stooq"
+      "close": 4697.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-25",
-      "close": 4247.35,
-      "src": "stooq"
+      "close": 4694.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-26",
-      "close": 4253.74,
-      "src": "stooq"
+      "close": 4653.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-27",
-      "close": 4247.39,
-      "src": "stooq"
+      "close": 4664,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-28",
-      "close": 4227.17,
-      "src": "stooq"
+      "close": 4529.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-31",
-      "close": 4217.42,
-      "src": "stooq"
+      "close": 4481.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-01",
-      "close": 4195.5,
-      "src": "stooq"
+      "close": 4396.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-02",
-      "close": 4212.7,
-      "src": "stooq"
+      "close": 4414.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-03",
-      "close": 4195.68,
-      "src": "stooq"
+      "close": 4539.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-04",
-      "close": 4181,
-      "src": "stooq"
-    },
-    {
-      "date": "2026-09-07",
-      "close": 4179.14,
-      "src": "stooq"
+      "close": 4476.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-08",
-      "close": 4173.91,
-      "src": "stooq"
+      "close": 4439,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-09",
-      "close": 4164.18,
-      "src": "stooq"
+      "close": 4460.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-10",
-      "close": 4190.89,
-      "src": "stooq"
+      "close": 4407.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-11",
-      "close": 4198.53,
-      "src": "stooq"
+      "close": 4408.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-14",
-      "close": 4189.42,
-      "src": "stooq"
+      "close": 4351.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-15",
-      "close": 4209.17,
-      "src": "stooq"
+      "close": 4332.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-16",
-      "close": 4209.1,
-      "src": "stooq"
+      "close": 4387.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-17",
-      "close": 4204.19,
-      "src": "stooq"
+      "close": 4399.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-18",
-      "close": 4190.86,
-      "src": "stooq"
+      "close": 4424.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-21",
-      "close": 4156.4,
-      "src": "stooq"
+      "close": 4383.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-22",
-      "close": 4154.1,
-      "src": "stooq"
+      "close": 4376.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-23",
-      "close": 4149.19,
-      "src": "stooq"
+      "close": 4318.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-24",
-      "close": 4137.5,
-      "src": "stooq"
+      "close": 4298,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-25",
-      "close": 4159.67,
-      "src": "stooq"
+      "close": 4321.2,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-28",
-      "close": 4185.17,
-      "src": "stooq"
+      "close": 4168.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-29",
-      "close": 4202.06,
-      "src": "stooq"
+      "close": 4179.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-30",
-      "close": 4200.04,
-      "src": "stooq"
+      "close": 4186.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-01",
-      "close": 4209.87,
-      "src": "stooq"
+      "close": 4202.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-02",
-      "close": 4141.6,
-      "src": "stooq"
+      "close": 4162.3,
+      "src": "yahoo:GC=F"
+    },
+    {
+      "date": "2026-10-05",
+      "close": 4156.8,
+      "src": "yahoo:GC=F"
+    },
+    {
+      "date": "2026-10-06",
+      "close": 4187.1,
+      "src": "yahoo:GC=F"
+    },
+    {
+      "date": "2026-10-07",
+      "close": 4134.5,
+      "src": "yahoo:GC=F"
     }
   ]
 }
