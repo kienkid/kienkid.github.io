@@ -1,29 +1,42 @@
 #!/usr/bin/env node
 /**
  * =============================================================================
- *  Gold Tracker – daily data fetcher (runs in GitHub Actions, Node 20+)
+ *  Gold Tracker – data fetcher (runs in GitHub Actions, Node 20+)
  * =============================================================================
  *  Pure Node.js, zero npm dependencies (uses the built-in global fetch).
  *
- *  What it does on every run:
- *    1. DOJI Ring 9999   -> scrape today's SELL price from banggia.doji.vn
- *                           (+ merge an optional one-time backfill CSV)
- *    2. XAU/USD          -> daily close from Stooq CSV (free, no key);
- *                           fallback: Yahoo Finance GC=F (gold futures proxy)
- *    3. USD/VND          -> Vietcombank SELLING rate, per calendar day,
- *                           from VCB's public exchange-rate endpoint
- *    4. Builds the daily calendar, carries XAU and FX forward over
- *       weekends/holidays and computes `convertedGoldVndTael`.
- *    5. Writes JSON files under ../data ONLY when content actually changed,
- *       so the workflow commits nothing on "no-change" days.
+ *  DATA MODEL: "frozen history + daily append"
+ *  ------------------------------------------------------------------
+ *  • History starts on START_DATE = 2026-06-11 (first day giavang24k stores).
+ *  • Every stored day is FROZEN: once a date exists in a dataset it is NEVER
+ *    overwritten or deleted by later runs.
+ *  • Runs only ADD dates that are missing (today + any days missed by failed
+ *    runs = "catch-up").
+ *
+ *  MODES (env MODE)
+ *  ------------------------------------------------------------------
+ *  seed    One-time initial load.
+ *            DOJI : data/seed/doji-nhan-1y.json (pasted API response) or,
+ *                   if that file is absent, GET .../doji-nhan?range=1y
+ *            XAU  : Stooq daily closes from START_DATE
+ *            FX   : Vietcombank selling rate for every day from START_DATE
+ *          Refuses to run if real data already exists, unless FORCE=true.
+ *  append  Daily run (default, used by the cron schedule).
+ *            DOJI : GET .../doji-nhan?range=7d  (falls back to range=1y only
+ *                   when the gap since the last stored day is > 7 days)
+ *            XAU  : Stooq – add completed daily bars not yet stored
+ *            FX   : Vietcombank – add missing days (last CATCHUP_DAYS days)
+ *
+ *  SOURCES
+ *    DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) – giavang24k.com (sell close, VND/lượng)
+ *    XAU/USD  – Stooq xauusd daily close (fallback Yahoo GC=F), USD/troy oz
+ *    USD/VND  – Vietcombank selling rate, VND per USD
  *
  *  Environment variables (all optional):
- *    HISTORY_DAYS     initial look-back window in days          (default 92)
- *    FX_REFRESH_DAYS  re-fetch the last N days of VCB rates      (default 7)
- *    BACKFILL_DAYS    force re-fetch of FX for the last N days   (default 0)
- *    DOJI_PRODUCT     product row to match (accent-insensitive)
- *                     (default "NHAN TRON 9999")
- *    XAU_FALLBACK     "yahoo" | "none"                           (default yahoo)
+ *    MODE          "append" | "seed"                         (default append)
+ *    FORCE         "true" to allow seed over existing data   (default false)
+ *    CATCHUP_DAYS  how far back append mode looks for gaps   (default 31)
+ *    XAU_FALLBACK  "yahoo" | "none"                          (default yahoo)
  * =============================================================================
  */
 
@@ -36,10 +49,11 @@ import { fileURLToPath } from 'node:url';
 // -----------------------------------------------------------------------------
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.resolve(__dirname, '..', 'data');
-const BACKFILL_CSV = path.join(DATA_DIR, 'backfill', 'doji-ring.csv');
+const SEED_FILE = path.join(DATA_DIR, 'seed', 'doji-nhan-1y.json');
 
 const TZ = 'Asia/Ho_Chi_Minh';
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
+export const START_DATE = '2026-06-11'; // first day of giavang24k history
 
 /*
  * Unit conversion used for the international price:
@@ -51,27 +65,24 @@ const GRAMS_PER_TAEL = 37.5;
 const GRAMS_PER_TROY_OZ = 31.1034768;
 const OZ_PER_TAEL = GRAMS_PER_TAEL / GRAMS_PER_TROY_OZ;
 
-/* 1 lượng (tael) = 10 chỉ. DOJI publishes in "Nghìn VND/chỉ" (thousand VND per chỉ). */
-const CHI_PER_TAEL = 10;
-
-/* Sanity band for a DOJI ring price in VND/tael – protects against parsing errors. */
+/* Sanity band for a DOJI ring price in VND/tael – protects against unit errors. */
 const DOJI_MIN_VND_TAEL = 30_000_000;
 const DOJI_MAX_VND_TAEL = 1_000_000_000;
 
 const CONFIG = {
-  historyDays: toInt(process.env.HISTORY_DAYS, 92),
-  fxRefreshDays: toInt(process.env.FX_REFRESH_DAYS, 7),
-  backfillDays: toInt(process.env.BACKFILL_DAYS, 0),
-  dojiProduct: normalizeText(process.env.DOJI_PRODUCT || 'NHAN TRON 9999'),
+  mode: (process.env.MODE || 'append').toLowerCase(),
+  force: String(process.env.FORCE || 'false').toLowerCase() === 'true',
+  catchupDays: toInt(process.env.CATCHUP_DAYS, 31),
   xauFallback: (process.env.XAU_FALLBACK || 'yahoo').toLowerCase(),
-  dojiUrls: ['https://banggia.doji.vn/', 'https://banggia.doji.vn/gold-price'],
+  dojiApi: (range) => `https://giavang24k.com/api/history/doji-nhan?range=${range}`,
   stooqUrl: 'https://stooq.com/q/d/l/?s=xauusd&i=d',
   yahooUrl: 'https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=1y&interval=1d',
   vcbApi: (d) => `https://www.vietcombank.com.vn/api/exchangerates?date=${d}`,
   vcbXml: 'https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx',
   requestDelayMs: 350,
+  // Standard desktop browser User-Agent (agreed: plain GET, browser UA)
   userAgent:
-    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36 gold-tracker-bot',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
 };
 
 const FILES = {
@@ -91,21 +102,21 @@ function toInt(v, def) {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const isIsoDate = (s) => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
 
-/** Today's date (YYYY-MM-DD) in Hanoi time – all daily keys use Hanoi dates. */
-function todayHanoi() {
-  return new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(new Date());
+/** Date (YYYY-MM-DD) in Hanoi time for a Date object – all keys use Hanoi dates. */
+function hanoiDate(d = new Date()) {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: TZ }).format(d);
 }
 
-/** ISO timestamp with +07:00 offset, e.g. 2026-10-04T17:30:12+07:00 */
+/** ISO timestamp with +07:00 offset, e.g. 2026-10-04T21:00:12+07:00 */
 function nowHanoiIso() {
-  const d = new Date();
   const parts = Object.fromEntries(
     new Intl.DateTimeFormat('en-CA', {
       timeZone: TZ, hourCycle: 'h23',
       year: 'numeric', month: '2-digit', day: '2-digit',
       hour: '2-digit', minute: '2-digit', second: '2-digit',
-    }).formatToParts(d).map((p) => [p.type, p.value]),
+    }).formatToParts(new Date()).map((p) => [p.type, p.value]),
   );
   return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}+07:00`;
 }
@@ -124,17 +135,7 @@ function dateRange(from, to) {
   return out;
 }
 
-/** Remove Vietnamese diacritics + uppercase, so matching is accent-insensitive. */
-function normalizeText(s) {
-  return String(s)
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/đ/g, 'd')
-    .replace(/Đ/g, 'D')
-    .toUpperCase();
-}
-
-/** "26,400.00" -> 26400 ; "14.350" (vi-VN thousands) handled by caller. */
+/** "26,400.00" -> 26400 */
 function parseEnNumber(s) {
   if (s === null || s === undefined) return NaN;
   const n = Number(String(s).replace(/,/g, '').trim());
@@ -146,7 +147,11 @@ async function fetchText(url, { retries = 3, timeoutMs = 20000, accept } = {}) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const res = await fetch(url, {
-        headers: { 'User-Agent': CONFIG.userAgent, ...(accept ? { Accept: accept } : {}) },
+        headers: {
+          'User-Agent': CONFIG.userAgent,
+          'Accept-Language': 'vi-VN,vi;q=0.9,en;q=0.8',
+          ...(accept ? { Accept: accept } : {}),
+        },
         signal: AbortSignal.timeout(timeoutMs),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
@@ -179,137 +184,134 @@ async function writeJsonIfChanged(file, obj) {
 }
 
 /**
- * Merge records keyed by `date`. Incoming rows replace existing rows for the
- * same date only if their value fields differ (fields in `ignore` such as
- * `capturedAt` are excluded from the comparison) – this keeps the files
- * byte-stable when nothing really changed.
+ * FROZEN-HISTORY MERGE.
+ * Adds only rows whose `date` is not already stored. Existing rows are never
+ * replaced – this is what keeps history from 11 Jun 2026 static.
+ * Returns { rows, added } where `added` lists the newly inserted dates.
  */
-function upsertByDate(existing, incoming, ignore = []) {
-  const strip = (r) => JSON.stringify(Object.fromEntries(Object.entries(r).filter(([k]) => !ignore.includes(k))));
-  const map = new Map(existing.map((r) => [r.date, r]));
+export function appendOnly(existing, incoming) {
+  const have = new Set(existing.map((r) => r.date));
+  const added = [];
+  const rows = [...existing];
   for (const r of incoming) {
-    const old = map.get(r.date);
-    if (!old || strip(old) !== strip(r)) map.set(r.date, r);
+    if (!isIsoDate(r.date) || r.date < START_DATE || have.has(r.date)) continue;
+    have.add(r.date);
+    rows.push(r);
+    added.push(r.date);
   }
-  return [...map.values()].sort((a, b) => a.date.localeCompare(b.date));
+  rows.sort((a, b) => a.date.localeCompare(b.date));
+  return { rows, added: added.sort() };
 }
 
-/** Load a dataset; if it is the bundled SAMPLE file, discard its rows. */
+/** Load a dataset; bundled SAMPLE files are discarded (treated as empty). */
 async function loadDataset(file) {
   const json = await readJson(file, null);
   if (!json || !Array.isArray(json.data) || json.meta?.sample === true) return [];
-  return json.data;
+  return json.data.filter((r) => isIsoDate(r.date) && r.date >= START_DATE);
 }
 
 // -----------------------------------------------------------------------------
-// 1) DOJI Ring 9999 – today's snapshot (scrape) + optional backfill CSV
+// 1) DOJI Nhẫn tròn 9999 – giavang24k.com
 // -----------------------------------------------------------------------------
-function htmlToText(html) {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&#(\d+);/g, (_, c) => String.fromCharCode(Number(c)))
-    .replace(/\s+/g, ' ');
-}
-
 /**
- * Parse the DOJI price board.
- * The board lists rows like:
- *   "3 NHẪN TRÒN 9999 HƯNG THỊNH VƯỢNG 13,950 14,350"   (buy, sell)
- * followed later by a unit caption such as "Đơn vị: Nghìn VND/chỉ".
+ * Expected response (range=1y, kind=daily):
+ *   { "productKey": "doji-nhan", "range": "1y", "kind": "daily",
+ *     "points": [ { "day": "2026-06-11",
+ *                   "buy":  { "open":…, "high":…, "low":…, "close": 133400000 },
+ *                   "sell": { "open":…, "high":…, "low":…, "close": 138400000 },
+ *                   "spreadAvg": 5000000 }, … ] }
  *
- * Transformation to VND per tael:
- *   value_VND_tael = raw × unitMultiplier × chiMultiplier
- *     unitMultiplier = 1000 if the caption says "Nghìn" (thousand VND), else 1
- *     chiMultiplier  = 10   if the caption says "/chỉ" (1 tael = 10 chỉ), else 1
- *   Example: 14,350 (nghìn VND/chỉ) × 1000 × 10 = 143,500,000 VND/tael
+ * Transformation to one record per Hanoi calendar day:
+ *   date = point.day                       (already "YYYY-MM-DD")
+ *   sell = point.sell.close                (VND per lượng – charted series)
+ *   buy  = point.buy.close                 (VND per lượng)
+ *
+ * Defensive handling in case range=7d returns INTRADAY points instead of daily
+ * candles (no "day" field, but a timestamp such as "t"/"time"/"ts"):
+ *   date = Hanoi date of the timestamp; points are grouped per date and the
+ *   LAST point of the day is kept as that day's close.
+ *
+ * Unit guard: if a value looks like million VND (e.g. 143.5) it is × 1,000,000.
  */
-export function parseDojiBoard(html, productPattern = CONFIG.dojiProduct) {
-  const text = normalizeText(htmlToText(html));
-  const idx = text.indexOf(productPattern);
-  if (idx < 0) throw new Error(`DOJI: product "${productPattern}" not found on page`);
+export function parseGiavang24k(json) {
+  const obj = typeof json === 'string' ? JSON.parse(json) : json;
+  const points = Array.isArray(obj) ? obj : obj?.points;
+  if (!Array.isArray(points)) throw new Error('giavang24k: response has no "points" array');
 
-  // First two numbers after the product name = buy, sell
-  const window = text.slice(idx + productPattern.length, idx + productPattern.length + 250);
-  const nums = [...window.matchAll(/(\d{1,3}(?:[.,]\d{3})+|\d{4,})/g)]
-    .map((m) => Number(m[1].replace(/[.,]/g, '')));
-  if (nums.length < 2) throw new Error('DOJI: could not find buy/sell numbers next to product');
-  const [rawBuy, rawSell] = nums;
+  const toVnd = (v) => {
+    const n = Number(typeof v === 'object' && v !== null ? v.close : v);
+    if (!Number.isFinite(n) || n <= 0) return null;
+    return n < 1000 ? Math.round(n * 1_000_000) : Math.round(n); // million VND guard
+  };
+  const tsOf = (p) => p.t ?? p.time ?? p.ts ?? p.timestamp ?? p.at ?? null;
 
-  // Unit caption that follows the gold table (the silver table above uses /LUONG)
-  const unitMatch = text.slice(idx).match(/DON VI\s*:?\s*([A-Z ]{0,20}VN[DĐ]?\s*\/\s*[A-Z]+)/);
-  const unitRaw = unitMatch ? unitMatch[1].replace(/\s+/g, ' ').trim() : null;
+  const byDate = new Map(); // date -> { record, order }
+  points.forEach((p, i) => {
+    let date = isIsoDate(p.day) ? p.day : isIsoDate(p.date) ? p.date : null;
+    let order = i;
+    if (!date) {
+      const ts = tsOf(p);
+      if (ts === null) return;
+      const ms = typeof ts === 'number' ? (ts < 1e12 ? ts * 1000 : ts) : Date.parse(ts);
+      if (!Number.isFinite(ms)) return;
+      date = hanoiDate(new Date(ms));
+      order = ms;
+    }
+    const sell = toVnd(p.sell);
+    if (sell === null) return;
+    if (sell < DOJI_MIN_VND_TAEL || sell > DOJI_MAX_VND_TAEL) {
+      throw new Error(`giavang24k: sell ${sell} on ${date} outside sanity band – unit changed?`);
+    }
+    const buy = toVnd(p.buy);
+    const rec = {
+      date,
+      sell,                                    // <-- charted series, VND/lượng
+      buy,
+      spreadAvg: Number.isFinite(Number(p.spreadAvg)) ? Number(p.spreadAvg) : null,
+      src: 'giavang24k',
+    };
+    const prev = byDate.get(date);
+    if (!prev || order >= prev.order) byDate.set(date, { rec, order }); // last point of day wins
+  });
 
-  let unitMultiplier;
-  let chiMultiplier;
-  if (unitRaw) {
-    unitMultiplier = /NGHIN/.test(unitRaw) ? 1000 : 1;
-    chiMultiplier = /\/\s*CHI/.test(unitRaw) ? CHI_PER_TAEL : 1;
-  } else {
-    // Heuristic fallback when the caption is missing:
-    //  < 100,000 -> quoted in thousand VND; then if < 30M VND -> per chỉ
-    unitMultiplier = rawSell < 100_000 ? 1000 : 1;
-    chiMultiplier = rawSell * unitMultiplier < DOJI_MIN_VND_TAEL ? CHI_PER_TAEL : 1;
-  }
-
-  const buy = rawBuy * unitMultiplier * chiMultiplier;
-  const sell = rawSell * unitMultiplier * chiMultiplier;
-
-  if (sell < DOJI_MIN_VND_TAEL || sell > DOJI_MAX_VND_TAEL) {
-    throw new Error(`DOJI: sell price ${sell} VND/tael outside sanity band – parser needs review`);
-  }
-  if (buy > sell) throw new Error('DOJI: buy > sell – columns may have shifted');
-
-  return { buy, sell, sourceUnit: unitRaw || 'heuristic' };
+  return [...byDate.values()].map((v) => v.rec).sort((a, b) => a.date.localeCompare(b.date));
 }
 
-async function fetchDojiToday() {
-  let lastErr;
-  for (const url of CONFIG.dojiUrls) {
-    try {
-      const html = await fetchText(url, { accept: 'text/html' });
-      const p = parseDojiBoard(html);
-      return {
-        date: todayHanoi(),
-        buy: p.buy,
-        sell: p.sell, // <-- the series charted (SELL price, VND/tael)
-        sourceUnit: p.sourceUnit,
-        capturedAt: nowHanoiIso(),
-        src: url,
-      };
-    } catch (err) {
-      lastErr = err;
-    }
+async function fetchDojiRange(range) {
+  const text = await fetchText(CONFIG.dojiApi(range), { accept: 'application/json' });
+  return parseGiavang24k(text);
+}
+
+/** Seed: pasted file first (exactly what you copied from the browser), else the API. */
+async function loadDojiSeed() {
+  try {
+    const text = await readFile(SEED_FILE, 'utf8');
+    return { rows: parseGiavang24k(text), from: 'data/seed/doji-nhan-1y.json' };
+  } catch (err) {
+    if (err.code !== 'ENOENT') throw new Error(`seed file invalid: ${err.message}`);
+    return { rows: await fetchDojiRange('1y'), from: 'API range=1y' };
   }
-  throw lastErr;
 }
 
 /**
- * Optional one-time backfill: data/backfill/doji-ring.csv
- *   date,sell[,buy]      (values in VND per tael, e.g. 2026-07-05,151400000,148400000)
- * Lines starting with # are ignored. Scraped rows always win over backfill rows.
+ * Append: range=7d covers the last 7 days. If the last stored day is older
+ * than that window (several failed runs), also pull range=1y to close the gap.
+ * Days after "today" (Hanoi) are ignored.
  */
-async function readDojiBackfill() {
-  let csv;
-  try { csv = await readFile(BACKFILL_CSV, 'utf8'); } catch { return []; }
-  const rows = [];
-  for (const line of csv.split(/\r?\n/)) {
-    const t = line.trim();
-    if (!t || t.startsWith('#') || /^date/i.test(t)) continue;
-    const [date, sell, buy] = t.split(/[;,]/).map((s) => s.trim());
-    const s = Number(sell);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(s)) continue;
-    if (s < DOJI_MIN_VND_TAEL || s > DOJI_MAX_VND_TAEL) continue; // must already be VND/tael
-    rows.push({ date, buy: Number(buy) || null, sell: s, sourceUnit: 'backfill VND/tael', capturedAt: null, src: 'backfill-csv' });
+async function fetchDojiAppend(existing, today) {
+  let rows = await fetchDojiRange('7d');
+  const last = existing.at(-1)?.date || START_DATE;
+  const windowStart = rows[0]?.date;
+  let usedRange = '7d';
+  if (!windowStart || addDays(last, 1) < windowStart) {
+    rows = [...await fetchDojiRange('1y'), ...rows];
+    usedRange = '7d+1y';
   }
-  return rows;
+  return { rows: rows.filter((r) => r.date <= today), usedRange };
 }
 
 // -----------------------------------------------------------------------------
-// 2) XAU/USD – Stooq daily close (fallback Yahoo GC=F)
+// 2) XAU/USD – Stooq daily close (fallback Yahoo GC=F)  [unchanged sources]
 // -----------------------------------------------------------------------------
 /** Stooq CSV: Date,Open,High,Low,Close[,Volume] – we keep the Close (USD/oz). */
 function parseStooqCsv(csv) {
@@ -320,7 +322,7 @@ function parseStooqCsv(csv) {
   return lines.slice(1).map((l) => {
     const [date, , , , close] = l.split(',');
     return { date, close: Number(close), src: 'stooq' };
-  }).filter((r) => /^\d{4}-\d{2}-\d{2}$/.test(r.date) && Number.isFinite(r.close) && r.close > 0);
+  }).filter((r) => isIsoDate(r.date) && Number.isFinite(r.close) && r.close > 0);
 }
 
 /** Yahoo chart API (no key). GC=F = COMEX gold futures, used only as a proxy. */
@@ -336,25 +338,30 @@ function parseYahooChart(jsonText) {
     .map((x) => ({ ...x, close: Math.round(x.close * 100) / 100 }));
 }
 
-async function fetchXau() {
+/**
+ * Only COMPLETED daily bars are stored (date < today in Hanoi).
+ * Reason: at 21:00 Hanoi the international session for "today" is still
+ * trading; storing its partial close would freeze a wrong value forever.
+ * Today's converted price therefore uses yesterday's close (xauFilled=true);
+ * the real close is appended on the next run.
+ */
+async function fetchXau(today) {
+  let rows;
+  let source = 'stooq';
   try {
-    return { rows: parseStooqCsv(await fetchText(CONFIG.stooqUrl)), source: 'stooq' };
+    rows = parseStooqCsv(await fetchText(CONFIG.stooqUrl));
   } catch (err) {
     if (CONFIG.xauFallback !== 'yahoo') throw err;
     console.warn(`  ! Stooq failed (${err.message}) – trying Yahoo GC=F fallback`);
-    return { rows: parseYahooChart(await fetchText(CONFIG.yahooUrl)), source: 'yahoo:GC=F' };
+    rows = parseYahooChart(await fetchText(CONFIG.yahooUrl));
+    source = 'yahoo:GC=F';
   }
+  return { rows: rows.filter((r) => r.date >= START_DATE && r.date < today), source };
 }
 
 // -----------------------------------------------------------------------------
-// 3) USD/VND – Vietcombank SELLING rate per calendar day
+// 3) USD/VND – Vietcombank SELLING rate per calendar day  [unchanged source]
 // -----------------------------------------------------------------------------
-/**
- * VCB endpoint returns e.g.
- *   { "Date": "2026-10-02T00:00:00", "Data": [ { "currencyCode": "USD",
- *       "cash": "26,120.00", "transfer": "26,150.00", "sell": "26,400.00" }, ... ] }
- * Field casing has varied historically, so lookups are case-insensitive.
- */
 function pick(obj, ...keys) {
   if (!obj) return undefined;
   const lower = Object.fromEntries(Object.entries(obj).map(([k, v]) => [k.toLowerCase(), v]));
@@ -362,6 +369,11 @@ function pick(obj, ...keys) {
   return undefined;
 }
 
+/**
+ * VCB endpoint returns e.g.
+ *   { "Date": "2026-10-02T00:00:00", "Data": [ { "currencyCode": "USD",
+ *       "cash": "26,120.00", "transfer": "26,150.00", "sell": "26,400.00" }, … ] }
+ */
 async function fetchVcbForDate(date) {
   const j = JSON.parse(await fetchText(CONFIG.vcbApi(date), { accept: 'application/json' }));
   const list = pick(j, 'Data') || [];
@@ -382,22 +394,22 @@ async function fetchVcbForDate(date) {
 }
 
 /** Fallback for TODAY only: VCB XML feed <Exrate CurrencyCode="USD" Sell="26,400.00" .../> */
-async function fetchVcbXmlToday() {
+async function fetchVcbXmlToday(today) {
   const xml = await fetchText(CONFIG.vcbXml, { accept: 'application/xml' });
   const m = xml.match(/<Exrate[^>]*CurrencyCode="USD"[^>]*>/i);
   if (!m) throw new Error('VCB XML: USD row not found');
   const attr = (n) => (m[0].match(new RegExp(`${n}="([^"]+)"`, 'i')) || [])[1];
   const sell = parseEnNumber(attr('Sell'));
   if (!Number.isFinite(sell)) throw new Error('VCB XML: invalid Sell');
-  const today = todayHanoi();
   return { date: today, sell, transfer: parseEnNumber(attr('Transfer')) || null, buyCash: parseEnNumber(attr('Buy')) || null, rateDate: today, filled: false, src: 'vcb-xml' };
 }
 
-async function fetchFx(existing, windowStart, today) {
+/** Fetch ONLY dates that are not stored yet (seed: since START_DATE; append: last CATCHUP_DAYS). */
+async function fetchFxMissing(existing, today, mode) {
   const have = new Set(existing.map((r) => r.date));
-  const refreshFrom = addDays(today, -Math.max(CONFIG.fxRefreshDays, CONFIG.backfillDays));
-  // Fetch: (a) every day missing in the window, (b) the most recent N days (revisions)
-  const dates = dateRange(windowStart, today).filter((d) => !have.has(d) || d >= refreshFrom);
+  const from = mode === 'seed' ? START_DATE
+    : [START_DATE, addDays(today, -CONFIG.catchupDays)].sort().at(-1);
+  const dates = dateRange(from, today).filter((d) => !have.has(d));
 
   const rows = [];
   const errors = [];
@@ -410,8 +422,8 @@ async function fetchFx(existing, windowStart, today) {
     }
     await sleep(CONFIG.requestDelayMs); // be polite to the bank's server
   }
-  if (!rows.some((r) => r.date === today)) {
-    try { rows.push(await fetchVcbXmlToday()); } catch (err) { errors.push(`xml: ${err.message}`); }
+  if (dates.includes(today) && !rows.some((r) => r.date === today)) {
+    try { rows.push(await fetchVcbXmlToday(today)); } catch (err) { errors.push(`xml: ${err.message}`); }
   }
   return { rows, errors, requested: dates.length };
 }
@@ -420,7 +432,7 @@ async function fetchFx(existing, windowStart, today) {
 // 4) Derived series: convertedGoldVndTael + DOJI premium
 // -----------------------------------------------------------------------------
 /**
- * Build a gap-free daily calendar and compute, for every day D:
+ * Build a gap-free daily calendar from START_DATE and compute, for every day D:
  *
  *   XAU_USD_Oz(D) = Stooq close on D, or the last close before D (carry-forward,
  *                   flagged xauFilled=true) – gold does not trade on weekends.
@@ -435,13 +447,17 @@ async function fetchFx(existing, windowStart, today) {
  *     diffVnd = DOJI_sell − Gold_VND_Tael
  *     diffPct = diffVnd / Gold_VND_Tael × 100
  *
+ * This file is DERIVED: it is fully recomputed from the frozen raw datasets on
+ * every run, so it is deterministic. The only value that can change is the
+ * most recent day(s) flagged xauFilled/fxFilled, when the real observation for
+ * that day is appended on the next run.
+ *
  * NOTE: the converted value excludes import duties, VAT, fabrication and
  * dealer margin – the premium therefore reflects all local frictions.
  */
 export function buildConverted(doji, xau, fx) {
-  const firstDates = [doji[0]?.date, xau[0]?.date, fx[0]?.date].filter(Boolean).sort();
   const lastDates = [doji.at(-1)?.date, xau.at(-1)?.date, fx.at(-1)?.date].filter(Boolean).sort();
-  if (!firstDates.length) return { convertedGoldVndTael: [], premium: [] };
+  if (!lastDates.length) return { convertedGoldVndTael: [], premium: [] };
 
   const xauMap = new Map(xau.map((r) => [r.date, r.close]));
   const fxMap = new Map(fx.map((r) => [r.date, r]));
@@ -452,7 +468,7 @@ export function buildConverted(doji, xau, fx) {
   let lastXau = null;
   let lastFx = null;
 
-  for (const date of dateRange(firstDates[0], lastDates.at(-1))) {
+  for (const date of dateRange(START_DATE, lastDates.at(-1))) {
     // --- carry-forward logic -------------------------------------------------
     let xauFilled = true;
     if (xauMap.has(date)) { lastXau = xauMap.get(date); xauFilled = false; }
@@ -480,29 +496,45 @@ export function buildConverted(doji, xau, fx) {
 // Main
 // -----------------------------------------------------------------------------
 async function main() {
-  const today = todayHanoi();
+  const mode = CONFIG.mode;
+  if (!['seed', 'append'].includes(mode)) throw new Error(`Unknown MODE "${mode}" (use seed | append)`);
+
+  const today = hanoiDate();
   const prevMeta = await readJson(FILES.meta, {});
   const status = {};
-  console.log(`Gold Tracker update – Hanoi date ${today}`);
+  console.log(`Gold Tracker ${mode.toUpperCase()} – Hanoi date ${today}, history from ${START_DATE}`);
 
-  // Load existing (sample files are ignored so the first run starts clean)
   let doji = await loadDataset(FILES.doji);
   let xau = await loadDataset(FILES.xau);
   let fx = await loadDataset(FILES.fx);
 
-  // Window start: keep everything already stored; new history goes back HISTORY_DAYS
-  const defaultStart = addDays(today, -CONFIG.historyDays);
-  const earliest = (rows) => (rows[0]?.date && rows[0].date < defaultStart ? rows[0].date : defaultStart);
+  // Seed protection: never silently rebuild a populated history
+  if (mode === 'seed' && (doji.length || xau.length || fx.length) && !CONFIG.force) {
+    console.error('Seed refused: real data already exists. Re-run with force=true to add missing days only.');
+    process.exit(1);
+  }
 
-  // ---- DOJI -----------------------------------------------------------------
-  console.log('• DOJI Ring 9999');
+  // ---- DOJI (giavang24k) ----------------------------------------------------
+  console.log('• DOJI Nhẫn tròn 9999 (giavang24k)');
   try {
-    const backfill = await readDojiBackfill();
-    // backfill first, so that scraped rows (existing + today) override it
-    doji = upsertByDate(backfill.filter((b) => !doji.some((d) => d.date === b.date)), doji);
-    const snap = await fetchDojiToday();
-    doji = upsertByDate(doji, [snap], ['capturedAt']);
-    status.doji = { status: 'ok', lastSuccess: nowHanoiIso(), message: `sell ${snap.sell.toLocaleString('en-US')} VND/tael (${snap.sourceUnit})`, backfillRows: backfill.length };
+    let incoming;
+    let how;
+    if (mode === 'seed') {
+      const s = await loadDojiSeed();
+      incoming = s.rows.filter((r) => r.date <= today);
+      how = s.from;
+    } else {
+      const a = await fetchDojiAppend(doji, today);
+      incoming = a.rows;
+      how = `range=${a.usedRange}`;
+    }
+    const capturedAt = nowHanoiIso();
+    const res = appendOnly(doji, incoming.map((r) => ({ ...r, capturedAt })));
+    doji = res.rows;
+    status.doji = {
+      status: 'ok', lastSuccess: nowHanoiIso(), source: 'giavang24k',
+      message: res.added.length ? `${how}: added ${res.added.length} day(s) (${res.added[0]} → ${res.added.at(-1)})` : `${how}: no new days`,
+    };
     console.log(`  ✓ ${status.doji.message}`);
   } catch (err) {
     status.doji = { status: 'error', lastSuccess: prevMeta?.sources?.doji?.lastSuccess || null, message: err.message };
@@ -512,12 +544,13 @@ async function main() {
   // ---- XAU/USD --------------------------------------------------------------
   console.log('• XAU/USD');
   try {
-    const { rows, source } = await fetchXau();
-    const start = earliest(xau);
-    // Re-ingest the whole window so provider revisions are picked up
-    xau = upsertByDate(xau, rows.filter((r) => r.date >= start && r.date <= today));
-    const last = xau.at(-1);
-    status.xau = { status: 'ok', lastSuccess: nowHanoiIso(), message: `${source}: last close ${last?.close} on ${last?.date}`, source };
+    const { rows, source } = await fetchXau(today);
+    const res = appendOnly(xau, rows);
+    xau = res.rows;
+    status.xau = {
+      status: 'ok', lastSuccess: nowHanoiIso(), source,
+      message: `${source}: added ${res.added.length} day(s)${res.added.length ? ` (${res.added[0]} → ${res.added.at(-1)})` : ''}`,
+    };
     console.log(`  ✓ ${status.xau.message}`);
   } catch (err) {
     status.xau = { status: 'error', lastSuccess: prevMeta?.sources?.xau?.lastSuccess || null, message: err.message };
@@ -527,13 +560,14 @@ async function main() {
   // ---- USD/VND --------------------------------------------------------------
   console.log('• USD/VND (Vietcombank selling)');
   try {
-    const { rows, errors, requested } = await fetchFx(fx, earliest(fx), today);
+    const { rows, errors, requested } = await fetchFxMissing(fx, today, mode);
     if (!rows.length && requested) throw new Error(`no VCB rows returned (${errors.slice(0, 3).join(' | ')})`);
-    fx = upsertByDate(fx, rows);
+    const res = appendOnly(fx, rows);
+    fx = res.rows;
     status.fx = {
       status: errors.length ? 'partial' : 'ok',
       lastSuccess: nowHanoiIso(),
-      message: `${rows.length}/${requested} days fetched${errors.length ? `, ${errors.length} errors` : ''}`,
+      message: `added ${res.added.length}/${requested} missing day(s)${errors.length ? `, ${errors.length} errors` : ''}`,
     };
     console.log(`  ✓ ${status.fx.message}`);
   } catch (err) {
@@ -544,19 +578,22 @@ async function main() {
   // ---- Derived --------------------------------------------------------------
   const derived = buildConverted(doji, xau, fx);
 
-  const datasetMeta = (extra) => ({ schemaVersion: SCHEMA_VERSION, sample: false, timezone: TZ, ...extra });
+  const datasetMeta = (extra) => ({ schemaVersion: SCHEMA_VERSION, sample: false, timezone: TZ, startDate: START_DATE, frozen: true, ...extra });
   const written = await Promise.all([
-    writeJsonIfChanged(FILES.doji, { meta: datasetMeta({ dataset: 'doji-ring', product: 'DOJI Nhẫn Tròn 9999 Hưng Thịnh Vượng', field: 'sell', unit: 'VND/tael', source: 'https://banggia.doji.vn' }), data: doji }),
+    writeJsonIfChanged(FILES.doji, { meta: datasetMeta({ dataset: 'doji-ring', product: 'DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng)', field: 'sell', unit: 'VND/tael', source: 'giavang24k.com – /api/history/doji-nhan' }), data: doji }),
     writeJsonIfChanged(FILES.xau, { meta: datasetMeta({ dataset: 'xau-usd', field: 'close', unit: 'USD/troy oz', source: 'stooq.com (xauusd), fallback Yahoo GC=F' }), data: xau }),
     writeJsonIfChanged(FILES.fx, { meta: datasetMeta({ dataset: 'usd-vnd', field: 'sell', unit: 'VND per USD', source: 'Vietcombank selling rate' }), data: fx }),
     writeJsonIfChanged(FILES.converted, {
-      meta: datasetMeta({
-        dataset: 'converted-gold',
-        unit: 'VND/tael',
-        formula: 'XAU_USD_Oz × USD_VND × 37.5 / 31.1034768',
-        ozPerTael: Number(OZ_PER_TAEL.toFixed(6)),
-        notes: 'Weekend/holiday gaps carried forward from the last available value (xauFilled / fxFilled = true).',
-      }),
+      meta: {
+        ...datasetMeta({
+          dataset: 'converted-gold',
+          unit: 'VND/tael',
+          formula: 'XAU_USD_Oz × USD_VND × 37.5 / 31.1034768',
+          ozPerTael: Number(OZ_PER_TAEL.toFixed(6)),
+          notes: 'Derived file, recomputed each run from the frozen raw datasets. Weekend/holiday gaps carried forward (xauFilled / fxFilled = true).',
+        }),
+        frozen: false,
+      },
       convertedGoldVndTael: derived.convertedGoldVndTael,
       premium: derived.premium,
     }),
@@ -566,12 +603,14 @@ async function main() {
   const statusChanged = JSON.stringify(Object.fromEntries(Object.entries(status).map(([k, v]) => [k, v.status])))
     !== JSON.stringify(Object.fromEntries(Object.entries(prevMeta.sources || {}).map(([k, v]) => [k, v.status])));
 
-  if (anyDataChanged || statusChanged || prevMeta.sample) {
+  if (anyDataChanged || statusChanged || prevMeta.sample || mode === 'seed') {
     await writeJsonIfChanged(FILES.meta, {
       schemaVersion: SCHEMA_VERSION,
       sample: false,
       lastUpdated: nowHanoiIso(),
+      lastMode: mode,
       timezone: TZ,
+      startDate: START_DATE,
       sources: status,
       counts: { doji: doji.length, xau: xau.length, fx: fx.length, converted: derived.convertedGoldVndTael.length },
     });

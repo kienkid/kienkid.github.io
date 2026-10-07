@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "DOJI Ring 9999 daily prices",
+  "title": "DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) – daily close from giavang24k",
   "type": "object",
   "required": [
     "meta",
@@ -14,20 +14,31 @@
         "sample",
         "dataset",
         "unit",
+        "startDate",
+        "frozen",
         "product"
       ],
       "properties": {
         "schemaVersion": {
           "type": "integer",
-          "const": 1
+          "const": 2
         },
         "sample": {
           "type": "boolean",
-          "description": "true = bundled demo data; ignored and replaced by the first workflow run"
+          "description": "true = bundled demo data; ignored and replaced by the seed run"
         },
         "timezone": {
           "type": "string",
           "const": "Asia/Ho_Chi_Minh"
+        },
+        "startDate": {
+          "type": "string",
+          "const": "2026-06-11",
+          "description": "First day of the frozen history"
+        },
+        "frozen": {
+          "type": "boolean",
+          "description": "true = existing days are never overwritten (append-only); false for the derived file"
         },
         "dataset": {
           "type": "string"
@@ -59,23 +70,26 @@
           "date": {
             "type": "string",
             "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
-            "description": "Calendar day, Hanoi time (YYYY-MM-DD)"
+            "description": "Calendar day, Hanoi time (YYYY-MM-DD), >= 2026-06-11"
           },
           "sell": {
             "type": "number",
             "minimum": 30000000,
-            "description": "Sell price, VND per tael (charted series)"
+            "description": "Sell close, VND per lượng (charted series) = points[].sell.close"
           },
           "buy": {
             "type": [
               "number",
               "null"
             ],
-            "description": "Buy price, VND per tael"
+            "description": "Buy close, VND per lượng = points[].buy.close"
           },
-          "sourceUnit": {
-            "type": "string",
-            "description": "Unit caption on the DOJI board, e.g. 'NGHIN VND/CHI' (×1000×10 applied), or 'backfill VND/tael'"
+          "spreadAvg": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Average buy/sell spread of the day as published"
           },
           "capturedAt": {
             "type": [
@@ -85,7 +99,8 @@
             "description": "ISO-8601 timestamp with +07:00 offset"
           },
           "src": {
-            "type": "string"
+            "type": "string",
+            "const": "giavang24k"
           }
         }
       }

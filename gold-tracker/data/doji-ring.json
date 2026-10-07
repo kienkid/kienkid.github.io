@@ -1,13 +1,952 @@
 {
   "meta": {
-    "schemaVersion": 1,
-    "sample": false,
+    "schemaVersion": 2,
+    "sample": true,
     "timezone": "Asia/Ho_Chi_Minh",
+    "startDate": "2026-06-11",
+    "frozen": true,
     "dataset": "doji-ring",
-    "product": "DOJI Nhẫn Tròn 9999 Hưng Thịnh Vượng",
+    "product": "DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng)",
     "field": "sell",
     "unit": "VND/tael",
-    "source": "https://banggia.doji.vn"
+    "source": "SAMPLE – replaced by the seed run"
   },
-  "data": []
+  "data": [
+    {
+      "date": "2026-06-11",
+      "sell": 138400000,
+      "buy": 133400000,
+      "spreadAvg": 5000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-12",
+      "sell": 145500000,
+      "buy": 142500000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-13",
+      "sell": 147000000,
+      "buy": 144000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-15",
+      "sell": 150500000,
+      "buy": 148000000,
+      "spreadAvg": 2500000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-16",
+      "sell": 152000000,
+      "buy": 150000000,
+      "spreadAvg": 2000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-17",
+      "sell": 152000000,
+      "buy": 150000000,
+      "spreadAvg": 2000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-18",
+      "sell": 151500000,
+      "buy": 149000000,
+      "spreadAvg": 2500000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-19",
+      "sell": 146700000,
+      "buy": 143700000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-20",
+      "sell": 147200000,
+      "buy": 144200000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-22",
+      "sell": 148000000,
+      "buy": 145000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-23",
+      "sell": 147800000,
+      "buy": 144800000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-24",
+      "sell": 147000000,
+      "buy": 144000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-25",
+      "sell": 146000000,
+      "buy": 143000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-26",
+      "sell": 146000000,
+      "buy": 143000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-27",
+      "sell": 148500000,
+      "buy": 145500000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-29",
+      "sell": 148000000,
+      "buy": 145000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-06-30",
+      "sell": 147000000,
+      "buy": 144000000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-01",
+      "sell": 147600000,
+      "buy": 144600000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-02",
+      "sell": 147100000,
+      "buy": 144100000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-03",
+      "sell": 146500000,
+      "buy": 143500000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-04",
+      "sell": 146800000,
+      "buy": 143800000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-05",
+      "sell": 146800000,
+      "buy": 143800000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-06",
+      "sell": 146400000,
+      "buy": 143400000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-07",
+      "sell": 146800000,
+      "buy": 143800000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-08",
+      "sell": 147100000,
+      "buy": 144100000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-09",
+      "sell": 147100000,
+      "buy": 144100000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-10",
+      "sell": 147300000,
+      "buy": 144300000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-11",
+      "sell": 147400000,
+      "buy": 144400000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-12",
+      "sell": 147800000,
+      "buy": 144800000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-13",
+      "sell": 147200000,
+      "buy": 144200000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-14",
+      "sell": 146900000,
+      "buy": 143900000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-15",
+      "sell": 147100000,
+      "buy": 144100000,
+      "spreadAvg": 3000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-16",
+      "sell": 147300000,
+      "buy": 143300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-17",
+      "sell": 146500000,
+      "buy": 142500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-18",
+      "sell": 146700000,
+      "buy": 142700000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-19",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-20",
+      "sell": 147200000,
+      "buy": 143200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-21",
+      "sell": 147600000,
+      "buy": 143600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-22",
+      "sell": 146800000,
+      "buy": 142800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-23",
+      "sell": 146700000,
+      "buy": 142700000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-24",
+      "sell": 147300000,
+      "buy": 143300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-25",
+      "sell": 147500000,
+      "buy": 143500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-26",
+      "sell": 147600000,
+      "buy": 143600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-27",
+      "sell": 147600000,
+      "buy": 143600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-28",
+      "sell": 148100000,
+      "buy": 144100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-29",
+      "sell": 148500000,
+      "buy": 144500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-30",
+      "sell": 148000000,
+      "buy": 144000000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-07-31",
+      "sell": 147500000,
+      "buy": 143500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-01",
+      "sell": 147900000,
+      "buy": 143900000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-02",
+      "sell": 147400000,
+      "buy": 143400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-03",
+      "sell": 146700000,
+      "buy": 142700000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-04",
+      "sell": 146300000,
+      "buy": 142300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-05",
+      "sell": 146200000,
+      "buy": 142200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-06",
+      "sell": 145900000,
+      "buy": 141900000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-07",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-08",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-09",
+      "sell": 146900000,
+      "buy": 142900000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-10",
+      "sell": 147400000,
+      "buy": 143400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-11",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-12",
+      "sell": 146200000,
+      "buy": 142200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-13",
+      "sell": 146300000,
+      "buy": 142300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-14",
+      "sell": 146300000,
+      "buy": 142300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-15",
+      "sell": 146100000,
+      "buy": 142100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-16",
+      "sell": 145600000,
+      "buy": 141600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-17",
+      "sell": 146300000,
+      "buy": 142300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-18",
+      "sell": 145600000,
+      "buy": 141600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-19",
+      "sell": 145400000,
+      "buy": 141400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-20",
+      "sell": 145200000,
+      "buy": 141200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-21",
+      "sell": 145500000,
+      "buy": 141500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-22",
+      "sell": 146200000,
+      "buy": 142200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-23",
+      "sell": 146200000,
+      "buy": 142200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-24",
+      "sell": 145600000,
+      "buy": 141600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-25",
+      "sell": 145500000,
+      "buy": 141500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-26",
+      "sell": 145200000,
+      "buy": 141200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-27",
+      "sell": 145100000,
+      "buy": 141100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-28",
+      "sell": 145100000,
+      "buy": 141100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-29",
+      "sell": 144900000,
+      "buy": 140900000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-30",
+      "sell": 145100000,
+      "buy": 141100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-08-31",
+      "sell": 145400000,
+      "buy": 141400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-01",
+      "sell": 145000000,
+      "buy": 141000000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-02",
+      "sell": 145800000,
+      "buy": 141800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-03",
+      "sell": 145800000,
+      "buy": 141800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-04",
+      "sell": 146400000,
+      "buy": 142400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-05",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-06",
+      "sell": 146800000,
+      "buy": 142800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-07",
+      "sell": 146700000,
+      "buy": 142700000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-08",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-09",
+      "sell": 146800000,
+      "buy": 142800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-10",
+      "sell": 147400000,
+      "buy": 143400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-11",
+      "sell": 147100000,
+      "buy": 143100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-12",
+      "sell": 147300000,
+      "buy": 143300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-13",
+      "sell": 146800000,
+      "buy": 142800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-14",
+      "sell": 146900000,
+      "buy": 142900000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-15",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-16",
+      "sell": 146300000,
+      "buy": 142300000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-17",
+      "sell": 146100000,
+      "buy": 142100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-18",
+      "sell": 146600000,
+      "buy": 142600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-19",
+      "sell": 147100000,
+      "buy": 143100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-20",
+      "sell": 146400000,
+      "buy": 142400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-21",
+      "sell": 146800000,
+      "buy": 142800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-22",
+      "sell": 146000000,
+      "buy": 142000000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-23",
+      "sell": 146000000,
+      "buy": 142000000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-24",
+      "sell": 145200000,
+      "buy": 141200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-25",
+      "sell": 145500000,
+      "buy": 141500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-26",
+      "sell": 145500000,
+      "buy": 141500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-27",
+      "sell": 145500000,
+      "buy": 141500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-28",
+      "sell": 143500000,
+      "buy": 139500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-29",
+      "sell": 142500000,
+      "buy": 138500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-09-30",
+      "sell": 144000000,
+      "buy": 140000000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-01",
+      "sell": 144500000,
+      "buy": 140500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-02",
+      "sell": 143800000,
+      "buy": 139800000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-03",
+      "sell": 143700000,
+      "buy": 139700000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-04",
+      "sell": 143200000,
+      "buy": 139200000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-05",
+      "sell": 142600000,
+      "buy": 138600000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-06",
+      "sell": 143500000,
+      "buy": 139500000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-07",
+      "sell": 143100000,
+      "buy": 139100000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    },
+    {
+      "date": "2026-10-08",
+      "sell": 143400000,
+      "buy": 139400000,
+      "spreadAvg": 4000000,
+      "src": "giavang24k",
+      "capturedAt": "2026-10-08T01:13:31+07:00"
+    }
+  ]
 }

@@ -1,24 +1,26 @@
 # =============================================================================
-# Update gold data – runs daily, refreshes gold-tracker/data/*.json and commits
+# Update gold data – daily APPEND of new days to gold-tracker/data/*.json
+# History from 11 Jun 2026 is frozen: existing days are never overwritten.
 # Location in repo: <username>.github.io/.github/workflows/update-data.yml
 # =============================================================================
 name: Update gold data
 
 on:
   schedule:
-    # 10:30 UTC = 17:30 Hanoi (GMT+7) – end-of-day DOJI snapshot.
+    # 14:00 UTC = 21:00 Hanoi (GMT+7) – after DOJI's last price change of the day.
     # GitHub may delay scheduled runs by several minutes under load.
-    - cron: "30 10 * * *"
+    - cron: "0 14 * * *"
   workflow_dispatch:
     inputs:
-      backfill_days:
-        description: "Force re-fetch of Vietcombank USD/VND for the last N days (0 = normal run)"
-        required: false
-        default: "0"
-      history_days:
-        description: "Initial look-back window in days (used when files are empty)"
-        required: false
-        default: "92"
+      mode:
+        description: "append = add today + missed days (normal) · seed = one-time initial load from 11 Jun 2026"
+        type: choice
+        options: [append, seed]
+        default: append
+      force:
+        description: "Allow seed when data already exists (still only ADDS missing days)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write          # needed to push the updated JSON files
@@ -44,12 +46,12 @@ jobs:
         with:
           node-version: "20"   # built-in fetch, no npm install needed
 
-      - name: Fetch latest data and rebuild JSON
+      - name: Fetch new data and append to JSON
         env:
           TZ: Asia/Ho_Chi_Minh
-          HISTORY_DAYS: ${{ github.event.inputs.history_days || '92' }}
-          BACKFILL_DAYS: ${{ github.event.inputs.backfill_days || '0' }}
-          FX_REFRESH_DAYS: "7"
+          MODE: ${{ github.event.inputs.mode || 'append' }}   # scheduled runs = append
+          FORCE: ${{ github.event.inputs.force || 'false' }}
+          CATCHUP_DAYS: "31"
           XAU_FALLBACK: "yahoo"
         run: node scripts/fetch-data.mjs
 
@@ -68,10 +70,12 @@ jobs:
             echo "No data changes – nothing to commit."
             exit 0
           fi
-          git commit -m "data: gold prices update $(date +'%Y-%m-%d %H:%M') (GMT+7)"
+          git commit -m "data: ${MODE:-append} gold prices $(date +'%Y-%m-%d %H:%M') (GMT+7)"
           # Retry push in case another commit landed meanwhile
           for i in 1 2 3; do
             git pull --rebase --autostash && git push && exit 0
             sleep 5
           done
           echo "Push failed after 3 attempts"; exit 1
+        env:
+          MODE: ${{ github.event.inputs.mode || 'append' }}

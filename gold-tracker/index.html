@@ -1,16 +1,17 @@
 <!doctype html>
 <!--
-  Gold Tracker – DOJI Ring 9999 vs international gold (VND/tael)
+  Gold Tracker – DOJI Nhẫn tròn 9999 vs international gold (VND/tael)
   Static GitHub Pages sub-page: https://<username>.github.io/gold-tracker/
   All data is read client-side from ./data/*.json (relative paths, so the page
-  works from a sub-folder). Data is refreshed daily by GitHub Actions.
+  works from a sub-folder). History from 11 Jun 2026 is frozen; GitHub Actions
+  appends one new day every evening (21:00 Hanoi).
 -->
 <html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gold Tracker – DOJI Ring 9999 vs World Gold</title>
-  <meta name="description" content="Daily DOJI Ring 9999 sell price compared with the international gold price converted to VND per tael, plus XAU/USD and Vietcombank USD/VND history.">
+  <title>Gold Tracker – DOJI Nhẫn tròn 9999 vs World Gold</title>
+  <meta name="description" content="Daily DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) sell price since 11 Jun 2026 compared with the international gold price converted to VND per tael, plus XAU/USD and Vietcombank USD/VND history.">
 
   <!-- Apply the saved / system theme before first paint to avoid a flash -->
   <script>
@@ -49,9 +50,9 @@
     <!-- ===================== Header ===================== -->
     <header class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
       <div>
-        <h1 class="h3 mb-1">DOJI Ring 9999 vs International Gold</h1>
+        <h1 class="h3 mb-1">DOJI Nhẫn tròn 9999 vs International Gold</h1>
         <p class="text-body-secondary mb-0">
-          DOJI sell price compared with XAU/USD converted to VND per tael at the Vietcombank selling rate.
+          DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) sell price compared with XAU/USD converted to VND per tael at the Vietcombank selling rate. Data since 11/06/2026.
         </p>
       </div>
       <div class="text-md-end">
@@ -74,7 +75,7 @@
       <!-- KPI cards -->
       <section class="row g-3 mb-4" id="kpis" aria-label="Latest values"></section>
 
-      <!-- Range selector -->
+      <!-- Range selector: 1M / 3M / 1Y / All (All = since 11 Jun 2026) -->
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <h2 class="h5 mb-0">Charts</h2>
         <div class="btn-group btn-group-sm" role="group" aria-label="Date range" id="rangeGroup">
@@ -82,6 +83,8 @@
           <label class="btn btn-outline-warning" for="r1m">1M</label>
           <input type="radio" class="btn-check" name="range" id="r3m" value="92" autocomplete="off" checked>
           <label class="btn btn-outline-warning" for="r3m">3M</label>
+          <input type="radio" class="btn-check" name="range" id="r1y" value="365" autocomplete="off">
+          <label class="btn btn-outline-warning" for="r1y">1Y</label>
           <input type="radio" class="btn-check" name="range" id="rall" value="all" autocomplete="off">
           <label class="btn btn-outline-warning" for="rall">All</label>
         </div>
@@ -92,7 +95,7 @@
         <div class="col-12">
           <div class="card shadow-sm gt-card">
             <div class="card-header">
-              <h3 class="h6 mb-0">DOJI Ring 9999 (sell) vs International Gold converted</h3>
+              <h3 class="h6 mb-0">DOJI Nhẫn tròn 9999 (sell) vs International Gold converted</h3>
               <small class="text-body-secondary">VND per tael · converted = XAU/USD × USD/VND × 37.5 / 31.1034768</small>
             </div>
             <div class="card-body"><div class="gt-chart gt-chart-lg"><canvas id="chartCompare" aria-label="DOJI vs converted international gold chart" role="img"></canvas></div></div>
@@ -138,11 +141,12 @@
         <div class="card-body small">
           <h2 class="h6">Methodology &amp; notes</h2>
           <ul class="mb-0 text-body-secondary">
-            <li><strong>DOJI:</strong> daily snapshot (~17:30 Hanoi time) of the <em>Nhẫn Tròn 9999 Hưng Thịnh Vượng</em> sell price from banggia.doji.vn, converted from thousand VND/chỉ to VND/tael (× 1,000 × 10).</li>
-            <li><strong>XAU/USD:</strong> daily close in USD per troy ounce (Stooq; Yahoo GC=F futures used only as fallback).</li>
+            <li><strong>DOJI:</strong> daily closing <em>sell</em> price of DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) in VND per tael, source: <a href="https://giavang24k.com/lich-su/doji-nhan" target="_blank" rel="noopener">giavang24k.com</a>. Days are stored as published (including weekends).</li>
+            <li><strong>XAU/USD:</strong> daily close in USD per troy ounce (Stooq; Yahoo GC=F futures used only as fallback). Only completed sessions are stored.</li>
             <li><strong>USD/VND:</strong> Vietcombank selling rate.</li>
             <li><strong>Converted price:</strong> XAU/USD × USD/VND × 37.5 / 31.1034768 (1 tael = 37.5 g, 1 troy oz = 31.1034768 g). Excludes taxes, fabrication costs and dealer margin.</li>
             <li><strong>Weekends/holidays:</strong> the last available XAU/USD and USD/VND values are carried forward; those points are marked “carried forward” in tooltips.</li>
+            <li><strong>History:</strong> data from 11/06/2026 is frozen; one new day is appended every evening at about 21:00 (GMT+7).</li>
             <li>For information only – not investment advice.</li>
           </ul>
         </div>
@@ -152,7 +156,7 @@
 
   <footer class="border-top py-3">
     <div class="container-xl small text-body-secondary d-flex flex-wrap justify-content-between gap-2">
-      <span>Data: DOJI · Stooq · Vietcombank. Updated daily via GitHub Actions.</span>
+      <span>Data: DOJI prices via <a href="https://giavang24k.com" target="_blank" rel="noopener">giavang24k.com</a> · Stooq · Vietcombank. Updated daily via GitHub Actions.</span>
       <span id="dataCounts"></span>
     </div>
   </footer>

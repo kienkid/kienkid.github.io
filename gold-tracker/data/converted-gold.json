@@ -1,759 +1,1798 @@
 {
   "meta": {
-    "schemaVersion": 1,
-    "sample": false,
+    "schemaVersion": 2,
+    "sample": true,
     "timezone": "Asia/Ho_Chi_Minh",
+    "startDate": "2026-06-11",
+    "frozen": false,
     "dataset": "converted-gold",
     "unit": "VND/tael",
     "formula": "XAU_USD_Oz × USD_VND × 37.5 / 31.1034768",
     "ozPerTael": 1.205653,
-    "notes": "Weekend/holiday gaps carried forward from the last available value (xauFilled / fxFilled = true)."
+    "notes": "Derived file, recomputed each run from the frozen raw datasets. Weekend/holiday gaps carried forward (xauFilled / fxFilled = true).",
+    "source": "SAMPLE – replaced by the seed run"
   },
   "convertedGoldVndTael": [
     {
+      "date": "2026-06-11",
+      "value": 135592152,
+      "xauUsdOz": 4284.33,
+      "usdVnd": 26250,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-12",
+      "value": 135441822,
+      "xauUsdOz": 4279.58,
+      "usdVnd": 26250,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-13",
+      "value": 135441822,
+      "xauUsdOz": 4279.58,
+      "usdVnd": 26250,
+      "xauFilled": true,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-14",
+      "value": 135441822,
+      "xauUsdOz": 4279.58,
+      "usdVnd": 26250,
+      "xauFilled": true,
+      "fxFilled": true
+    },
+    {
+      "date": "2026-06-15",
+      "value": 134758217,
+      "xauUsdOz": 4257.98,
+      "usdVnd": 26250,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-16",
+      "value": 134529041,
+      "xauUsdOz": 4249.12,
+      "usdVnd": 26260,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-17",
+      "value": 134236816,
+      "xauUsdOz": 4239.89,
+      "usdVnd": 26260,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-18",
+      "value": 133943640,
+      "xauUsdOz": 4230.63,
+      "usdVnd": 26260,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-19",
+      "value": 133659012,
+      "xauUsdOz": 4221.64,
+      "usdVnd": 26260,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-20",
+      "value": 133659012,
+      "xauUsdOz": 4221.64,
+      "usdVnd": 26260,
+      "xauFilled": true,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-21",
+      "value": 133659012,
+      "xauUsdOz": 4221.64,
+      "usdVnd": 26260,
+      "xauFilled": true,
+      "fxFilled": true
+    },
+    {
+      "date": "2026-06-22",
+      "value": 132951401,
+      "xauUsdOz": 4199.29,
+      "usdVnd": 26260,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-23",
+      "value": 132789933,
+      "xauUsdOz": 4194.19,
+      "usdVnd": 26260,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-24",
+      "value": 132725529,
+      "xauUsdOz": 4190.56,
+      "usdVnd": 26270,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-25",
+      "value": 132660284,
+      "xauUsdOz": 4188.5,
+      "usdVnd": 26270,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-26",
+      "value": 132645398,
+      "xauUsdOz": 4188.03,
+      "usdVnd": 26270,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-27",
+      "value": 132645398,
+      "xauUsdOz": 4188.03,
+      "usdVnd": 26270,
+      "xauFilled": true,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-28",
+      "value": 132645398,
+      "xauUsdOz": 4188.03,
+      "usdVnd": 26270,
+      "xauFilled": true,
+      "fxFilled": true
+    },
+    {
+      "date": "2026-06-29",
+      "value": 132883892,
+      "xauUsdOz": 4195.56,
+      "usdVnd": 26270,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-06-30",
+      "value": 133041621,
+      "xauUsdOz": 4200.54,
+      "usdVnd": 26270,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-07-01",
+      "value": 133226272,
+      "xauUsdOz": 4206.37,
+      "usdVnd": 26270,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-07-02",
+      "value": 133480084,
+      "xauUsdOz": 4212.78,
+      "usdVnd": 26280,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-07-03",
+      "value": 133691103,
+      "xauUsdOz": 4219.44,
+      "usdVnd": 26280,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-07-04",
+      "value": 133691103,
+      "xauUsdOz": 4219.44,
+      "usdVnd": 26280,
+      "xauFilled": true,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-07-05",
+      "value": 133691103,
+      "xauUsdOz": 4219.44,
+      "usdVnd": 26280,
+      "xauFilled": true,
+      "fxFilled": true
+    },
+    {
+      "date": "2026-07-06",
+      "value": 134275366,
+      "xauUsdOz": 4237.88,
+      "usdVnd": 26280,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-07-07",
+      "value": 134422383,
+      "xauUsdOz": 4242.52,
+      "usdVnd": 26280,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
       "date": "2026-07-08",
-      "value": 130264535,
-      "xauUsdOz": 4082.4,
-      "usdVnd": 26466,
+      "value": 134531694,
+      "xauUsdOz": 4245.97,
+      "usdVnd": 26280,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-09",
-      "value": 132152971,
-      "xauUsdOz": 4140.8,
-      "usdVnd": 26471,
+      "value": 134597598,
+      "xauUsdOz": 4248.05,
+      "usdVnd": 26280,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-10",
-      "value": 131283120,
-      "xauUsdOz": 4113.7,
-      "usdVnd": 26470,
+      "value": 134615658,
+      "xauUsdOz": 4248.62,
+      "usdVnd": 26280,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-11",
-      "value": 131283120,
-      "xauUsdOz": 4113.7,
-      "usdVnd": 26470,
+      "value": 134666882,
+      "xauUsdOz": 4248.62,
+      "usdVnd": 26290,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-07-12",
-      "value": 131283120,
-      "xauUsdOz": 4113.7,
-      "usdVnd": 26470,
+      "value": 134666882,
+      "xauUsdOz": 4248.62,
+      "usdVnd": 26290,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-07-13",
-      "value": 127788152,
-      "xauUsdOz": 4005.7,
-      "usdVnd": 26460,
+      "value": 134421867,
+      "xauUsdOz": 4240.89,
+      "usdVnd": 26290,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-14",
-      "value": 129780787,
-      "xauUsdOz": 4069.7,
-      "usdVnd": 26450,
+      "value": 134245634,
+      "xauUsdOz": 4235.33,
+      "usdVnd": 26290,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-15",
-      "value": 129209964,
-      "xauUsdOz": 4051.8,
-      "usdVnd": 26450,
+      "value": 134029463,
+      "xauUsdOz": 4228.51,
+      "usdVnd": 26290,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-16",
-      "value": 127306160,
-      "xauUsdOz": 3992.1,
-      "usdVnd": 26450,
+      "value": 133780645,
+      "xauUsdOz": 4220.66,
+      "usdVnd": 26290,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-17",
-      "value": 128351421,
-      "xauUsdOz": 4018.8,
-      "usdVnd": 26490,
+      "value": 133506786,
+      "xauUsdOz": 4212.02,
+      "usdVnd": 26290,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-18",
-      "value": 128351421,
-      "xauUsdOz": 4018.8,
-      "usdVnd": 26490,
+      "value": 133506786,
+      "xauUsdOz": 4212.02,
+      "usdVnd": 26290,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-07-19",
-      "value": 128351421,
-      "xauUsdOz": 4018.8,
-      "usdVnd": 26490,
+      "value": 133506786,
+      "xauUsdOz": 4212.02,
+      "usdVnd": 26290,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-07-20",
-      "value": 128258802,
-      "xauUsdOz": 4015.9,
-      "usdVnd": 26490,
+      "value": 132684311,
+      "xauUsdOz": 4184.48,
+      "usdVnd": 26300,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-21",
-      "value": 130289330,
-      "xauUsdOz": 4076.4,
-      "usdVnd": 26510,
+      "value": 132409080,
+      "xauUsdOz": 4175.8,
+      "usdVnd": 26300,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-22",
-      "value": 132652393,
-      "xauUsdOz": 4151.9,
-      "usdVnd": 26500,
+      "value": 132157947,
+      "xauUsdOz": 4167.88,
+      "usdVnd": 26300,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-23",
-      "value": 129403098,
-      "xauUsdOz": 4050.2,
-      "usdVnd": 26500,
+      "value": 131938840,
+      "xauUsdOz": 4160.97,
+      "usdVnd": 26300,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-24",
-      "value": 130110343,
-      "xauUsdOz": 4070.8,
-      "usdVnd": 26510,
+      "value": 131759052,
+      "xauUsdOz": 4155.3,
+      "usdVnd": 26300,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-25",
-      "value": 130110343,
-      "xauUsdOz": 4070.8,
-      "usdVnd": 26510,
+      "value": 131759052,
+      "xauUsdOz": 4155.3,
+      "usdVnd": 26300,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-07-26",
-      "value": 130110343,
-      "xauUsdOz": 4070.8,
-      "usdVnd": 26510,
+      "value": 131759052,
+      "xauUsdOz": 4155.3,
+      "usdVnd": 26300,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-07-27",
-      "value": 130357661,
-      "xauUsdOz": 4077,
-      "usdVnd": 26520,
+      "value": 131551896,
+      "xauUsdOz": 4147.19,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-28",
-      "value": 129157407,
-      "xauUsdOz": 4038.7,
-      "usdVnd": 26525,
+      "value": 131566487,
+      "xauUsdOz": 4147.65,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-29",
-      "value": 129031991,
-      "xauUsdOz": 4036.3,
-      "usdVnd": 26515,
+      "value": 131628660,
+      "xauUsdOz": 4149.61,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-30",
-      "value": 130947960,
-      "xauUsdOz": 4100.1,
-      "usdVnd": 26490,
+      "value": 131734924,
+      "xauUsdOz": 4152.96,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-07-31",
-      "value": 131168331,
-      "xauUsdOz": 4107,
-      "usdVnd": 26490,
+      "value": 131879254,
+      "xauUsdOz": 4157.51,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-01",
-      "value": 131168331,
-      "xauUsdOz": 4107,
-      "usdVnd": 26490,
+      "value": 131879254,
+      "xauUsdOz": 4157.51,
+      "usdVnd": 26310,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-08-02",
-      "value": 131168331,
-      "xauUsdOz": 4107,
-      "usdVnd": 26490,
+      "value": 131879254,
+      "xauUsdOz": 4157.51,
+      "usdVnd": 26310,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-08-03",
-      "value": 130592040,
-      "xauUsdOz": 4090.5,
-      "usdVnd": 26480,
+      "value": 132460060,
+      "xauUsdOz": 4175.82,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-04",
-      "value": 132474494,
-      "xauUsdOz": 4152.6,
-      "usdVnd": 26460,
+      "value": 132671955,
+      "xauUsdOz": 4182.5,
+      "usdVnd": 26310,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-05",
-      "value": 137342675,
-      "xauUsdOz": 4305.2,
-      "usdVnd": 26460,
+      "value": 132926423,
+      "xauUsdOz": 4188.93,
+      "usdVnd": 26320,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-06",
-      "value": 136956673,
-      "xauUsdOz": 4299.6,
-      "usdVnd": 26420,
+      "value": 133113329,
+      "xauUsdOz": 4194.82,
+      "usdVnd": 26320,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-07",
-      "value": 140092148,
-      "xauUsdOz": 4399.7,
-      "usdVnd": 26410,
+      "value": 133273897,
+      "xauUsdOz": 4199.88,
+      "usdVnd": 26320,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-08",
-      "value": 140092148,
-      "xauUsdOz": 4399.7,
-      "usdVnd": 26410,
+      "value": 133273897,
+      "xauUsdOz": 4199.88,
+      "usdVnd": 26320,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-08-09",
-      "value": 140092148,
-      "xauUsdOz": 4399.7,
-      "usdVnd": 26410,
+      "value": 133273897,
+      "xauUsdOz": 4199.88,
+      "usdVnd": 26320,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-08-10",
-      "value": 140409257,
-      "xauUsdOz": 4419.7,
-      "usdVnd": 26350,
+      "value": 133522999,
+      "xauUsdOz": 4207.73,
+      "usdVnd": 26320,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-11",
-      "value": 140928480,
-      "xauUsdOz": 4441.1,
+      "value": 133512210,
+      "xauUsdOz": 4207.39,
       "usdVnd": 26320,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-12",
-      "value": 141496913,
-      "xauUsdOz": 4467.5,
-      "usdVnd": 26270,
+      "value": 133450966,
+      "xauUsdOz": 4205.46,
+      "usdVnd": 26320,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-13",
-      "value": 139898548,
-      "xauUsdOz": 4420.4,
-      "usdVnd": 26250,
+      "value": 133390245,
+      "xauUsdOz": 4201.95,
+      "usdVnd": 26330,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-14",
-      "value": 140861394,
-      "xauUsdOz": 4437.3,
+      "value": 133232155,
+      "xauUsdOz": 4196.97,
       "usdVnd": 26330,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-15",
-      "value": 140861394,
-      "xauUsdOz": 4437.3,
+      "value": 133232155,
+      "xauUsdOz": 4196.97,
       "usdVnd": 26330,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-08-16",
-      "value": 140861394,
-      "xauUsdOz": 4437.3,
+      "value": 133232155,
+      "xauUsdOz": 4196.97,
       "usdVnd": 26330,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-08-17",
-      "value": 142394467,
-      "xauUsdOz": 4473.7,
-      "usdVnd": 26400,
+      "value": 132529959,
+      "xauUsdOz": 4174.85,
+      "usdVnd": 26330,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-18",
-      "value": 140597740,
-      "xauUsdOz": 4420.6,
-      "usdVnd": 26380,
+      "value": 132245843,
+      "xauUsdOz": 4165.9,
+      "usdVnd": 26330,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-19",
-      "value": 144509039,
-      "xauUsdOz": 4545.3,
-      "usdVnd": 26370,
+      "value": 131952203,
+      "xauUsdOz": 4156.65,
+      "usdVnd": 26330,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-20",
-      "value": 145008147,
-      "xauUsdOz": 4571.4,
-      "usdVnd": 26310,
+      "value": 131658881,
+      "xauUsdOz": 4147.41,
+      "usdVnd": 26330,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-21",
-      "value": 148302755,
-      "xauUsdOz": 4680.6,
-      "usdVnd": 26280,
+      "value": 131425930,
+      "xauUsdOz": 4138.5,
+      "usdVnd": 26340,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-22",
-      "value": 148472050,
-      "xauUsdOz": 4680.6,
-      "usdVnd": 26310,
+      "value": 131425930,
+      "xauUsdOz": 4138.5,
+      "usdVnd": 26340,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-08-23",
-      "value": 148472050,
-      "xauUsdOz": 4680.6,
-      "usdVnd": 26310,
+      "value": 131425930,
+      "xauUsdOz": 4138.5,
+      "usdVnd": 26340,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-08-24",
-      "value": 149300843,
-      "xauUsdOz": 4697.8,
-      "usdVnd": 26360,
+      "value": 130732042,
+      "xauUsdOz": 4116.65,
+      "usdVnd": 26340,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-25",
-      "value": 148912969,
-      "xauUsdOz": 4694.5,
-      "usdVnd": 26310,
+      "value": 130577704,
+      "xauUsdOz": 4111.79,
+      "usdVnd": 26340,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-26",
-      "value": 147549972,
-      "xauUsdOz": 4653.3,
-      "usdVnd": 26300,
+      "value": 130470683,
+      "xauUsdOz": 4108.42,
+      "usdVnd": 26340,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-27",
-      "value": 147720560,
-      "xauUsdOz": 4664,
-      "usdVnd": 26270,
+      "value": 130413838,
+      "xauUsdOz": 4106.63,
+      "usdVnd": 26340,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-28",
-      "value": 143418662,
-      "xauUsdOz": 4529.9,
-      "usdVnd": 26260,
+      "value": 130407487,
+      "xauUsdOz": 4106.43,
+      "usdVnd": 26340,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-08-29",
-      "value": 143418662,
-      "xauUsdOz": 4529.9,
-      "usdVnd": 26260,
+      "value": 130407487,
+      "xauUsdOz": 4106.43,
+      "usdVnd": 26340,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-08-30",
-      "value": 143418662,
-      "xauUsdOz": 4529.9,
-      "usdVnd": 26260,
+      "value": 130407487,
+      "xauUsdOz": 4106.43,
+      "usdVnd": 26340,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-08-31",
-      "value": 141886296,
-      "xauUsdOz": 4481.5,
-      "usdVnd": 26260,
+      "value": 130717819,
+      "xauUsdOz": 4114.64,
+      "usdVnd": 26350,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-01",
-      "value": 139191992,
-      "xauUsdOz": 4396.4,
-      "usdVnd": 26260,
+      "value": 130881111,
+      "xauUsdOz": 4119.78,
+      "usdVnd": 26350,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-02",
-      "value": 139768212,
-      "xauUsdOz": 4414.6,
-      "usdVnd": 26260,
+      "value": 131070137,
+      "xauUsdOz": 4125.73,
+      "usdVnd": 26350,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-03",
-      "value": 143735266,
-      "xauUsdOz": 4539.9,
-      "usdVnd": 26260,
+      "value": 131276000,
+      "xauUsdOz": 4132.21,
+      "usdVnd": 26350,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-04",
-      "value": 141704174,
-      "xauUsdOz": 4476.6,
-      "usdVnd": 26255,
+      "value": 131488216,
+      "xauUsdOz": 4138.89,
+      "usdVnd": 26350,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-05",
-      "value": 141704174,
-      "xauUsdOz": 4476.6,
-      "usdVnd": 26255,
+      "value": 131488216,
+      "xauUsdOz": 4138.89,
+      "usdVnd": 26350,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-09-06",
-      "value": 141704174,
-      "xauUsdOz": 4476.6,
-      "usdVnd": 26255,
+      "value": 131488216,
+      "xauUsdOz": 4138.89,
+      "usdVnd": 26350,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-09-07",
-      "value": 141461299,
-      "xauUsdOz": 4476.6,
-      "usdVnd": 26210,
-      "xauFilled": true,
+      "value": 132115260,
+      "xauUsdOz": 4157.05,
+      "usdVnd": 26360,
+      "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-08",
-      "value": 140005538,
-      "xauUsdOz": 4439,
-      "usdVnd": 26160,
+      "value": 132256686,
+      "xauUsdOz": 4161.5,
+      "usdVnd": 26360,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-09",
-      "value": 140313489,
-      "xauUsdOz": 4460.7,
-      "usdVnd": 26090,
+      "value": 132359656,
+      "xauUsdOz": 4164.74,
+      "usdVnd": 26360,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-10",
-      "value": 138740040,
-      "xauUsdOz": 4407.3,
-      "usdVnd": 26110,
+      "value": 132417815,
+      "xauUsdOz": 4166.57,
+      "usdVnd": 26360,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-11",
-      "value": 138790407,
-      "xauUsdOz": 4408.9,
-      "usdVnd": 26110,
+      "value": 132427985,
+      "xauUsdOz": 4166.89,
+      "usdVnd": 26360,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-12",
-      "value": 138790407,
-      "xauUsdOz": 4408.9,
-      "usdVnd": 26110,
+      "value": 132427985,
+      "xauUsdOz": 4166.89,
+      "usdVnd": 26360,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-09-13",
-      "value": 138790407,
-      "xauUsdOz": 4408.9,
-      "usdVnd": 26110,
+      "value": 132427985,
+      "xauUsdOz": 4166.89,
+      "usdVnd": 26360,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-09-14",
-      "value": 137363352,
-      "xauUsdOz": 4351.9,
-      "usdVnd": 26180,
+      "value": 132157211,
+      "xauUsdOz": 4158.37,
+      "usdVnd": 26360,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-15",
-      "value": 136499287,
-      "xauUsdOz": 4332.8,
-      "usdVnd": 26130,
+      "value": 132023265,
+      "xauUsdOz": 4152.58,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-16",
-      "value": 138487030,
-      "xauUsdOz": 4387.5,
-      "usdVnd": 26180,
+      "value": 131800713,
+      "xauUsdOz": 4145.58,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-17",
-      "value": 139004724,
-      "xauUsdOz": 4399.7,
-      "usdVnd": 26205,
+      "value": 131546051,
+      "xauUsdOz": 4137.57,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-18",
-      "value": 139827570,
-      "xauUsdOz": 4424.9,
-      "usdVnd": 26210,
+      "value": 131268497,
+      "xauUsdOz": 4128.84,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-19",
-      "value": 139827570,
-      "xauUsdOz": 4424.9,
-      "usdVnd": 26210,
+      "value": 131268497,
+      "xauUsdOz": 4128.84,
+      "usdVnd": 26370,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-09-20",
-      "value": 139827570,
-      "xauUsdOz": 4424.9,
-      "usdVnd": 26210,
+      "value": 131268497,
+      "xauUsdOz": 4128.84,
+      "usdVnd": 26370,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-09-21",
-      "value": 138479109,
-      "xauUsdOz": 4383.9,
-      "usdVnd": 26200,
+      "value": 130392916,
+      "xauUsdOz": 4101.3,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-22",
-      "value": 138294962,
-      "xauUsdOz": 4376.4,
-      "usdVnd": 26210,
+      "value": 130120449,
+      "xauUsdOz": 4092.73,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-23",
-      "value": 136358023,
-      "xauUsdOz": 4318.4,
-      "usdVnd": 26190,
+      "value": 129873099,
+      "xauUsdOz": 4084.95,
+      "usdVnd": 26370,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-24",
-      "value": 135662052,
-      "xauUsdOz": 4298,
-      "usdVnd": 26180,
+      "value": 129708937,
+      "xauUsdOz": 4078.24,
+      "usdVnd": 26380,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-25",
-      "value": 136342238,
-      "xauUsdOz": 4321.2,
-      "usdVnd": 26170,
+      "value": 129535917,
+      "xauUsdOz": 4072.8,
+      "usdVnd": 26380,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-26",
-      "value": 136342238,
-      "xauUsdOz": 4321.2,
-      "usdVnd": 26170,
+      "value": 129535917,
+      "xauUsdOz": 4072.8,
+      "usdVnd": 26380,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-09-27",
-      "value": 136342238,
-      "xauUsdOz": 4321.2,
-      "usdVnd": 26170,
+      "value": 129535917,
+      "xauUsdOz": 4072.8,
+      "usdVnd": 26380,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-09-28",
-      "value": 131470846,
-      "xauUsdOz": 4168.4,
-      "usdVnd": 26160,
+      "value": 129303104,
+      "xauUsdOz": 4065.48,
+      "usdVnd": 26380,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-29",
-      "value": 131827246,
-      "xauUsdOz": 4179.7,
-      "usdVnd": 26160,
+      "value": 129325685,
+      "xauUsdOz": 4066.19,
+      "usdVnd": 26380,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-09-30",
-      "value": 132048026,
-      "xauUsdOz": 4186.7,
-      "usdVnd": 26160,
+      "value": 129395975,
+      "xauUsdOz": 4068.4,
+      "usdVnd": 26380,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-10-01",
-      "value": 132641378,
-      "xauUsdOz": 4202.3,
-      "usdVnd": 26180,
+      "value": 129509519,
+      "xauUsdOz": 4071.97,
+      "usdVnd": 26380,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-10-02",
-      "value": 131328635,
-      "xauUsdOz": 4162.3,
-      "usdVnd": 26170,
+      "value": 129708790,
+      "xauUsdOz": 4076.69,
+      "usdVnd": 26390,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-10-03",
-      "value": 131328635,
-      "xauUsdOz": 4162.3,
-      "usdVnd": 26170,
+      "value": 129708790,
+      "xauUsdOz": 4076.69,
+      "usdVnd": 26390,
       "xauFilled": true,
       "fxFilled": false
     },
     {
       "date": "2026-10-04",
-      "value": 131328635,
-      "xauUsdOz": 4162.3,
-      "usdVnd": 26170,
+      "value": 129708790,
+      "xauUsdOz": 4076.69,
+      "usdVnd": 26390,
       "xauFilled": true,
-      "fxFilled": false
+      "fxFilled": true
     },
     {
       "date": "2026-10-05",
-      "value": 131255333,
-      "xauUsdOz": 4156.8,
-      "usdVnd": 26190,
+      "value": 130299635,
+      "xauUsdOz": 4095.26,
+      "usdVnd": 26390,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-10-06",
-      "value": 132161605,
-      "xauUsdOz": 4187.1,
-      "usdVnd": 26180,
+      "value": 130511538,
+      "xauUsdOz": 4101.92,
+      "usdVnd": 26390,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-10-07",
-      "value": 130451491,
-      "xauUsdOz": 4134.5,
-      "usdVnd": 26170,
+      "value": 130714213,
+      "xauUsdOz": 4108.29,
+      "usdVnd": 26390,
       "xauFilled": false,
       "fxFilled": false
     },
     {
       "date": "2026-10-08",
-      "value": 130451491,
-      "xauUsdOz": 4134.5,
-      "usdVnd": 26170,
+      "value": 130714213,
+      "xauUsdOz": 4108.29,
+      "usdVnd": 26390,
       "xauFilled": true,
       "fxFilled": false
     }
   ],
-  "premium": []
+  "premium": [
+    {
+      "date": "2026-06-11",
+      "dojiSell": 138400000,
+      "converted": 135592152,
+      "diffVnd": 2807848,
+      "diffPct": 2.07
+    },
+    {
+      "date": "2026-06-12",
+      "dojiSell": 145500000,
+      "converted": 135441822,
+      "diffVnd": 10058178,
+      "diffPct": 7.43
+    },
+    {
+      "date": "2026-06-13",
+      "dojiSell": 147000000,
+      "converted": 135441822,
+      "diffVnd": 11558178,
+      "diffPct": 8.53
+    },
+    {
+      "date": "2026-06-15",
+      "dojiSell": 150500000,
+      "converted": 134758217,
+      "diffVnd": 15741783,
+      "diffPct": 11.68
+    },
+    {
+      "date": "2026-06-16",
+      "dojiSell": 152000000,
+      "converted": 134529041,
+      "diffVnd": 17470959,
+      "diffPct": 12.99
+    },
+    {
+      "date": "2026-06-17",
+      "dojiSell": 152000000,
+      "converted": 134236816,
+      "diffVnd": 17763184,
+      "diffPct": 13.23
+    },
+    {
+      "date": "2026-06-18",
+      "dojiSell": 151500000,
+      "converted": 133943640,
+      "diffVnd": 17556360,
+      "diffPct": 13.11
+    },
+    {
+      "date": "2026-06-19",
+      "dojiSell": 146700000,
+      "converted": 133659012,
+      "diffVnd": 13040988,
+      "diffPct": 9.76
+    },
+    {
+      "date": "2026-06-20",
+      "dojiSell": 147200000,
+      "converted": 133659012,
+      "diffVnd": 13540988,
+      "diffPct": 10.13
+    },
+    {
+      "date": "2026-06-22",
+      "dojiSell": 148000000,
+      "converted": 132951401,
+      "diffVnd": 15048599,
+      "diffPct": 11.32
+    },
+    {
+      "date": "2026-06-23",
+      "dojiSell": 147800000,
+      "converted": 132789933,
+      "diffVnd": 15010067,
+      "diffPct": 11.3
+    },
+    {
+      "date": "2026-06-24",
+      "dojiSell": 147000000,
+      "converted": 132725529,
+      "diffVnd": 14274471,
+      "diffPct": 10.75
+    },
+    {
+      "date": "2026-06-25",
+      "dojiSell": 146000000,
+      "converted": 132660284,
+      "diffVnd": 13339716,
+      "diffPct": 10.06
+    },
+    {
+      "date": "2026-06-26",
+      "dojiSell": 146000000,
+      "converted": 132645398,
+      "diffVnd": 13354602,
+      "diffPct": 10.07
+    },
+    {
+      "date": "2026-06-27",
+      "dojiSell": 148500000,
+      "converted": 132645398,
+      "diffVnd": 15854602,
+      "diffPct": 11.95
+    },
+    {
+      "date": "2026-06-29",
+      "dojiSell": 148000000,
+      "converted": 132883892,
+      "diffVnd": 15116108,
+      "diffPct": 11.38
+    },
+    {
+      "date": "2026-06-30",
+      "dojiSell": 147000000,
+      "converted": 133041621,
+      "diffVnd": 13958379,
+      "diffPct": 10.49
+    },
+    {
+      "date": "2026-07-01",
+      "dojiSell": 147600000,
+      "converted": 133226272,
+      "diffVnd": 14373728,
+      "diffPct": 10.79
+    },
+    {
+      "date": "2026-07-02",
+      "dojiSell": 147100000,
+      "converted": 133480084,
+      "diffVnd": 13619916,
+      "diffPct": 10.2
+    },
+    {
+      "date": "2026-07-03",
+      "dojiSell": 146500000,
+      "converted": 133691103,
+      "diffVnd": 12808897,
+      "diffPct": 9.58
+    },
+    {
+      "date": "2026-07-04",
+      "dojiSell": 146800000,
+      "converted": 133691103,
+      "diffVnd": 13108897,
+      "diffPct": 9.81
+    },
+    {
+      "date": "2026-07-05",
+      "dojiSell": 146800000,
+      "converted": 133691103,
+      "diffVnd": 13108897,
+      "diffPct": 9.81
+    },
+    {
+      "date": "2026-07-06",
+      "dojiSell": 146400000,
+      "converted": 134275366,
+      "diffVnd": 12124634,
+      "diffPct": 9.03
+    },
+    {
+      "date": "2026-07-07",
+      "dojiSell": 146800000,
+      "converted": 134422383,
+      "diffVnd": 12377617,
+      "diffPct": 9.21
+    },
+    {
+      "date": "2026-07-08",
+      "dojiSell": 147100000,
+      "converted": 134531694,
+      "diffVnd": 12568306,
+      "diffPct": 9.34
+    },
+    {
+      "date": "2026-07-09",
+      "dojiSell": 147100000,
+      "converted": 134597598,
+      "diffVnd": 12502402,
+      "diffPct": 9.29
+    },
+    {
+      "date": "2026-07-10",
+      "dojiSell": 147300000,
+      "converted": 134615658,
+      "diffVnd": 12684342,
+      "diffPct": 9.42
+    },
+    {
+      "date": "2026-07-11",
+      "dojiSell": 147400000,
+      "converted": 134666882,
+      "diffVnd": 12733118,
+      "diffPct": 9.46
+    },
+    {
+      "date": "2026-07-12",
+      "dojiSell": 147800000,
+      "converted": 134666882,
+      "diffVnd": 13133118,
+      "diffPct": 9.75
+    },
+    {
+      "date": "2026-07-13",
+      "dojiSell": 147200000,
+      "converted": 134421867,
+      "diffVnd": 12778133,
+      "diffPct": 9.51
+    },
+    {
+      "date": "2026-07-14",
+      "dojiSell": 146900000,
+      "converted": 134245634,
+      "diffVnd": 12654366,
+      "diffPct": 9.43
+    },
+    {
+      "date": "2026-07-15",
+      "dojiSell": 147100000,
+      "converted": 134029463,
+      "diffVnd": 13070537,
+      "diffPct": 9.75
+    },
+    {
+      "date": "2026-07-16",
+      "dojiSell": 147300000,
+      "converted": 133780645,
+      "diffVnd": 13519355,
+      "diffPct": 10.11
+    },
+    {
+      "date": "2026-07-17",
+      "dojiSell": 146500000,
+      "converted": 133506786,
+      "diffVnd": 12993214,
+      "diffPct": 9.73
+    },
+    {
+      "date": "2026-07-18",
+      "dojiSell": 146700000,
+      "converted": 133506786,
+      "diffVnd": 13193214,
+      "diffPct": 9.88
+    },
+    {
+      "date": "2026-07-19",
+      "dojiSell": 146600000,
+      "converted": 133506786,
+      "diffVnd": 13093214,
+      "diffPct": 9.81
+    },
+    {
+      "date": "2026-07-20",
+      "dojiSell": 147200000,
+      "converted": 132684311,
+      "diffVnd": 14515689,
+      "diffPct": 10.94
+    },
+    {
+      "date": "2026-07-21",
+      "dojiSell": 147600000,
+      "converted": 132409080,
+      "diffVnd": 15190920,
+      "diffPct": 11.47
+    },
+    {
+      "date": "2026-07-22",
+      "dojiSell": 146800000,
+      "converted": 132157947,
+      "diffVnd": 14642053,
+      "diffPct": 11.08
+    },
+    {
+      "date": "2026-07-23",
+      "dojiSell": 146700000,
+      "converted": 131938840,
+      "diffVnd": 14761160,
+      "diffPct": 11.19
+    },
+    {
+      "date": "2026-07-24",
+      "dojiSell": 147300000,
+      "converted": 131759052,
+      "diffVnd": 15540948,
+      "diffPct": 11.79
+    },
+    {
+      "date": "2026-07-25",
+      "dojiSell": 147500000,
+      "converted": 131759052,
+      "diffVnd": 15740948,
+      "diffPct": 11.95
+    },
+    {
+      "date": "2026-07-26",
+      "dojiSell": 147600000,
+      "converted": 131759052,
+      "diffVnd": 15840948,
+      "diffPct": 12.02
+    },
+    {
+      "date": "2026-07-27",
+      "dojiSell": 147600000,
+      "converted": 131551896,
+      "diffVnd": 16048104,
+      "diffPct": 12.2
+    },
+    {
+      "date": "2026-07-28",
+      "dojiSell": 148100000,
+      "converted": 131566487,
+      "diffVnd": 16533513,
+      "diffPct": 12.57
+    },
+    {
+      "date": "2026-07-29",
+      "dojiSell": 148500000,
+      "converted": 131628660,
+      "diffVnd": 16871340,
+      "diffPct": 12.82
+    },
+    {
+      "date": "2026-07-30",
+      "dojiSell": 148000000,
+      "converted": 131734924,
+      "diffVnd": 16265076,
+      "diffPct": 12.35
+    },
+    {
+      "date": "2026-07-31",
+      "dojiSell": 147500000,
+      "converted": 131879254,
+      "diffVnd": 15620746,
+      "diffPct": 11.84
+    },
+    {
+      "date": "2026-08-01",
+      "dojiSell": 147900000,
+      "converted": 131879254,
+      "diffVnd": 16020746,
+      "diffPct": 12.15
+    },
+    {
+      "date": "2026-08-02",
+      "dojiSell": 147400000,
+      "converted": 131879254,
+      "diffVnd": 15520746,
+      "diffPct": 11.77
+    },
+    {
+      "date": "2026-08-03",
+      "dojiSell": 146700000,
+      "converted": 132460060,
+      "diffVnd": 14239940,
+      "diffPct": 10.75
+    },
+    {
+      "date": "2026-08-04",
+      "dojiSell": 146300000,
+      "converted": 132671955,
+      "diffVnd": 13628045,
+      "diffPct": 10.27
+    },
+    {
+      "date": "2026-08-05",
+      "dojiSell": 146200000,
+      "converted": 132926423,
+      "diffVnd": 13273577,
+      "diffPct": 9.99
+    },
+    {
+      "date": "2026-08-06",
+      "dojiSell": 145900000,
+      "converted": 133113329,
+      "diffVnd": 12786671,
+      "diffPct": 9.61
+    },
+    {
+      "date": "2026-08-07",
+      "dojiSell": 146600000,
+      "converted": 133273897,
+      "diffVnd": 13326103,
+      "diffPct": 10
+    },
+    {
+      "date": "2026-08-08",
+      "dojiSell": 146600000,
+      "converted": 133273897,
+      "diffVnd": 13326103,
+      "diffPct": 10
+    },
+    {
+      "date": "2026-08-09",
+      "dojiSell": 146900000,
+      "converted": 133273897,
+      "diffVnd": 13626103,
+      "diffPct": 10.22
+    },
+    {
+      "date": "2026-08-10",
+      "dojiSell": 147400000,
+      "converted": 133522999,
+      "diffVnd": 13877001,
+      "diffPct": 10.39
+    },
+    {
+      "date": "2026-08-11",
+      "dojiSell": 146600000,
+      "converted": 133512210,
+      "diffVnd": 13087790,
+      "diffPct": 9.8
+    },
+    {
+      "date": "2026-08-12",
+      "dojiSell": 146200000,
+      "converted": 133450966,
+      "diffVnd": 12749034,
+      "diffPct": 9.55
+    },
+    {
+      "date": "2026-08-13",
+      "dojiSell": 146300000,
+      "converted": 133390245,
+      "diffVnd": 12909755,
+      "diffPct": 9.68
+    },
+    {
+      "date": "2026-08-14",
+      "dojiSell": 146300000,
+      "converted": 133232155,
+      "diffVnd": 13067845,
+      "diffPct": 9.81
+    },
+    {
+      "date": "2026-08-15",
+      "dojiSell": 146100000,
+      "converted": 133232155,
+      "diffVnd": 12867845,
+      "diffPct": 9.66
+    },
+    {
+      "date": "2026-08-16",
+      "dojiSell": 145600000,
+      "converted": 133232155,
+      "diffVnd": 12367845,
+      "diffPct": 9.28
+    },
+    {
+      "date": "2026-08-17",
+      "dojiSell": 146300000,
+      "converted": 132529959,
+      "diffVnd": 13770041,
+      "diffPct": 10.39
+    },
+    {
+      "date": "2026-08-18",
+      "dojiSell": 145600000,
+      "converted": 132245843,
+      "diffVnd": 13354157,
+      "diffPct": 10.1
+    },
+    {
+      "date": "2026-08-19",
+      "dojiSell": 145400000,
+      "converted": 131952203,
+      "diffVnd": 13447797,
+      "diffPct": 10.19
+    },
+    {
+      "date": "2026-08-20",
+      "dojiSell": 145200000,
+      "converted": 131658881,
+      "diffVnd": 13541119,
+      "diffPct": 10.29
+    },
+    {
+      "date": "2026-08-21",
+      "dojiSell": 145500000,
+      "converted": 131425930,
+      "diffVnd": 14074070,
+      "diffPct": 10.71
+    },
+    {
+      "date": "2026-08-22",
+      "dojiSell": 146200000,
+      "converted": 131425930,
+      "diffVnd": 14774070,
+      "diffPct": 11.24
+    },
+    {
+      "date": "2026-08-23",
+      "dojiSell": 146200000,
+      "converted": 131425930,
+      "diffVnd": 14774070,
+      "diffPct": 11.24
+    },
+    {
+      "date": "2026-08-24",
+      "dojiSell": 145600000,
+      "converted": 130732042,
+      "diffVnd": 14867958,
+      "diffPct": 11.37
+    },
+    {
+      "date": "2026-08-25",
+      "dojiSell": 145500000,
+      "converted": 130577704,
+      "diffVnd": 14922296,
+      "diffPct": 11.43
+    },
+    {
+      "date": "2026-08-26",
+      "dojiSell": 145200000,
+      "converted": 130470683,
+      "diffVnd": 14729317,
+      "diffPct": 11.29
+    },
+    {
+      "date": "2026-08-27",
+      "dojiSell": 145100000,
+      "converted": 130413838,
+      "diffVnd": 14686162,
+      "diffPct": 11.26
+    },
+    {
+      "date": "2026-08-28",
+      "dojiSell": 145100000,
+      "converted": 130407487,
+      "diffVnd": 14692513,
+      "diffPct": 11.27
+    },
+    {
+      "date": "2026-08-29",
+      "dojiSell": 144900000,
+      "converted": 130407487,
+      "diffVnd": 14492513,
+      "diffPct": 11.11
+    },
+    {
+      "date": "2026-08-30",
+      "dojiSell": 145100000,
+      "converted": 130407487,
+      "diffVnd": 14692513,
+      "diffPct": 11.27
+    },
+    {
+      "date": "2026-08-31",
+      "dojiSell": 145400000,
+      "converted": 130717819,
+      "diffVnd": 14682181,
+      "diffPct": 11.23
+    },
+    {
+      "date": "2026-09-01",
+      "dojiSell": 145000000,
+      "converted": 130881111,
+      "diffVnd": 14118889,
+      "diffPct": 10.79
+    },
+    {
+      "date": "2026-09-02",
+      "dojiSell": 145800000,
+      "converted": 131070137,
+      "diffVnd": 14729863,
+      "diffPct": 11.24
+    },
+    {
+      "date": "2026-09-03",
+      "dojiSell": 145800000,
+      "converted": 131276000,
+      "diffVnd": 14524000,
+      "diffPct": 11.06
+    },
+    {
+      "date": "2026-09-04",
+      "dojiSell": 146400000,
+      "converted": 131488216,
+      "diffVnd": 14911784,
+      "diffPct": 11.34
+    },
+    {
+      "date": "2026-09-05",
+      "dojiSell": 146600000,
+      "converted": 131488216,
+      "diffVnd": 15111784,
+      "diffPct": 11.49
+    },
+    {
+      "date": "2026-09-06",
+      "dojiSell": 146800000,
+      "converted": 131488216,
+      "diffVnd": 15311784,
+      "diffPct": 11.64
+    },
+    {
+      "date": "2026-09-07",
+      "dojiSell": 146700000,
+      "converted": 132115260,
+      "diffVnd": 14584740,
+      "diffPct": 11.04
+    },
+    {
+      "date": "2026-09-08",
+      "dojiSell": 146600000,
+      "converted": 132256686,
+      "diffVnd": 14343314,
+      "diffPct": 10.85
+    },
+    {
+      "date": "2026-09-09",
+      "dojiSell": 146800000,
+      "converted": 132359656,
+      "diffVnd": 14440344,
+      "diffPct": 10.91
+    },
+    {
+      "date": "2026-09-10",
+      "dojiSell": 147400000,
+      "converted": 132417815,
+      "diffVnd": 14982185,
+      "diffPct": 11.31
+    },
+    {
+      "date": "2026-09-11",
+      "dojiSell": 147100000,
+      "converted": 132427985,
+      "diffVnd": 14672015,
+      "diffPct": 11.08
+    },
+    {
+      "date": "2026-09-12",
+      "dojiSell": 147300000,
+      "converted": 132427985,
+      "diffVnd": 14872015,
+      "diffPct": 11.23
+    },
+    {
+      "date": "2026-09-13",
+      "dojiSell": 146800000,
+      "converted": 132427985,
+      "diffVnd": 14372015,
+      "diffPct": 10.85
+    },
+    {
+      "date": "2026-09-14",
+      "dojiSell": 146900000,
+      "converted": 132157211,
+      "diffVnd": 14742789,
+      "diffPct": 11.16
+    },
+    {
+      "date": "2026-09-15",
+      "dojiSell": 146600000,
+      "converted": 132023265,
+      "diffVnd": 14576735,
+      "diffPct": 11.04
+    },
+    {
+      "date": "2026-09-16",
+      "dojiSell": 146300000,
+      "converted": 131800713,
+      "diffVnd": 14499287,
+      "diffPct": 11
+    },
+    {
+      "date": "2026-09-17",
+      "dojiSell": 146100000,
+      "converted": 131546051,
+      "diffVnd": 14553949,
+      "diffPct": 11.06
+    },
+    {
+      "date": "2026-09-18",
+      "dojiSell": 146600000,
+      "converted": 131268497,
+      "diffVnd": 15331503,
+      "diffPct": 11.68
+    },
+    {
+      "date": "2026-09-19",
+      "dojiSell": 147100000,
+      "converted": 131268497,
+      "diffVnd": 15831503,
+      "diffPct": 12.06
+    },
+    {
+      "date": "2026-09-20",
+      "dojiSell": 146400000,
+      "converted": 131268497,
+      "diffVnd": 15131503,
+      "diffPct": 11.53
+    },
+    {
+      "date": "2026-09-21",
+      "dojiSell": 146800000,
+      "converted": 130392916,
+      "diffVnd": 16407084,
+      "diffPct": 12.58
+    },
+    {
+      "date": "2026-09-22",
+      "dojiSell": 146000000,
+      "converted": 130120449,
+      "diffVnd": 15879551,
+      "diffPct": 12.2
+    },
+    {
+      "date": "2026-09-23",
+      "dojiSell": 146000000,
+      "converted": 129873099,
+      "diffVnd": 16126901,
+      "diffPct": 12.42
+    },
+    {
+      "date": "2026-09-24",
+      "dojiSell": 145200000,
+      "converted": 129708937,
+      "diffVnd": 15491063,
+      "diffPct": 11.94
+    },
+    {
+      "date": "2026-09-25",
+      "dojiSell": 145500000,
+      "converted": 129535917,
+      "diffVnd": 15964083,
+      "diffPct": 12.32
+    },
+    {
+      "date": "2026-09-26",
+      "dojiSell": 145500000,
+      "converted": 129535917,
+      "diffVnd": 15964083,
+      "diffPct": 12.32
+    },
+    {
+      "date": "2026-09-27",
+      "dojiSell": 145500000,
+      "converted": 129535917,
+      "diffVnd": 15964083,
+      "diffPct": 12.32
+    },
+    {
+      "date": "2026-09-28",
+      "dojiSell": 143500000,
+      "converted": 129303104,
+      "diffVnd": 14196896,
+      "diffPct": 10.98
+    },
+    {
+      "date": "2026-09-29",
+      "dojiSell": 142500000,
+      "converted": 129325685,
+      "diffVnd": 13174315,
+      "diffPct": 10.19
+    },
+    {
+      "date": "2026-09-30",
+      "dojiSell": 144000000,
+      "converted": 129395975,
+      "diffVnd": 14604025,
+      "diffPct": 11.29
+    },
+    {
+      "date": "2026-10-01",
+      "dojiSell": 144500000,
+      "converted": 129509519,
+      "diffVnd": 14990481,
+      "diffPct": 11.57
+    },
+    {
+      "date": "2026-10-02",
+      "dojiSell": 143800000,
+      "converted": 129708790,
+      "diffVnd": 14091210,
+      "diffPct": 10.86
+    },
+    {
+      "date": "2026-10-03",
+      "dojiSell": 143700000,
+      "converted": 129708790,
+      "diffVnd": 13991210,
+      "diffPct": 10.79
+    },
+    {
+      "date": "2026-10-04",
+      "dojiSell": 143200000,
+      "converted": 129708790,
+      "diffVnd": 13491210,
+      "diffPct": 10.4
+    },
+    {
+      "date": "2026-10-05",
+      "dojiSell": 142600000,
+      "converted": 130299635,
+      "diffVnd": 12300365,
+      "diffPct": 9.44
+    },
+    {
+      "date": "2026-10-06",
+      "dojiSell": 143500000,
+      "converted": 130511538,
+      "diffVnd": 12988462,
+      "diffPct": 9.95
+    },
+    {
+      "date": "2026-10-07",
+      "dojiSell": 143100000,
+      "converted": 130714213,
+      "diffVnd": 12385787,
+      "diffPct": 9.48
+    },
+    {
+      "date": "2026-10-08",
+      "dojiSell": 143400000,
+      "converted": 130714213,
+      "diffVnd": 12685787,
+      "diffPct": 9.7
+    }
+  ]
 }

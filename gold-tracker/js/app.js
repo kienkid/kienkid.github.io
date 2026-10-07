@@ -4,10 +4,11 @@
    Reads:  ./data/doji-ring.json, ./data/xau-usd.json, ./data/usd-vnd.json,
            ./data/converted-gold.json (optional – recomputed if missing),
            ./data/meta.json (optional – last-updated + source status)
-   Draws:  Chart 1  DOJI sell vs converted international price (VND/tael)
+   Draws:  Chart 1  DOJI Nhẫn tròn 9999 sell vs converted international (VND/tael)
            Chart 2  XAU/USD (USD per troy ounce)
            Chart 3  USD/VND (Vietcombank selling)
            Chart 4  DOJI premium (VND and %)
+   Range:  1M / 3M / 1Y / All – All = everything since START_DATE (11 Jun 2026)
    Paths are RELATIVE ("./data/…") so the page works from /gold-tracker/.
    ============================================================================= */
 (() => {
@@ -17,12 +18,14 @@
   // Constants
   // ---------------------------------------------------------------------------
   const DATA_BASE = './data/';
+  const START_DATE = '2026-06-11';      // first day of the frozen history
   const GRAMS_PER_TAEL = 37.5;          // 1 lượng (tael) = 37.5 g
   const GRAMS_PER_TROY_OZ = 31.1034768; // 1 troy ounce   = 31.1034768 g
   const THEME_KEY = 'gt-theme';
   const RANGE_KEY = 'gt-range';
+  const DOJI_LABEL = 'DOJI Nhẫn tròn 9999 – sell';
 
-  // Number formatters – Vietnamese grouping (15.200.000) as agreed
+  // Number formatters – Vietnamese grouping (15.200.000)
   const fmtVnd = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 0 });
   const fmtUsd = new Intl.NumberFormat('vi-VN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   const fmtPct = new Intl.NumberFormat('vi-VN', { minimumFractionDigits: 2, maximumFractionDigits: 2, signDisplay: 'always' });
@@ -75,11 +78,14 @@
     }
   }
 
-  /** Basic structural validation: { data: [ { date: 'YYYY-MM-DD', <field>: number } ] } */
+  /**
+   * Structural validation: { data: [ { date: 'YYYY-MM-DD', <field>: number } ] }
+   * Rows before START_DATE are ignored (history begins 11 Jun 2026).
+   */
   function validateSeries(json, name, field) {
     if (!json || !Array.isArray(json.data)) throw new Error(`${name}: missing "data" array`);
     return json.data
-      .filter((r) => r && /^\d{4}-\d{2}-\d{2}$/.test(r.date) && Number.isFinite(Number(r[field])))
+      .filter((r) => r && /^\d{4}-\d{2}-\d{2}$/.test(r.date) && r.date >= START_DATE && Number.isFinite(Number(r[field])))
       .map((r) => ({ ...r, [field]: Number(r[field]) }))
       .sort((a, b) => a.date.localeCompare(b.date));
   }
@@ -96,14 +102,13 @@
    */
   function computeConverted(xau, fx) {
     if (!xau.length || !fx.length) return [];
-    const start = xau[0].date < fx[0].date ? xau[0].date : fx[0].date;
     const end = xau.at(-1).date > fx.at(-1).date ? xau.at(-1).date : fx.at(-1).date;
     const xauMap = new Map(xau.map((r) => [r.date, r.close]));
     const fxMap = new Map(fx.map((r) => [r.date, r]));
     const out = [];
     let lastXau = null;
     let lastFx = null;
-    for (const date of dateRange(start, end)) {
+    for (const date of dateRange(START_DATE, end)) {
       let xauFilled = true;
       if (xauMap.has(date)) { lastXau = xauMap.get(date); xauFilled = false; }
       let fxFilled = true;
@@ -139,7 +144,7 @@
     let converted;
     const warnings = [];
     if (convR.status === 'fulfilled' && Array.isArray(convR.value.convertedGoldVndTael)) {
-      converted = convR.value.convertedGoldVndTael;
+      converted = convR.value.convertedGoldVndTael.filter((r) => r.date >= START_DATE);
     } else {
       converted = computeConverted(xau, fx); // fallback – identical formula
       warnings.push('converted-gold.json unavailable – converted price was computed in the browser.');
@@ -155,10 +160,10 @@
   // Transformation: align every series to one daily calendar
   // ---------------------------------------------------------------------------
   /**
-   * Builds parallel arrays indexed by calendar day so all charts share the
-   * same x-axis. DOJI gaps stay null (no scrape that day → gap, spanned by the
-   * line); XAU/FX come from the converted series which already carries values
-   * forward and flags filled points.
+   * Builds parallel arrays indexed by calendar day (from START_DATE) so all
+   * charts share the same x-axis. DOJI gaps stay null (day not published →
+   * gap, spanned by the line); XAU/FX come from the converted series which
+   * already carries values forward and flags filled points.
    *
    * Premium per day (only where DOJI exists):
    *   diffVnd = DOJI_sell − converted
@@ -166,8 +171,8 @@
    */
   function buildState(raw) {
     const all = [raw.doji, raw.xau, raw.fx, raw.converted].flat().map((r) => r.date).sort();
-    if (!all.length) throw new Error('Data files are empty – run the "Update gold data" workflow first.');
-    const labels = dateRange(all[0], all.at(-1));
+    if (!all.length) throw new Error('Data files are empty – run the "Update gold data" workflow in seed mode first.');
+    const labels = dateRange(all[0] < START_DATE ? START_DATE : all[0], all.at(-1));
 
     const dojiMap = new Map(raw.doji.map((r) => [r.date, r]));
     const convMap = new Map(raw.converted.map((r) => [r.date, r]));
@@ -201,7 +206,12 @@
     return { ...raw, rows };
   }
 
-  /** Slice rows to the selected range (last N calendar days, or all). */
+  /**
+   * Slice rows to the selected range, counted back from the latest date:
+   *   30 = 1M, 92 = 3M, 365 = 1Y, 'all' = everything since 11 Jun 2026.
+   * If the history is shorter than the range (e.g. 1Y before Jun 2027) the
+   * chart simply shows all available days.
+   */
   function sliceRows(rows, range) {
     if (range === 'all') return rows;
     const end = rows.at(-1).date;
@@ -282,7 +292,7 @@
       data: {
         labels,
         datasets: [
-          lineDataset('DOJI Ring 9999 – sell', rows.map((r) => r.dojiSell), cssVar('--gt-doji')),
+          lineDataset(DOJI_LABEL, rows.map((r) => r.dojiSell), cssVar('--gt-doji')),
           lineDataset('International (converted)', rows.map((r) => r.converted), cssVar('--gt-world'), { borderDash: [6, 4] }),
         ],
       },
@@ -411,7 +421,7 @@
     const fx = latestWithChange(state.fx.filter((r) => !r.filled), 'sell');
     const pctTxt = (k) => (k.changePct === null ? '' : ` (${fmtPct.format(k.changePct)}%)`);
 
-    if (doji) wrap.append(kpiCard({ label: 'DOJI Ring 9999 sell', color: cssVar('--gt-doji'), valueText: `${fmtVnd.format(doji.value)} ₫`, sub: `VND/tael · ${fmtDate(doji.date, true)}`, change: doji.change, changeText: doji.change === null ? '' : `${fmtVnd.format(Math.abs(doji.change))}${pctTxt(doji)}` }));
+    if (doji) wrap.append(kpiCard({ label: 'DOJI Nhẫn tròn 9999 sell', color: cssVar('--gt-doji'), valueText: `${fmtVnd.format(doji.value)} ₫`, sub: `VND/tael · ${fmtDate(doji.date, true)}`, change: doji.change, changeText: doji.change === null ? '' : `${fmtVnd.format(Math.abs(doji.change))}${pctTxt(doji)}` }));
     if (conv) wrap.append(kpiCard({ label: 'International (converted)', color: cssVar('--gt-world'), valueText: `${fmtVnd.format(conv.value)} ₫`, sub: `VND/tael · ${fmtDate(conv.date, true)}`, change: conv.change, changeText: conv.change === null ? '' : `${fmtVnd.format(Math.abs(conv.change))}${pctTxt(conv)}` }));
     if (prem) {
       const r = rows.find((x) => x.date === prem.date);
@@ -424,12 +434,12 @@
   // ---------------------------------------------------------------------------
   // Alerts / status
   // ---------------------------------------------------------------------------
-  function showAlert(type, html, { retry = false } = {}) {
+  function showAlert(type, text, { retry = false } = {}) {
     const div = document.createElement('div');
     div.className = `alert alert-${type} d-flex flex-wrap align-items-center justify-content-between gap-2`;
     div.setAttribute('role', 'alert');
     const span = document.createElement('span');
-    span.textContent = html; // textContent – never inject untrusted HTML
+    span.textContent = text; // textContent – never inject untrusted HTML
     div.append(span);
     if (retry) {
       const btn = document.createElement('button');
@@ -446,15 +456,15 @@
     const ts = fmtTimestamp(meta?.lastUpdated);
     $('lastUpdated').textContent = ts;
     $('lastUpdatedNav').textContent = meta?.lastUpdated ? `Updated ${ts}` : '';
-    $('dataCounts').textContent = `${state.doji.length} DOJI · ${state.xau.length} XAU · ${state.fx.length} FX data points`;
+    $('dataCounts').textContent = `${state.doji.length} DOJI · ${state.xau.length} XAU · ${state.fx.length} FX data points since ${fmtDate(START_DATE, true)}`;
 
     if (state.isSample) {
-      showAlert('warning', 'Showing SAMPLE data. Run the "Update gold data" workflow (Actions tab → Run workflow) to load real prices.');
+      showAlert('warning', 'Showing SAMPLE data. Run the "Update gold data" workflow with mode = seed (Actions tab → Run workflow) to load real prices.');
     }
     state.warnings.forEach((w) => showAlert('info', w));
 
     // Per-source status from the last workflow run
-    const names = { doji: 'DOJI', xau: 'XAU/USD', fx: 'USD/VND' };
+    const names = { doji: 'DOJI (giavang24k)', xau: 'XAU/USD', fx: 'USD/VND' };
     Object.entries(meta?.sources || {}).forEach(([k, s]) => {
       if (s.status === 'error') {
         const last = s.lastSuccess ? ` Last successful update: ${fmtTimestamp(s.lastSuccess)}.` : '';
