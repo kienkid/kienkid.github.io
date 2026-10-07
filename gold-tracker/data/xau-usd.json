@@ -1,440 +1,425 @@
 {
   "meta": {
     "schemaVersion": 2,
-    "sample": true,
+    "sample": false,
     "timezone": "Asia/Ho_Chi_Minh",
     "startDate": "2026-06-11",
     "frozen": true,
     "dataset": "xau-usd",
     "field": "close",
     "unit": "USD/troy oz",
-    "source": "SAMPLE – replaced by the seed run"
+    "source": "stooq.com (xauusd), fallback Yahoo GC=F"
   },
   "data": [
     {
       "date": "2026-06-11",
-      "close": 4284.33,
-      "src": "stooq"
+      "close": 4114,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-12",
-      "close": 4279.58,
-      "src": "stooq"
+      "close": 4238.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-15",
-      "close": 4257.98,
-      "src": "stooq"
+      "close": 4351.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-16",
-      "close": 4249.12,
-      "src": "stooq"
+      "close": 4354.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-17",
-      "close": 4239.89,
-      "src": "stooq"
+      "close": 4381.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-18",
-      "close": 4230.63,
-      "src": "stooq"
-    },
-    {
-      "date": "2026-06-19",
-      "close": 4221.64,
-      "src": "stooq"
+      "close": 4245.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-22",
-      "close": 4199.29,
-      "src": "stooq"
+      "close": 4202.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-23",
-      "close": 4194.19,
-      "src": "stooq"
+      "close": 4149.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-24",
-      "close": 4190.56,
-      "src": "stooq"
+      "close": 4008.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-25",
-      "close": 4188.5,
-      "src": "stooq"
+      "close": 4047.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-26",
-      "close": 4188.03,
-      "src": "stooq"
+      "close": 4096.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-29",
-      "close": 4195.56,
-      "src": "stooq"
+      "close": 4038.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-06-30",
-      "close": 4200.54,
-      "src": "stooq"
+      "close": 4038.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-01",
-      "close": 4206.37,
-      "src": "stooq"
+      "close": 4082.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-02",
-      "close": 4212.78,
-      "src": "stooq"
-    },
-    {
-      "date": "2026-07-03",
-      "close": 4219.44,
-      "src": "stooq"
+      "close": 4125.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-06",
-      "close": 4237.88,
-      "src": "stooq"
+      "close": 4167.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-07",
-      "close": 4242.52,
-      "src": "stooq"
+      "close": 4157.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-08",
-      "close": 4245.97,
-      "src": "stooq"
+      "close": 4082.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-09",
-      "close": 4248.05,
-      "src": "stooq"
+      "close": 4140.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-10",
-      "close": 4248.62,
-      "src": "stooq"
+      "close": 4113.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-13",
-      "close": 4240.89,
-      "src": "stooq"
+      "close": 4005.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-14",
-      "close": 4235.33,
-      "src": "stooq"
+      "close": 4069.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-15",
-      "close": 4228.51,
-      "src": "stooq"
+      "close": 4051.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-16",
-      "close": 4220.66,
-      "src": "stooq"
+      "close": 3992.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-17",
-      "close": 4212.02,
-      "src": "stooq"
+      "close": 4018.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-20",
-      "close": 4184.48,
-      "src": "stooq"
+      "close": 4015.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-21",
-      "close": 4175.8,
-      "src": "stooq"
+      "close": 4076.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-22",
-      "close": 4167.88,
-      "src": "stooq"
+      "close": 4151.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-23",
-      "close": 4160.97,
-      "src": "stooq"
+      "close": 4050.2,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-24",
-      "close": 4155.3,
-      "src": "stooq"
+      "close": 4070.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-27",
-      "close": 4147.19,
-      "src": "stooq"
+      "close": 4077,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-28",
-      "close": 4147.65,
-      "src": "stooq"
+      "close": 4038.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-29",
-      "close": 4149.61,
-      "src": "stooq"
+      "close": 4036.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-30",
-      "close": 4152.96,
-      "src": "stooq"
+      "close": 4100.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-07-31",
-      "close": 4157.51,
-      "src": "stooq"
+      "close": 4107,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-03",
-      "close": 4175.82,
-      "src": "stooq"
+      "close": 4090.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-04",
-      "close": 4182.5,
-      "src": "stooq"
+      "close": 4152.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-05",
-      "close": 4188.93,
-      "src": "stooq"
+      "close": 4305.2,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-06",
-      "close": 4194.82,
-      "src": "stooq"
+      "close": 4299.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-07",
-      "close": 4199.88,
-      "src": "stooq"
+      "close": 4399.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-10",
-      "close": 4207.73,
-      "src": "stooq"
+      "close": 4419.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-11",
-      "close": 4207.39,
-      "src": "stooq"
+      "close": 4441.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-12",
-      "close": 4205.46,
-      "src": "stooq"
+      "close": 4467.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-13",
-      "close": 4201.95,
-      "src": "stooq"
+      "close": 4420.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-14",
-      "close": 4196.97,
-      "src": "stooq"
+      "close": 4437.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-17",
-      "close": 4174.85,
-      "src": "stooq"
+      "close": 4473.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-18",
-      "close": 4165.9,
-      "src": "stooq"
+      "close": 4420.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-19",
-      "close": 4156.65,
-      "src": "stooq"
+      "close": 4545.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-20",
-      "close": 4147.41,
-      "src": "stooq"
+      "close": 4571.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-21",
-      "close": 4138.5,
-      "src": "stooq"
+      "close": 4680.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-24",
-      "close": 4116.65,
-      "src": "stooq"
+      "close": 4697.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-25",
-      "close": 4111.79,
-      "src": "stooq"
+      "close": 4694.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-26",
-      "close": 4108.42,
-      "src": "stooq"
+      "close": 4653.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-27",
-      "close": 4106.63,
-      "src": "stooq"
+      "close": 4664,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-28",
-      "close": 4106.43,
-      "src": "stooq"
+      "close": 4529.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-08-31",
-      "close": 4114.64,
-      "src": "stooq"
+      "close": 4481.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-01",
-      "close": 4119.78,
-      "src": "stooq"
+      "close": 4396.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-02",
-      "close": 4125.73,
-      "src": "stooq"
+      "close": 4414.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-03",
-      "close": 4132.21,
-      "src": "stooq"
+      "close": 4539.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-04",
-      "close": 4138.89,
-      "src": "stooq"
-    },
-    {
-      "date": "2026-09-07",
-      "close": 4157.05,
-      "src": "stooq"
+      "close": 4476.6,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-08",
-      "close": 4161.5,
-      "src": "stooq"
+      "close": 4439,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-09",
-      "close": 4164.74,
-      "src": "stooq"
+      "close": 4460.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-10",
-      "close": 4166.57,
-      "src": "stooq"
+      "close": 4407.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-11",
-      "close": 4166.89,
-      "src": "stooq"
+      "close": 4408.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-14",
-      "close": 4158.37,
-      "src": "stooq"
+      "close": 4351.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-15",
-      "close": 4152.58,
-      "src": "stooq"
+      "close": 4332.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-16",
-      "close": 4145.58,
-      "src": "stooq"
+      "close": 4387.5,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-17",
-      "close": 4137.57,
-      "src": "stooq"
+      "close": 4399.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-18",
-      "close": 4128.84,
-      "src": "stooq"
+      "close": 4424.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-21",
-      "close": 4101.3,
-      "src": "stooq"
+      "close": 4383.9,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-22",
-      "close": 4092.73,
-      "src": "stooq"
+      "close": 4376.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-23",
-      "close": 4084.95,
-      "src": "stooq"
+      "close": 4318.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-24",
-      "close": 4078.24,
-      "src": "stooq"
+      "close": 4298,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-25",
-      "close": 4072.8,
-      "src": "stooq"
+      "close": 4321.2,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-28",
-      "close": 4065.48,
-      "src": "stooq"
+      "close": 4168.4,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-29",
-      "close": 4066.19,
-      "src": "stooq"
+      "close": 4179.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-09-30",
-      "close": 4068.4,
-      "src": "stooq"
+      "close": 4186.7,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-01",
-      "close": 4071.97,
-      "src": "stooq"
+      "close": 4202.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-02",
-      "close": 4076.69,
-      "src": "stooq"
+      "close": 4162.3,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-05",
-      "close": 4095.26,
-      "src": "stooq"
+      "close": 4156.8,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-06",
-      "close": 4101.92,
-      "src": "stooq"
+      "close": 4187.1,
+      "src": "yahoo:GC=F"
     },
     {
       "date": "2026-10-07",
-      "close": 4108.29,
-      "src": "stooq"
+      "close": 4137.3,
+      "src": "yahoo:GC=F"
     }
   ]
 }
