@@ -9,7 +9,7 @@ on:
   schedule:
     # 14:00 UTC = 21:00 Hanoi (GMT+7) – after DOJI's last price change of the day.
     # GitHub may delay scheduled runs by several minutes under load.
-    - cron: "0 14 * * *"
+    - cron: "28 14 * * *"
   workflow_dispatch:
     inputs:
       mode:
