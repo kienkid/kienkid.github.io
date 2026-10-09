@@ -425,6 +425,11 @@
       "date": "2026-10-08",
       "close": 4157,
       "src": "yahoo:GC=F"
+    },
+    {
+      "date": "2026-10-09",
+      "close": 4221.4,
+      "src": "yahoo:GC=F"
     }
   ]
 }
