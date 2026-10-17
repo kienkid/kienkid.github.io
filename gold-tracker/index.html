@@ -137,26 +137,28 @@
       </div>
 
       <!-- Methodology -->
-      <section class="card shadow-sm gt-card mt-4">
-        <div class="card-body small">
-          <h2 class="h6">Methodology &amp; notes</h2>
-          <ul class="mb-0 text-body-secondary">
-            <li><strong>DOJI:</strong> daily closing <em>sell</em> price of DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) in VND per tael, source: <a href="https://giavang24k.com/lich-su/doji-nhan" target="_blank" rel="noopener">giavang24k.com</a>. Days are stored as published (including weekends).</li>
-            <li><strong>XAU/USD:</strong> daily close in USD per troy ounce (Stooq; Yahoo GC=F futures used only as fallback). Only completed sessions are stored.</li>
-            <li><strong>USD/VND:</strong> Vietcombank selling rate.</li>
-            <li><strong>Converted price:</strong> XAU/USD × USD/VND × 37.5 / 31.1034768 (1 tael = 37.5 g, 1 troy oz = 31.1034768 g). Excludes taxes, fabrication costs and dealer margin.</li>
-            <li><strong>Weekends/holidays:</strong> the last available XAU/USD and USD/VND values are carried forward; those points are marked “carried forward” in tooltips.</li>
-            <li><strong>History:</strong> data from 11/06/2026 is frozen; one new day is appended every evening at about 21:00 (GMT+7).</li>
-            <li>For information only – not investment advice.</li>
-          </ul>
-        </div>
-      </section>
+      <!--
+        <section class="card shadow-sm gt-card mt-4">
+          <div class="card-body small">
+            <h2 class="h6">Methodology &amp; notes</h2>
+            <ul class="mb-0 text-body-secondary">
+              <li><strong>DOJI:</strong> daily closing <em>sell</em> price of DOJI Nhẫn tròn 9999 (Hưng Thịnh Vượng) in VND per tael, source: <a href="https://giavang24k.com/lich-su/doji-nhan" target="_blank" rel="noopener">giavang24k.com</a>. Days are stored as published (including weekends).</li>
+              <li><strong>XAU/USD:</strong> daily close in USD per troy ounce (Stooq; Yahoo GC=F futures used only as fallback). Only completed sessions are stored.</li>
+              <li><strong>USD/VND:</strong> Vietcombank selling rate.</li>
+              <li><strong>Converted price:</strong> XAU/USD × USD/VND × 37.5 / 31.1034768 (1 tael = 37.5 g, 1 troy oz = 31.1034768 g). Excludes taxes, fabrication costs and dealer margin.</li>
+              <li><strong>Weekends/holidays:</strong> the last available XAU/USD and USD/VND values are carried forward; those points are marked “carried forward” in tooltips.</li>
+              <li><strong>History:</strong> data from 11/06/2026 is frozen; one new day is appended every evening at about 21:00 (GMT+7).</li>
+              <li>For information only – not investment advice.</li>
+            </ul>
+          </div>
+        </section>
+      -->
     </div>
   </main>
 
   <footer class="border-top py-3">
     <div class="container-xl small text-body-secondary d-flex flex-wrap justify-content-between gap-2">
-      <span>Data: DOJI prices via <a href="https://giavang24k.com" target="_blank" rel="noopener">giavang24k.com</a> · Stooq · Vietcombank. Updated daily via GitHub Actions.</span>
+      <span>Data: DOJI prices via <a href="https://giavang24k.com" target="_blank" rel="noopener">giavang24k.com</a> · Yahoo Finance · Vietcombank.</span>
       <span id="dataCounts"></span>
     </div>
   </footer>

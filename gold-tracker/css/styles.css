@@ -15,8 +15,8 @@
   --gt-premium-line: #7c3aed;
   --gt-grid: rgba(0, 0, 0, 0.08);
   --gt-text: #495057;
-  --gt-card-bg: #ffffff;
-  --gt-body-bg: #f6f7fb;
+  --gt-card-bg: #FAEED1;
+  --gt-body-bg: #FDF7E4;
 }
 
 [data-bs-theme="dark"] {
