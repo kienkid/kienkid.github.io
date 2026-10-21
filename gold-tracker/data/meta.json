@@ -1,33 +1,33 @@
 {
   "schemaVersion": 2,
   "sample": false,
-  "lastUpdated": "2026-10-20T20:03:48+07:00",
+  "lastUpdated": "2026-10-21T20:16:04+07:00",
   "lastMode": "append",
   "timezone": "Asia/Ho_Chi_Minh",
   "startDate": "2026-06-11",
   "sources": {
     "doji": {
       "status": "ok",
-      "lastSuccess": "2026-10-20T20:03:41+07:00",
+      "lastSuccess": "2026-10-21T20:15:58+07:00",
       "source": "giavang24k",
-      "message": "range=7d: added 1 day(s) (2026-10-20 → 2026-10-20)"
+      "message": "range=7d: added 1 day(s) (2026-10-21 → 2026-10-21)"
     },
     "xau": {
       "status": "ok",
-      "lastSuccess": "2026-10-20T20:03:45+07:00",
+      "lastSuccess": "2026-10-21T20:16:02+07:00",
       "source": "yahoo:GC=F",
-      "message": "yahoo:GC=F: added 1 day(s) (2026-10-19 → 2026-10-19)"
+      "message": "yahoo:GC=F: added 1 day(s) (2026-10-20 → 2026-10-20)"
     },
     "fx": {
       "status": "ok",
-      "lastSuccess": "2026-10-20T20:03:48+07:00",
+      "lastSuccess": "2026-10-21T20:16:04+07:00",
       "message": "added 1/1 missing day(s)"
     }
   },
   "counts": {
-    "doji": 126,
-    "xau": 90,
-    "fx": 132,
-    "converted": 132
+    "doji": 127,
+    "xau": 91,
+    "fx": 133,
+    "converted": 133
   }
 }
