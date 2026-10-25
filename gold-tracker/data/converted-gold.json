@@ -1099,6 +1099,14 @@
       "usdVnd": 26020,
       "xauFilled": true,
       "fxFilled": false
+    },
+    {
+      "date": "2026-10-25",
+      "value": 125732195,
+      "xauUsdOz": 4007.9,
+      "usdVnd": 26020,
+      "xauFilled": true,
+      "fxFilled": false
     }
   ],
   "premium": [
@@ -2011,6 +2019,13 @@
       "converted": 125732195,
       "diffVnd": 15467805,
       "diffPct": 12.3
+    },
+    {
+      "date": "2026-10-25",
+      "dojiSell": 141300000,
+      "converted": 125732195,
+      "diffVnd": 15567805,
+      "diffPct": 12.38
     }
   ]
 }
