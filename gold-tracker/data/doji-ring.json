@@ -1131,6 +1131,14 @@
       "spreadAvg": null,
       "src": "giavang24k",
       "capturedAt": "2026-11-03T22:29:56+07:00"
+    },
+    {
+      "date": "2026-11-04",
+      "sell": 140500000,
+      "buy": 136500000,
+      "spreadAvg": null,
+      "src": "giavang24k",
+      "capturedAt": "2026-11-04T22:48:05+07:00"
     }
   ]
 }
