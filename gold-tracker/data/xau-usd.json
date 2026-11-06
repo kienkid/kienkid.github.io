@@ -520,6 +520,11 @@
       "date": "2026-11-04",
       "close": 4073,
       "src": "yahoo:GC=F"
+    },
+    {
+      "date": "2026-11-05",
+      "close": 4113.5,
+      "src": "yahoo:GC=F"
     }
   ]
 }
