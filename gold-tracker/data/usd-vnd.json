@@ -1423,6 +1423,15 @@
       "rateDate": "2026-11-14",
       "filled": false,
       "src": "vcb-api"
+    },
+    {
+      "date": "2026-11-15",
+      "sell": 25910,
+      "transfer": 25530,
+      "buyCash": 25500,
+      "rateDate": "2026-11-15",
+      "filled": false,
+      "src": "vcb-api"
     }
   ]
 }
