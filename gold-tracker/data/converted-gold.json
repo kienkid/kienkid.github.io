@@ -1286,9 +1286,17 @@
     },
     {
       "date": "2026-11-17",
-      "value": 121142084,
-      "xauUsdOz": 3872,
+      "value": 120951235,
+      "xauUsdOz": 3865.9,
       "usdVnd": 25950,
+      "xauFilled": false,
+      "fxFilled": false
+    },
+    {
+      "date": "2026-11-18",
+      "value": 120718188,
+      "xauUsdOz": 3865.9,
+      "usdVnd": 25900,
       "xauFilled": true,
       "fxFilled": false
     }
@@ -2364,6 +2372,13 @@
       "converted": 121142084,
       "diffVnd": 16357916,
       "diffPct": 13.5
+    },
+    {
+      "date": "2026-11-17",
+      "dojiSell": 137500000,
+      "converted": 120951235,
+      "diffVnd": 16548765,
+      "diffPct": 13.68
     }
   ]
 }
