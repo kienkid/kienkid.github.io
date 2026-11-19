@@ -1459,6 +1459,15 @@
       "rateDate": "2026-11-18",
       "filled": false,
       "src": "vcb-api"
+    },
+    {
+      "date": "2026-11-19",
+      "sell": 25940,
+      "transfer": 25560,
+      "buyCash": 25530,
+      "rateDate": "2026-11-19",
+      "filled": false,
+      "src": "vcb-api"
     }
   ]
 }
